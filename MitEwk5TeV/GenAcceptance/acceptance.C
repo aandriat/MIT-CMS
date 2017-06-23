@@ -63,6 +63,7 @@ void acceptance(const TString conf="acceptance.conf", // input file
   //
   Double_t weightGen;
   TLorentzVector *glep1=0, *glep2=0, *gvec=0;
+  TLorentzVector vecsum;
   Int_t glepq1, glepq2;
   std::vector<float> *lheweight = new std::vector<float>();
 
@@ -122,8 +123,9 @@ void acceptance(const TString conf="acceptance.conf", // input file
               if (glep2->Pt() < 25) continue;
               if (TMath::Abs(glep1->Eta()) > 2.4) continue;
               if (TMath::Abs(glep2->Eta()) > 2.4) continue;
+              vecsum = *glep1 + *glep2;
               if (gvec->M() < 60 || gvec->M() > 120) continue;
-
+              if (vecsum.M() < 60 || vecsum.M() > 120) continue;
               fiducialWeightGen += weightGen;
             }
         }
@@ -134,10 +136,12 @@ void acceptance(const TString conf="acceptance.conf", // input file
 
               if (glep1->Pt() < 25) continue;
               if (glep2->Pt() < 25) continue;
-              if ((TMath::Abs(glep1->Eta()) > 1.44 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
-              if ((TMath::Abs(glep2->Eta()) > 1.44 and TMath::Abs(glep2->Eta()) < 1.566) or TMath::Abs(glep2->Eta()) > 2.5) continue;
+              if ((TMath::Abs(glep1->Eta()) > 1.4442 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
+              if ((TMath::Abs(glep2->Eta()) > 1.4442 and TMath::Abs(glep2->Eta()) < 1.566) or TMath::Abs(glep2->Eta()) > 2.5) continue;
 
+              vecsum = *glep1 + *glep2;
               if (gvec->M() < 60 || gvec->M() > 120) continue;
+              if (vecsum.M() < 60 || vecsum.M() > 120) continue;
 
               fiducialWeightGen += weightGen;
             }
@@ -147,6 +151,7 @@ void acceptance(const TString conf="acceptance.conf", // input file
               intree->GetEntry(ientry);   
               if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
 
+              if (glepq1!=1) continue;
               if (glep1->Pt() < 25) continue;
               if (TMath::Abs(glep1->Eta()) > 2.4) continue;
 
@@ -158,8 +163,9 @@ void acceptance(const TString conf="acceptance.conf", // input file
               intree->GetEntry(ientry);   
               if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
 
+              if (glepq1!=1) continue;
               if (glep1->Pt() < 25) continue;
-              if ((TMath::Abs(glep1->Eta()) > 1.44 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
+              if ((TMath::Abs(glep1->Eta()) > 1.4442 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
 
               fiducialWeightGen += weightGen;
             }
@@ -169,6 +175,7 @@ void acceptance(const TString conf="acceptance.conf", // input file
               intree->GetEntry(ientry);   
               if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
 
+              if (glepq1!=-1) continue;
               if (glep1->Pt() < 25) continue;
               if (TMath::Abs(glep1->Eta()) > 2.4) continue;
 
@@ -180,8 +187,9 @@ void acceptance(const TString conf="acceptance.conf", // input file
               intree->GetEntry(ientry);   
               if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
 
+              if (glepq1!=-1) continue;
               if (glep1->Pt() < 25) continue;
-              if ((TMath::Abs(glep1->Eta()) > 1.44 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
+              if ((TMath::Abs(glep1->Eta()) > 1.4442 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
 
               fiducialWeightGen += weightGen;
             }
