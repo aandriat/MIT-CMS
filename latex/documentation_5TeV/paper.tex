@@ -1,0 +1,71 @@
+\documentclass[aps,prd,final,twocolumn,letterpaper]{revtex4}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+%%%%%% Document Begins Here %%%%%%%%
+
+\begin{document}
+	\title{Measuring the inclusive cross section for W-boson and Z-boson production in pp collisions at $\sqrt{s}=5\si{\tera\electronvolt}$ with the CMS detector at the LHC}
+	\author{Alexander~Andriatis}
+	\affiliation{ Particle Physics Collaboration, MIT Department of Physics,
+		77 Massachusetts Ave.,
+		Cambridge, MA 02139}
+	\date{\today} 
+	
+	\begin{abstract}
+		\noindent	
+		The inclusive cross section of vector boson production in proton-proton collisions at the LHC is one of the key measurements for constraining the standard model. The measurement at $\sqrt{s}=5\si{\tera\electronvolt}$ is reported. The analysis includes systematic uncertainties from theoretical predictions as well as detector performance effects. A fit on the combined results from different center of mass energies is used to further constrain PDFs.
+	\end{abstract}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\pagestyle{myheadings}
+	\markboth{A. Andriatis}{Inclusive W and Z cross section at $\sqrt{s}=5\si{\tera\electronvolt}$ }
+	\thispagestyle{empty}
+	
+	\section{Introduction}	
+		The inclusive cross section of vector boson production in proton-proton collisions at the LHC is one of the key measurements for constraining the standard model. The measurement at $\sqrt{s}=5\si{\tera\electronvolt}$ is reported. The analysis includes systematic uncertainties from theoretical predictions as well as detector performance effects. A fit on the combined results from different center of mass energies is used to further constrain PDFs.
+	
+	\section{Objects}
+	\section{Data Samples}
+	\section{Event Selection}
+	\section{Signal Extraction}
+	\section{Detector Efficiency}
+	\section{Luminosity}
+	\section{Theoretical Uncertainty}
+		\subsection{Acceptances}
+			\subsubsection{Generator-Level Acceptance}
+			The detector acceptance is an important theoretical value for the extraction of the inclusive cross-section from the measured fiducial cross-section. The acceptance is defined as the ratio of events whose decay products fall within the kinematic acceptance region of the detector to the total number of events. As a baseline, events are simulated using the next-to-leading-order Monte Carlo aMC@NLO with NNPDF3.0 parton distribution function set and PYTHIA 8 parton showering and hadronization. The error on the simulated distribution is estimated by comparing the acceptances to those derived using higher-order tools, such as RESBOS and DYRES.
+			
+			The fiducial region of the detector accepts only muons of $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 2.4$ and electrons with $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 1.4442$ or $1.566 < \abs{\eta} < 2.5$. An additional constraint is imposed on the Z channel that $60\si{\giga\electronvolt} < m_{z} < 120\si{\giga\electronvolt}$.
+			
+			The generator-level acceptance is considered for post-FSR particles for several decay channels. A summary of the acceptances and their statistical uncertainty is given in table \ref{tab:gen_acceptance}.
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{l  c}
+					Process & $A_{Gen}$(Post-FSR) \\
+					$Z\rightarrow \mu^{+}\mu^{-}$ & $0.440\pm 0.001$ \\
+					$Z\rightarrow e^{+}e^{-}$ & $0.406\pm 0.001$ \\
+					$W^{+}\rightarrow \mu^{+}\nu$ & $0.572\pm 0.001$ \\
+					$W^{+}\rightarrow e^{+}\nu$ & $0.547\pm 0.001$ \\
+					$W^{-}\rightarrow \mu^{-}\bar{\nu}$ & $0.536\pm 0.001$ \\
+					$W^{-}\rightarrow e^{-}\bar{\nu}$ & $0.515\pm 0.001$ \\	
+				\end{tabular}
+				\caption{Gen-level acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for signal processes $Z\rightarrow l^{+}l^{-}$ and $W\rightarrow l\nu$}.
+				\label{tab:evolution}
+			\end{table}
+			
+	\section{Results}
+		\subsection{Uncertainty Correlations}
+		\subsection{Cross-Section Results}
+	\section{Summary}
+
+	\bibliography{paper}
+	
+\end{document}

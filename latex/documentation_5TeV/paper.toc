@@ -1,0 +1,17 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Introduction}{1}{}
+\contentsline {section}{\numberline {II}Objects}{1}{}
+\contentsline {section}{\numberline {III}Data Samples}{1}{}
+\contentsline {section}{\numberline {IV}Event Selection}{1}{}
+\contentsline {section}{\numberline {V}Signal Extraction}{1}{}
+\contentsline {section}{\numberline {VI}Detector Efficiency}{1}{}
+\contentsline {section}{\numberline {VII}Luminosity}{1}{}
+\contentsline {section}{\numberline {VIII}Theoretical Uncertainty}{1}{}
+\contentsline {subsection}{\numberline {A}Acceptances}{1}{}
+\contentsline {subsubsection}{\numberline {1}Generator-Level Acceptance}{1}{}
+\contentsline {section}{\numberline {IX}Results}{2}{}
+\contentsline {subsection}{\numberline {A}Uncertainty Correlations}{2}{}
+\contentsline {subsection}{\numberline {B}Cross-Section Results}{2}{}
+\contentsline {section}{\numberline {X}Summary}{2}{}
