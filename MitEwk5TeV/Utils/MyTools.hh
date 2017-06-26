@@ -60,7 +60,7 @@ Int_t toolbox::flavor(TClonesArray *genPartArr, Int_t vid) {
     const baconhep::TGenParticle* genloop = (baconhep::TGenParticle*) ((*genPartArr)[i]);
     Int_t pdgId=fabs(genloop->pdgId);
     Int_t parentPdgId=fabs(dynamic_cast<baconhep::TGenParticle*>(genPartArr->At(genloop->parent>-1 ? genloop->parent : 0))->pdgId);
-    if ( (pdgId==11||pdgId==13||pdgId==15) && (parentPdgId==fabs(vid) || genloop->status==23) ) return genloop->pdgId;
+    if ( (pdgId==11||pdgId==13||pdgId==15) && (parentPdgId==vid || genloop->status==23) ) return genloop->pdgId;
   }
   return 0;
 }
@@ -75,7 +75,7 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
     const baconhep::TGenParticle* genloop = (baconhep::TGenParticle*) ((*genPartArr)[i]); //gets the ith particle
     if(fabs(genloop->pdgId)==22) continue; //ignores photons
     //cout << i << " " << genloop->pdgId << " " << genloop->status << " " << genloop->parent << " " << genloop->pt << " " << genloop->mass << std::endl;
-    if (genloop->status==44 && (fabs(genloop->pdgId)==15 || fabs(genloop->pdgId)==13 || fabs(genloop->pdgId)==11)) { //outgoing lepton shifted by branching
+    if (genloop->status==23 && (fabs(genloop->pdgId)==15 || fabs(genloop->pdgId)==13 || fabs(genloop->pdgId)==11)) { //outgoing lepton
       if (genloop->pdgId<0 && lepPos==0) {//initial fill of gen_lepton
         //cout << "pre lepPos filled" << endl;
       	lepPos=new TLorentzVector(0,0,0,0);

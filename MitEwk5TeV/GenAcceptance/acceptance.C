@@ -63,7 +63,7 @@ void acceptance(const TString conf="acceptance.conf", // input file
   //
   Double_t weightGen;
   TLorentzVector *glep1=0, *glep2=0, *gvec=0;
-  TLorentzVector vecsum;
+  //TLorentzVector vecsum;
   Int_t glepq1, glepq2;
   std::vector<float> *lheweight = new std::vector<float>();
 
@@ -102,9 +102,11 @@ void acceptance(const TString conf="acceptance.conf", // input file
 
       Double_t totalWeightGen=0;
       Double_t fiducialWeightGen=0;
+      Double_t ntotal=0;
       for(Int_t ientry=0; ientry<intree->GetEntries(); ientry++) {
         intree->GetEntry(ientry);
           totalWeightGen+=weightGen;
+          ntotal += weightGen/abs(weightGen);
       }
 
       //
@@ -123,9 +125,9 @@ void acceptance(const TString conf="acceptance.conf", // input file
               if (glep2->Pt() < 25) continue;
               if (TMath::Abs(glep1->Eta()) > 2.4) continue;
               if (TMath::Abs(glep2->Eta()) > 2.4) continue;
-              vecsum = *glep1 + *glep2;
+              //vecsum = *glep1 + *glep2;
               if (gvec->M() < 60 || gvec->M() > 120) continue;
-              if (vecsum.M() < 60 || vecsum.M() > 120) continue;
+              //if (vecsum.M() < 60 || vecsum.M() > 120) continue;
               fiducialWeightGen += weightGen;
             }
         }
@@ -139,9 +141,9 @@ void acceptance(const TString conf="acceptance.conf", // input file
               if ((TMath::Abs(glep1->Eta()) > 1.4442 and TMath::Abs(glep1->Eta()) < 1.566) or TMath::Abs(glep1->Eta()) > 2.5) continue;
               if ((TMath::Abs(glep2->Eta()) > 1.4442 and TMath::Abs(glep2->Eta()) < 1.566) or TMath::Abs(glep2->Eta()) > 2.5) continue;
 
-              vecsum = *glep1 + *glep2;
+              //vecsum = *glep1 + *glep2;
               if (gvec->M() < 60 || gvec->M() > 120) continue;
-              if (vecsum.M() < 60 || vecsum.M() > 120) continue;
+              //if (vecsum.M() < 60 || vecsum.M() > 120) continue;
 
               fiducialWeightGen += weightGen;
             }
@@ -198,9 +200,13 @@ void acceptance(const TString conf="acceptance.conf", // input file
           cout << "Unsupported Channel" << endl;
         }
 
+      Double_t acceptance = fiducialWeightGen/totalWeightGen;
+      Double_t accerr = sqrt(acceptance*(1.+acceptance)/ntotal);
+
       cout << "Fiducial Weight = " << fiducialWeightGen << endl;
       cout << "Inclusive Weight = " << totalWeightGen << endl;
-      cout << "Acceptance = " << fiducialWeightGen/totalWeightGen << endl;
+      cout << "Acceptance = " << acceptance << endl;
+      cout << "Acceptance Error = " << accerr << endl;
 
 
       ofstream txtfile;
@@ -209,7 +215,8 @@ void acceptance(const TString conf="acceptance.conf", // input file
       txtfile << "For " << snamev[isam] << endl;
       txtfile << "Fiducial Weight = " << fiducialWeightGen << endl;
       txtfile << "Inclusive Weight = " << totalWeightGen << endl;
-      txtfile << "Acceptance = " << fiducialWeightGen/totalWeightGen << endl;
+      txtfile << "Acceptance = " << acceptance << endl;
+      txtfile << "Acceptance Error = " << accerr << endl;
       txtfile.close();
   }
 }

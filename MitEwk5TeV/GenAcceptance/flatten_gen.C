@@ -163,45 +163,61 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
             BOSON_ID = 23;                        
             isSignal = snamev[isam].Contains("zmm",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("zxx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else if (snamev[isam]=="zee"){
             LEPTON_ID = 11;
             BOSON_ID = 23;                        
             isSignal = snamev[isam].Contains("zee",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("zxx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else if (snamev[isam]=="wpm"){
-            LEPTON_ID = 13;
+            LEPTON_ID = -13;
             BOSON_ID = 24;                        
             isSignal = snamev[isam].Contains("wpm",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("wpx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else if (snamev[isam]=="wpe"){
-            LEPTON_ID = 11;
+            LEPTON_ID = -11;
             BOSON_ID = 24;                        
             isSignal = snamev[isam].Contains("wpe",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("wpx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else if (snamev[isam]=="wmm"){
             LEPTON_ID = 13;
             BOSON_ID = -24;                        
             isSignal = snamev[isam].Contains("wmm",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("wmx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else if (snamev[isam]=="wme"){
             LEPTON_ID = 11;
             BOSON_ID = -24;                        
             isSignal = snamev[isam].Contains("wme",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("wmx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
           else{
             cout << "Unsupported Channel" << endl;
           }
-        if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
-        else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
-        toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
-        if (gvec->M()==0) continue;
-        //cout << "Boson Mass: " << gvec->M() << " Lepton 1 Mass: " << glep1->M() << " Lepton 2 Mass" << glep2->M() << endl;
+        
+        //if (gvec->M()==0) continue;
+        // cout << "Boson Mass: " << gvec->M() << " Lepton 1 Mass: " << glep1->M() << " Lepton 2 Mass" << glep2->M() << endl;
         weightGen = gen->weight;
         // lheweight->clear();
         // for (int j = 0; j<109; j++)
