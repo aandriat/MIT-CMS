@@ -44,10 +44,6 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
   // Settings 
   //============================================================================================================== 
 
-// (TString input="/home/aandriat/5TeV_Samples/DYJetsToLL_TuneCUETP8M1_5020GeV-amcatnloFXFX-pythia8.root",
-//         TString output="ntuples/all_Zmm_gen.root") {
-
-
   //--------------------------------------------------------------------------------------------------------------
   // Main analysis code 
   //==============================================================================================================  
@@ -55,29 +51,25 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
   vector<TString>  snamev;      // sample name (for output files)  
   vector<CSample*> samplev;     // data/MC samples
 
-  //
-  // parse .conf file
-  //
-  confParse(conf, snamev, samplev);
+  confParse(conf, snamev, samplev); // parse .conf file
  
   // Create output directory
   gSystem->mkdir(outputDir,kTRUE);
   const TString ntupDir = outputDir + TString("/ntuples");
   gSystem->mkdir(ntupDir,kTRUE);
 
-  //
   // Declare output ntuple variables
-  //
   Double_t weightGen;
   TLorentzVector *glep1=0, *glep2=0, *gvec=0;
   Int_t glepq1, glepq2;
   std::vector<float> *lheweight = new std::vector<float>();
 
- // Data structures to store info from Bacon TTrees
+  // Data structures to store info from Bacon TTrees
   baconhep::TEventInfo *info   = new baconhep::TEventInfo();
   baconhep::TGenEventInfo *gen = new baconhep::TGenEventInfo();
   TClonesArray *genPartArr      = new TClonesArray("baconhep::TGenParticle");
   
+  // Data structure to hold Bacon TFile
   TFile *infile=0;
   TTree *eventTree=0;
 
@@ -95,9 +87,9 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
   // loop over samples
   for(Int_t isam=0; isam<samplev.size(); isam++) {
     CSample* samp = samplev[isam];
+
     // Set up output ntuple
     TString outfilename = ntupDir + TString("/") + snamev[isam] + TString("_gen.root");
-
     TFile *outFile = new TFile(outfilename,"RECREATE"); 
     TTree *outTree = new TTree("Events","Events");
     outTree->Branch("glepq1",     &glepq1,     "glepq1/I");      // lepton1 charge
@@ -106,7 +98,7 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
     outTree->Branch("glep2",       "TLorentzVector",  &glep2);     // lepton2 4-vector
     outTree->Branch("gvec",       "TLorentzVector",  &gvec);     // boson 4-vector
     outTree->Branch("weightGen",   &weightGen,   "weightGen/D");    // event weight (MC)
-    //outTree->Branch("lheweight",  &lheweight);
+    outTree->Branch("lheweight",  &lheweight); // lhe weights vector (same for all events)
 
     // loop through files
     const Int_t nfiles = samp->fnamev.size();
@@ -116,28 +108,28 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
       cout << "Processing " << samp->fnamev[ifile] << " [xsec = " << samp->xsecv[ifile] << " pb] ... " << endl; cout.flush();
       infile = TFile::Open(samp->fnamev[ifile]); 
       assert(infile);
-      
       eventTree = (TTree*)infile->Get("Events");
       assert(eventTree);  
 
       eventTree->SetBranchAddress("GenEvtInfo", &gen); TBranch *genBr = eventTree->GetBranch("GenEvtInfo");
       eventTree->SetBranchAddress("GenParticle",&genPartArr); TBranch *genPartBr = eventTree->GetBranch("GenParticle");
 
-      // Compute MC event weight per 1/fb
-      const Double_t xsec = samp->xsecv[ifile];
-      Double_t totalWeightGen=0;
-      for(Int_t ientry=0; ientry<eventTree->GetEntries(); ientry++) {
-        genBr->GetEntry(ientry);
-          totalWeightGen+=gen->weight;
-      }
-      //
-      // loop over events
-      //
+      // Define number of events to loop over (n_events=0 = all events)
       Int_t max_events = n_events;
       if (n_events==0){
         max_events = eventTree->GetEntries();
       }
-      //cout << "For channel " << snamev[isam] << endl;
+      // Compute MC event weight per 1/fb
+      const Double_t xsec = samp->xsecv[ifile];
+      Double_t totalWeightGen=0;
+      for(Int_t ientry=0; ientry<max_events; ientry++) {
+        genBr->GetEntry(ientry);
+          totalWeightGen+=gen->weight;
+      }
+
+      //
+      // loop over events
+      //
       for(Int_t ientry=0; ientry<max_events; ientry++) {
         genBr->GetEntry(ientry);
         genPartArr->Clear(); genPartBr->GetEntry(ientry);
@@ -145,8 +137,7 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
 
         if (genPartArr->GetEntries()==0){
           cout << "gen_particles not found" << endl;
-          }
-
+        }
 
         glep1->SetPtEtaPhiM(0,0,0,0);
         glep2->SetPtEtaPhiM(0,0,0,0);
@@ -155,8 +146,9 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
         glepq2=-99;
         Int_t BOSON_ID=0;
         Int_t LEPTON_ID=0;
-        Bool_t isSignal;
-        Bool_t isWrongFlavor;
+        Bool_t isSignal=kFALSE;
+        Bool_t isWrongFlavor=kFALSE;
+        Bool_t mass_Zcut=kTRUE;
 
           if (snamev[isam]=="zmm"){
             LEPTON_ID = 13;
@@ -166,6 +158,9 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if (gvec->M() < 60 || gvec->M() > 120){
+              mass_Zcut=kFALSE;
+            }
           }
           else if (snamev[isam]=="zee"){
             LEPTON_ID = 11;
@@ -175,6 +170,9 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if (gvec->M() < 60 || gvec->M() > 120){
+              mass_Zcut=kFALSE;
+            }
           }
           else if (snamev[isam]=="wpm"){
             LEPTON_ID = -13;
@@ -216,15 +214,19 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
             cout << "Unsupported Channel" << endl;
           }
         
-        //if (gvec->M()==0) continue;
+        if (mass_Zcut==kFALSE) continue; // definition of Z boson
+
         // cout << "Boson Mass: " << gvec->M() << " Lepton 1 Mass: " << glep1->M() << " Lepton 2 Mass" << glep2->M() << endl;
         weightGen = gen->weight;
-        // lheweight->clear();
-        // for (int j = 0; j<109; j++)
-        //  {
-        //    lheweight->push_back(gen->lheweight[j]);
-        //  }
 
+        // Stores lheweights in vector
+        lheweight->clear();
+        for (int j = 0; j<109; j++)
+         {
+           lheweight->push_back(gen->lheweight[j]);
+         }
+
+        // Saves events from correct signal to flattened ntuple
         outTree->Fill();
       }
       cout << "Total GenWeight for sample " << samp->fnamev[ifile] << " is " << totalWeightGen << endl;
