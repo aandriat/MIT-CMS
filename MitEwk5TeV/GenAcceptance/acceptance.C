@@ -33,7 +33,7 @@
 #endif
 
 void acceptance(const TString conf="acceptance.conf", // input file
-                  const TString outputDir="ntuples",   // ntuple directory
+                  const TString outputDir=".",   // ntuple directory
                   const Int_t n_events=0 //Number of events, 0 for all
             ){
   

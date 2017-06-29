@@ -1,14 +1,14 @@
 #!/bin/bash
 
-rm -rf ntuples/
-mkdir -p ntuples/
+rm -rf /data/t3home000/aandriat/5TeV/ntuples
+mkdir -p /data/t3home000/aandriat/5TeV/ntuples
 
 rm acceptances.txt
 rm pdf_acceptances.txt
 
-root -l flatten_gen.C+\(\"acceptance.conf\",\".\",0\) -q
-root -l acceptance.C+\(\"acceptance.conf\",\"ntuples\",0\) -q
-root -l pdf_uncertainty_acceptance.C+\(\"acceptance.conf\",\"ntuples\",0\) -q
+root -l flatten_gen.C+\(\"acceptance.conf\",\"/data/t3home000/aandriat/5TeV/ntuples\",0\) -q
+root -l acceptance.C+\(\"acceptance.conf\",\"/data/t3home000/aandriat/5TeV/ntuples\",0\) -q
+root -l pdf_uncertainty_acceptance.C+\(\"acceptance.conf\",\"/data/t3home000/aandriat/5TeV/ntuples\",0\) -q
 
 
 rm *.so *.d *.pcm

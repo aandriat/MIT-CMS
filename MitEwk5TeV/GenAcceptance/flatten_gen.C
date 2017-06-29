@@ -35,7 +35,7 @@
 //=== MAIN MACRO ================================================================================================= 
 
 void flatten_gen(const TString conf="acceptance.conf", // input file
-                  const TString outputDir=".",   // output directory
+                  const TString outputDir=".",   // ntuple directory
                   const Int_t n_events=0 //Number of events, 0 for all
             ) {
   gBenchmark->Start("flatten_gen");
@@ -55,8 +55,6 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
  
   // Create output directory
   gSystem->mkdir(outputDir,kTRUE);
-  const TString ntupDir = outputDir + TString("/ntuples");
-  gSystem->mkdir(ntupDir,kTRUE);
 
   // Declare output ntuple variables
   Double_t weightGen;
@@ -89,7 +87,7 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
     CSample* samp = samplev[isam];
 
     // Set up output ntuple
-    TString outfilename = ntupDir + TString("/") + snamev[isam] + TString("_gen.root");
+    TString outfilename = outputDir + TString("/") + snamev[isam] + TString("_gen.root");
     TFile *outFile = new TFile(outfilename,"RECREATE"); 
     TTree *outTree = new TTree("Events","Events");
     outTree->Branch("glepq1",     &glepq1,     "glepq1/I");      // lepton1 charge

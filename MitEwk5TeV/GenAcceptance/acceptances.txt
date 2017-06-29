@@ -1,0 +1,36 @@
+*
+For zmm
+Fiducial Weight = 4.27841e+10
+Inclusive Weight = 1.17798e+11
+Acceptance = 0.363197
+Acceptance Error = 0.000214543
+*
+For zee
+Fiducial Weight = 3.9304e+10
+Inclusive Weight = 1.17706e+11
+Acceptance = 0.333918
+Acceptance Error = 0.000210473
+*
+For wpm
+Fiducial Weight = 3.18011e+11
+Inclusive Weight = 7.15391e+11
+Acceptance = 0.444528
+Acceptance Error = 0.000279228
+*
+For wpe
+Fiducial Weight = 3.08085e+11
+Inclusive Weight = 7.16076e+11
+Acceptance = 0.43024
+Acceptance Error = 0.000278082
+*
+For wmm
+Fiducial Weight = 1.13878e+11
+Inclusive Weight = 2.56507e+11
+Acceptance = 0.443955
+Acceptance Error = 0.000466257
+*
+For wme
+Fiducial Weight = 1.14551e+11
+Inclusive Weight = 2.72565e+11
+Acceptance = 0.420272
+Acceptance Error = 0.000449359

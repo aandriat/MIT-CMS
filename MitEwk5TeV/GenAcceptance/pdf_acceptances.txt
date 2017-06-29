@@ -1,0 +1,24 @@
+*
+For zmm
+Mean Acceptance = 0.3649
+PDF Acceptance Error = 0.0215612
+*
+For zee
+Mean Acceptance = 0.334269
+PDF Acceptance Error = 0.00776778
+*
+For wpm
+Mean Acceptance = 0.444726
+PDF Acceptance Error = 0.00718623
+*
+For wpe
+Mean Acceptance = 0.430615
+PDF Acceptance Error = 0.00889819
+*
+For wmm
+Mean Acceptance = 0.444211
+PDF Acceptance Error = 0.00706945
+*
+For wme
+Mean Acceptance = 0.421584
+PDF Acceptance Error = 0.0243079
