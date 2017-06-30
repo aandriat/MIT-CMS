@@ -32,8 +32,7 @@
 #include "../Utils/MyTools.hh"      // various helper functions
 #endif
 
-void acceptance(const TString conf="acceptance.conf", // input file
-                  const TString outputDir=".",   // ntuple directory
+void acceptance(  const TString outputDir=".",   // ntuple directory
                   const Int_t n_events=0 //Number of events, 0 for all
             ){
   
@@ -47,10 +46,35 @@ void acceptance(const TString conf="acceptance.conf", // input file
   // Main analysis code 
   //==============================================================================================================  
 
-  vector<TString>  snamev;      // sample name (for output files)  
-  vector<CSample*> samplev;     // data/MC samples
+  std::map<TString, Int_t> sample_list = { // Lists which processes to calculate acceptances for
+    { "wpe" , 1},
+    { "wme" , 1},
+    { "we" , 1},
+    { "zee" , 1},
+    { "wpm" , 1},
+    { "wmm", 1},     
+    { "wm", 1},
+    { "zmm", 1},
+  };
 
-  confParse(conf, snamev, samplev); // parse .conf file
+  std::map<TString, std::pair<Double_t, Double_t> > acceptance_list ={ // Saves the calculated acceptances
+    { "wpe",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wme",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "we",   std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "zee",  std::pair<Double_t, Double_t> (0.0,0.0)}, 
+    { "wpm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wm",   std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpe-wme",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpe-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wme-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "we-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpm-wmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wmm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+  };
 
   // Declare ntuple variables
   Double_t weightGen, totalWeightGen;  
@@ -58,144 +82,177 @@ void acceptance(const TString conf="acceptance.conf", // input file
   Int_t glepq1, glepq2;
   std::vector<float> *lheweight = new std::vector<float>();
 
-  // Print the samples and files that will be read from
-  for(Int_t isam=0; isam<samplev.size(); isam++) {
-    CSample* samp = samplev[isam];
-    cout << "Sample name: " << endl;
-    cout << snamev[isam] << endl;
-    const Int_t nfiles = samp->fnamev.size();
-    for(Int_t ifile=0; ifile<nfiles; ifile++) {
-      cout <<"File name: " << endl;  
-      cout << samp->fnamev[ifile] << endl; 
-    }
+  // Print the samples that will be read from
+  std::map<TString, Int_t>::iterator samples;
+  for ( samples = sample_list.begin(); samples != sample_list.end(); samples++){
+    if (samples->second ==1) cout << "Sample name: " << samples->first << endl;
   }
 
   // loop over samples
-  for(Int_t isam=0; isam<samplev.size(); isam++) {
+  for ( samples = sample_list.begin(); samples != sample_list.end(); samples++){
+    if (samples->second==1){
 
-    CSample* samp = samplev[isam]; // Read sample
+      // Set up output ntuple of events in fiducial region
+      TString outfilename = outputDir + TString("/") + samples->first + TString("_selected.root");
+      TFile *outFile = new TFile(outfilename,"RECREATE"); 
+      TTree *outTree = new TTree("Events","Events");
+      outTree->Branch("glepq1",     &glepq1,     "glepq1/I");         // lepton1 charge
+      outTree->Branch("glepq2",     &glepq2,     "glepq2/I");         // lepton2 charge
+      outTree->Branch("glep1",       "TLorentzVector",  &glep1);      // lepton1 4-vector
+      outTree->Branch("glep2",       "TLorentzVector",  &glep2);      // lepton2 4-vector
+      outTree->Branch("gvec",       "TLorentzVector",  &gvec);        // boson 4-vector
+      outTree->Branch("weightGen",   &weightGen,   "weightGen/D");    // event weight (MC)
+      outTree->Branch("totalWeightGen",   &totalWeightGen,   "totalWeightGen/D");    // total event weight (MC) (same for all events)
+      outTree->Branch("lheweight",  &lheweight);                      // lheweights vector (same for all events)
 
-    // Set up output ntuple of events in fiducial region
-    TString outfilename = outputDir + TString("/") + snamev[isam] + TString("_selected.root");
-    TFile *outFile = new TFile(outfilename,"RECREATE"); 
-    TTree *outTree = new TTree("Events","Events");
-    outTree->Branch("glepq1",     &glepq1,     "glepq1/I");         // lepton1 charge
-    outTree->Branch("glepq2",     &glepq2,     "glepq2/I");         // lepton2 charge
-    outTree->Branch("glep1",       "TLorentzVector",  &glep1);      // lepton1 4-vector
-    outTree->Branch("glep2",       "TLorentzVector",  &glep2);      // lepton2 4-vector
-    outTree->Branch("gvec",       "TLorentzVector",  &gvec);        // boson 4-vector
-    outTree->Branch("weightGen",   &weightGen,   "weightGen/D");    // event weight (MC)
-    outTree->Branch("totalWeightGen",   &totalWeightGen,   "totalWeightGen/D");    // total event weight (MC) (same for all events)
-    outTree->Branch("lheweight",  &lheweight);                      // lheweights vector (same for all events)
+      // Read from input ntuple of signal events from flattened Bacon
+      TString infilename = outputDir + TString("/") + samples->first + TString("_gen.root");
+      TFile *infile = TFile::Open(infilename);         assert(infile);
+      TTree *intree = (TTree*)infile->Get("Events"); assert(intree);
+      intree->SetBranchAddress("glepq1",   &glepq1);                  // lepton1 charge 
+      intree->SetBranchAddress("glepq1",   &glepq1);                  // lepton2 charge
+      intree->SetBranchAddress("glep1",   &glep1);                    // lepton1 4-vector
+      intree->SetBranchAddress("glep2",   &glep2);                    // lepton2 4-vector
+      intree->SetBranchAddress("gvec",   &gvec);                      // boson 4-vector
+      intree->SetBranchAddress("weightGen",   &weightGen);            // event weights
+      intree->SetBranchAddress("lheweight",   &lheweight);            // lheweights
+      
 
-    // Read from input ntuple of signal events from flattened Bacon
-    TString infilename = outputDir + TString("/") + snamev[isam] + TString("_gen.root");
-    TFile *infile = TFile::Open(infilename);         assert(infile);
-    TTree *intree = (TTree*)infile->Get("Events"); assert(intree);
-    intree->SetBranchAddress("glepq1",   &glepq1);                  // lepton1 charge 
-    intree->SetBranchAddress("glepq1",   &glepq1);                  // lepton2 charge
-    intree->SetBranchAddress("glep1",   &glep1);                    // lepton1 4-vector
-    intree->SetBranchAddress("glep2",   &glep2);                    // lepton2 4-vector
-    intree->SetBranchAddress("gvec",   &gvec);                      // boson 4-vector
-    intree->SetBranchAddress("weightGen",   &weightGen);            // event weights
-    intree->SetBranchAddress("lheweight",   &lheweight);            // lheweights
-    
+      cout << "Processing " << samples->first << endl;
 
-    cout << "Processing " << snamev[isam] << endl;
+      // Declare variables used to store weight information
+      Double_t fiducialWeightGen=0;
+      Double_t ntotal=0;
+      totalWeightGen=0;
 
-    // Declare variables used to store weight information
-    Double_t fiducialWeightGen=0;
-    Double_t ntotal=0;
-    totalWeightGen=0;
+      // Set number of events to loop through
+      Int_t max_events = n_events;
+      if (n_events==0){
+        max_events = intree->GetEntries();
+      }
 
-    // Set number of events to loop through
-    Int_t max_events = n_events;
-    if (n_events==0){
-      max_events = intree->GetEntries();
+      // Calculate total number of (weighted) events in sample
+      for(Int_t ientry=0; ientry<max_events; ientry++) {
+        intree->GetEntry(ientry);
+          totalWeightGen+=weightGen;
+          ntotal += weightGen/abs(weightGen);
+      }
+
+      Bool_t pass_selection; // flag to accept only fiducial events
+
+      // Loop through events
+      for(Int_t ientry=0; ientry<max_events; ientry++) {
+
+        pass_selection=kFALSE; // reset flag
+
+        intree->GetEntry(ientry); // Store variables from input tree
+        if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
+
+        if (samples->first =="zmm"){
+          if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4) && (TMath::Abs(glep2->Eta()) < 2.4) && (gvec->M() > 60 && gvec->M() < 120)){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="zee"){
+          if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 ||(TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5)) && (TMath::Abs(glep2->Eta()) < 1.4442 || (TMath::Abs(glep2->Eta()) > 1.566 && TMath::Abs(glep2->Eta()) < 2.5)) && (gvec->M() > 60 && gvec->M() < 120)){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="wpm"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="wpe"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="wmm"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="wme"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="wm"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+            pass_selection=kTRUE;
+          }
+        }
+        else if (samples->first =="we"){
+          if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+            pass_selection=kTRUE;
+          }
+        }
+        else{
+          cout << "Unsupported Channel" << endl;
+        }
+
+        // If the acceptance criteria are met, fills output tree with selected events
+        if (pass_selection==kTRUE){
+          fiducialWeightGen += weightGen;
+          outTree->Fill();
+        }
+      }
+      // Saves output trees to root file in ntuples
+      outFile->Write();
+      outFile->Close(); 
+
+      // Calculates the gen-level acceptance
+      Double_t acceptance = fiducialWeightGen/totalWeightGen;
+      Double_t accerr = sqrt(acceptance*(1.-acceptance)/ntotal);
+
+      // Prints gen-level acceptance
+      cout << "Fiducial Weight = " << fiducialWeightGen << endl;
+      cout << "Inclusive Weight = " << totalWeightGen << endl;
+      cout << "Acceptance = " << acceptance << endl;
+      cout << "Acceptance Error = " << accerr << endl;
+
+
+      // Saves gen-level acceptance to the map
+      acceptance_list[samples->first].first = acceptance;
+      acceptance_list[samples->first].second = accerr;
     }
-
-    // Calculate total number of (weighted) events in sample
-    for(Int_t ientry=0; ientry<max_events; ientry++) {
-      intree->GetEntry(ientry);
-        totalWeightGen+=weightGen;
-        ntotal += weightGen/abs(weightGen);
-    }
-
-    Bool_t pass_selection; // flag to accept only fiducial events
-
-    // Loop through events
-    for(Int_t ientry=0; ientry<max_events; ientry++) {
-
-      pass_selection=kFALSE; // reset flag
-
-      intree->GetEntry(ientry); // Store variables from input tree
-      if(ientry%10000==0) cout << "Processing event " << ientry << ". " << (double)ientry/(double)intree->GetEntries()*100 << " percent done with this file." << endl;
-
-      if (snamev[isam]=="zmm"){
-        if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4) && (TMath::Abs(glep2->Eta()) < 2.4) && (gvec->M() > 60 && gvec->M() < 120)){
-          pass_selection=kTRUE;
-        }
-      }
-      else if (snamev[isam]=="zee"){
-        if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 ||(TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5)) && (TMath::Abs(glep2->Eta()) < 1.4442 || (TMath::Abs(glep2->Eta()) > 1.566 && TMath::Abs(glep2->Eta()) < 2.5)) && (gvec->M() > 60 && gvec->M() < 120)){
-          pass_selection=kTRUE;
-        }
-      }
-      else if (snamev[isam]=="wpm"){
-        if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
-          pass_selection=kTRUE;
-        }
-      }
-      else if (snamev[isam]=="wpe"){
-        if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
-          pass_selection=kTRUE;
-        }
-      }
-      else if (snamev[isam]=="wmm"){
-        if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
-          pass_selection=kTRUE;
-        }
-      }
-      else if (snamev[isam]=="wme"){
-        if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
-          pass_selection=kTRUE;
-        }
-      }
-      else{
-        cout << "Unsupported Channel" << endl;
-      }
-
-      // If the acceptance criteria are met, fills output tree with selected events
-      if (pass_selection==kTRUE){
-        fiducialWeightGen += weightGen;
-        outTree->Fill();
-      }
-    }
-    // Saves output trees to root file in ntuples
-    outFile->Write();
-    outFile->Close(); 
-
-    // Calculates the gen-level acceptance
-    Double_t acceptance = fiducialWeightGen/totalWeightGen;
-    Double_t accerr = sqrt(acceptance*(1.-acceptance)/ntotal);
-
-    // Prints gen-level acceptance
-    cout << "Fiducial Weight = " << fiducialWeightGen << endl;
-    cout << "Inclusive Weight = " << totalWeightGen << endl;
-    cout << "Acceptance = " << acceptance << endl;
-    cout << "Acceptance Error = " << accerr << endl;
-
-    // Saves gen-level acceptance as a text file
-    ofstream txtfile;
-    txtfile.open("acceptances.txt", ios::app);
-    txtfile << "*" << endl;
-    txtfile << "For " << snamev[isam] << endl;
-    txtfile << "Fiducial Weight = " << fiducialWeightGen << endl;
-    txtfile << "Inclusive Weight = " << totalWeightGen << endl;
-    txtfile << "Acceptance = " << acceptance << endl;
-    txtfile << "Acceptance Error = " << accerr << endl;
-    txtfile.close();
   }
+
+  acceptance_list["wpe-wme"].first = acceptance_list["wpe"].first/acceptance_list["wme"].first;
+  acceptance_list["wpe-wme"].second = acceptance_list["wpe-wme"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first));
+
+  acceptance_list["wpe-zee"].first = acceptance_list["wpe"].first/acceptance_list["zee"].first;
+  acceptance_list["wpe-zee"].second = acceptance_list["wpe-zee"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+
+  acceptance_list["wme-zee"].first = acceptance_list["wme"].first/acceptance_list["zee"].first;
+  acceptance_list["wme-zee"].second = acceptance_list["wme-zee"].first*sqrt((acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+
+  acceptance_list["we-zee"].first = acceptance_list["we"].first/acceptance_list["zee"].first;
+  acceptance_list["we-zee"].second = acceptance_list["we-zee"].first*sqrt((acceptance_list["we"].second/acceptance_list["we"].first)*(acceptance_list["we"].second/acceptance_list["we"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+
+  acceptance_list["wpm-wmm"].first = acceptance_list["wpm"].first/acceptance_list["wmm"].first;
+  acceptance_list["wpm-wmm"].second = acceptance_list["wpm-wmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["wmm"].second/acceptance_list["wmm"].first)*(acceptance_list["wmm"].second/acceptance_list["wmm"].first));
+
+  acceptance_list["wpm-zmm"].first = acceptance_list["wpm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wpm-zmm"].second = acceptance_list["wpm-zmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+
+  acceptance_list["wmm-zmm"].first = acceptance_list["wmm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wmm-zmm"].second = acceptance_list["wpm-zmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+
+  acceptance_list["wm-zmm"].first = acceptance_list["wm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wm-zmm"].second = acceptance_list["wm-zmm"].first*sqrt((acceptance_list["wm"].second/acceptance_list["wm"].first)*(acceptance_list["wm"].second/acceptance_list["wm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+
+  // Saves gen-level acceptance as a text file
+  ofstream txtfile;
+  txtfile.open("acceptances.txt", ios::app);
+  std::map<TString, std::pair<Double_t, Double_t>>::iterator acceptance_print;
+  txtfile << "Process " << "Acceptance " << "Acceptance_Error " << endl;
+  for ( acceptance_print = acceptance_list.begin(); acceptance_print != acceptance_list.end(); acceptance_print++){
+      txtfile << acceptance_print->first  << " " << acceptance_print->second.first << " " << acceptance_print->second.second << endl;
+  }
+  txtfile.close();
+
 
   cout << endl;
   cout << "  <> Output saved in " << outputDir << "/" << endl;    

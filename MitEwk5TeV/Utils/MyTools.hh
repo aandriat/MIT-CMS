@@ -60,7 +60,7 @@ Int_t toolbox::flavor(TClonesArray *genPartArr, Int_t vid) {
     const baconhep::TGenParticle* genloop = (baconhep::TGenParticle*) ((*genPartArr)[i]);
     Int_t pdgId=fabs(genloop->pdgId);
     Int_t parentPdgId=fabs(dynamic_cast<baconhep::TGenParticle*>(genPartArr->At(genloop->parent>-1 ? genloop->parent : 0))->pdgId);
-    if ( (pdgId==11||pdgId==13||pdgId==15) && (parentPdgId==vid || genloop->status==23) ) return genloop->pdgId;
+    if ( (pdgId==11||pdgId==13||pdgId==15) && (parentPdgId==fabs(vid) || genloop->status==23) ) return genloop->pdgId;
   }
   return 0;
 }
@@ -92,7 +92,7 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
       	iv2=i;
       }
     }
-    else if ((absM==0 && genloop->pdgId==vid && (genloop->status==3||genloop->status==22)) || (absM==1 && fabs(genloop->pdgId)==fabs(vid) && (genloop->status==3||genloop->status==62))) {
+    else if ((absM==0 && genloop->pdgId==vid && (genloop->status==3||genloop->status==22)) || (absM==1 && fabs(genloop->pdgId)==fabs(vid) && (genloop->status==3||genloop->status==22))) {
       vec=new TLorentzVector(0,0,0,0); //finds the vector boson
       vec->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
       iv=i;

@@ -34,7 +34,7 @@
 
 //=== MAIN MACRO ================================================================================================= 
 
-void flatten_gen(const TString conf="acceptance.conf", // input file
+void flatten_gen(const TString conf="flatten_bacon.conf", // input file
                   const TString outputDir=".",   // ntuple directory
                   const Int_t n_events=0 //Number of events, 0 for all
             ) {
@@ -208,16 +208,32 @@ void flatten_gen(const TString conf="acceptance.conf", // input file
             else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
           }
+          else if (snamev[isam]=="wm"){
+            LEPTON_ID = 13;
+            BOSON_ID = 24;                        
+            isSignal = snamev[isam].Contains("wm",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
+            isWrongFlavor = (snamev[isam].CompareTo("wx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
+          }
+          else if (snamev[isam]=="we"){
+            LEPTON_ID = 11;
+            BOSON_ID = 24;                        
+            isSignal = snamev[isam].Contains("we",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
+            isWrongFlavor = (snamev[isam].CompareTo("wx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+            if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
+            else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
+            toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
+          }
           else{
             cout << "Unsupported Channel" << endl;
           }
         
         if (mass_Zcut==kFALSE) continue; // definition of Z boson
-
-        // cout << "Boson Mass: " << gvec->M() << " Lepton 1 Mass: " << glep1->M() << " Lepton 2 Mass" << glep2->M() << endl;
         weightGen = gen->weight;
 
-        // Stores lheweights in vector
+        // // Stores lheweights in vector
         lheweight->clear();
         for (int j = 0; j<109; j++)
          {
