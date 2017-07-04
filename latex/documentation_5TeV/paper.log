@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.11)  23 JUN 2017 15:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.11)  4 JUL 2017 17:37
 entering extended mode
 **./paper.tex
 (paper.tex
@@ -1432,35 +1432,46 @@ File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
 \openout3 = `paper.toc'.
 
 
-
-LaTeX Warning: Reference `tab:gen_acceptance' on page 1 undefined on input line
- 47.
-
-
-Underfull \hbox (badness 2020) in paragraph at lines 60--60
+Underfull \hbox (badness 2020) in paragraph at lines 64--64
 []\OT1/cmr/m/n/9 TABLE I: Gen-level ac-cep-tance from aMC@NLO with
  []
 
-No file paper.bbl.
+
+Underfull \hbox (badness 1270) in paragraph at lines 81--81
+[]\OT1/cmr/m/n/9 TABLE II: Gen-level ac-cep-tance from aMC@NLO with
+ []
+
 [1{C:/Users/Alexander Andriatis/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.m
 ap}]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 71.
+ on input line 86.
 
-[2] (paper.aux)
+
+LaTeX Warning: Reference `tab:pdf_comparison' on page 2 undefined on input line
+ 88.
+
+(paper.bbl
+
+LaTeX Warning: Reference `LastBibItem' on page 2 undefined on input line 1.
+
+[2]
+
+Package natbib Warning: Empty `thebibliography' environment on input line 15.
+
+) [3] (paper.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13128 strings out of 493634
- 260900 string characters out of 3129525
- 288393 words of memory out of 3000000
- 16447 multiletter control sequences out of 15000+200000
+ 13142 strings out of 493634
+ 261144 string characters out of 3129525
+ 323596 words of memory out of 3000000
+ 16459 multiletter control sequences out of 15000+200000
  14881 words of font info for 55 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 40i,11n,42p,10403b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,11n,42p,10403b,1024s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmbx10.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Alexander And
@@ -1468,25 +1479,28 @@ riatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.p
 fb><C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmmi10.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Alexander An
-driatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.
+driatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.
 pfb><C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Alexander And
-riatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+/public/amsfonts/cm/cmmi6.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Alexander And
+riatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.p
 fb><C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr12.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Alexander Andri
-atis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-<C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmsl10.pfb><C:/Users/Alexander Andriatis/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Alexander Andri
-atis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb
+public/amsfonts/cm/cmr10.pfb><C:/Users/Alexander Andriatis/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Alexander Andr
+iatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb
 ><C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy9.pfb><C:/Users/Alexander Andriatis/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on paper.pdf (2 pages, 201928 bytes).
+blic/amsfonts/cm/cmr6.pfb><C:/Users/Alexander Andriatis/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Alexander Andriati
+s/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><
+C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><C:/Users/Alexander Andriatis/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Alexander Andriat
+is/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><
+C:/Users/Alexander Andriatis/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmti9.pfb>
+Output written on paper.pdf (3 pages, 226521 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

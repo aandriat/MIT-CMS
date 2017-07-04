@@ -40,27 +40,130 @@
 	\section{Theoretical Uncertainty}
 		\subsection{Acceptances}
 			\subsubsection{Generator-Level Acceptance}
-			The detector acceptance is an important theoretical value for the extraction of the inclusive cross-section from the measured fiducial cross-section. The acceptance is defined as the ratio of events whose decay products fall within the kinematic acceptance region of the detector to the total number of events. As a baseline, events are simulated using the next-to-leading-order Monte Carlo aMC@NLO with NNPDF3.0 parton distribution function set and PYTHIA 8 parton showering and hadronization. The error on the simulated distribution is estimated by comparing the acceptances to those derived using higher-order tools, such as RESBOS and DYRES.
+			The detector acceptance is an important theoretical value for the extraction of the inclusive cross-section from the measured fiducial cross-section. The acceptance is defined as the ratio of events whose decay products fall within the kinematic acceptance region of the detector to the total number of events.
 			
-			The fiducial region of the detector accepts only muons of $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 2.4$ and electrons with $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 1.4442$ or $1.566 < \abs{\eta} < 2.5$. An additional constraint is imposed on the Z channel that $60\si{\giga\electronvolt} < m_{z} < 120\si{\giga\electronvolt}$.
+			As a baseline, events are simulated using the next-to-leading-order Monte Carlo aMC@NLO with NNPDF3.0 parton distribution function set and PYTHIA 8 parton showering and hadronization. The error on the simulated distribution is estimated by comparing the acceptances to those derived using higher-order tools, such as RESBOS and DYRES.
 			
-			The generator-level acceptance is considered for post-FSR particles for several decay channels. A summary of the acceptances and their statistical uncertainty is given in table \ref{tab:gen_acceptance}.
+			The fiducial region of the detector accepts muons of $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 2.4$ and electrons with $p_{T} > 25\si{\giga\electronvolt}$ and $\abs{\eta} < 1.4442$ or $1.566 < \abs{\eta} < 2.5$. Z boson events are defined as having the mass of the Z $60\si{\giga\electronvolt} < m_{z} < 120\si{\giga\electronvolt}$.
+			
+			The generator-level acceptance is considered for post-FSR particles for several decay channels and their ratios. A summary of the acceptances and their statistical uncertainty is given in table \ref{tab:gen_acceptance_electrons} for electronic final states and table \ref{tab:gen_acceptance_muons} for muonic final states.
 			
 			\begin{table}
 				\centering
 				\begin{tabular}{l  c}
-					Process & $A_{Gen}$(Post-FSR) \\
-					$Z\rightarrow \mu^{+}\mu^{-}$ & $0.440\pm 0.001$ \\
-					$Z\rightarrow e^{+}e^{-}$ & $0.406\pm 0.001$ \\
-					$W^{+}\rightarrow \mu^{+}\nu$ & $0.572\pm 0.001$ \\
-					$W^{+}\rightarrow e^{+}\nu$ & $0.547\pm 0.001$ \\
-					$W^{-}\rightarrow \mu^{-}\bar{\nu}$ & $0.536\pm 0.001$ \\
-					$W^{-}\rightarrow e^{-}\bar{\nu}$ & $0.515\pm 0.001$ \\	
+					Process 							& $A_{Gen}$(Post-FSR) 		\\
+					$W^{+}\rightarrow e^{+}\nu$ 		& $0.430 \pm 0.002$ 		\\
+					$W^{-}\rightarrow e^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			\\		
+					$W\rightarrow e\nu$ 				& $0.515\pm 0.001$ 			\\
+					$W^{+}/W^{-}$					 	& $0.515\pm 0.001$ 			\\
+					$Z\rightarrow e^{+}e^{-}$ 			& $0.406\pm 0.001$ 			\\
+					$W^{+}/Z$				 			& $0.406\pm 0.001$ 			\\
+					$W^{-}/Z$				 			& $0.406\pm 0.001$ 			\\
+					$W/Z$				 				& $0.406\pm 0.001$ 			\\					
 				\end{tabular}
-				\caption{Gen-level acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for signal processes $Z\rightarrow l^{+}l^{-}$ and $W\rightarrow l\nu$}.
-				\label{tab:evolution}
+				\caption{Gen-level acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for electronic final states}.
+				\label{tab:gen_acceptance_electrons}
+			\end{table}
+
+			\begin{table}
+				\centering
+				\begin{tabular}{l  c}
+					Process 								& $A_{Gen}$(Post-FSR) 		\\
+					$W^{+}\rightarrow \mu^{+}\nu$ 			& $0.430 \pm 0.002$ 		\\
+					$W^{-}\rightarrow \mu^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			\\		
+					$W\rightarrow \mu\nu$ 					& $0.515\pm 0.001$ 			\\
+					$W^{+}/W^{-}$					 		& $0.515\pm 0.001$ 			\\
+					$Z\rightarrow \mu^{+}\mu^{-}$ 			& $0.406\pm 0.001$ 			\\
+					$W^{+}/Z$				 				& $0.406\pm 0.001$ 			\\
+					$W^{-}/Z$				 				& $0.406\pm 0.001$ 			\\
+					$W/Z$				 					& $0.406\pm 0.001$ 			\\					
+				\end{tabular}
+				\caption{Gen-level acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for muonic final states}.
+				\label{tab:gen_acceptance_muons}
 			\end{table}
 			
+			To compare the theoretical acceptance between 5 TeV and 13 TeV, for each process the ratio of the acceptances was calculated. The acceptance ratio of 5 TeV / 13 TeV is reported in table \ref{tab:pdf_ratios_electrons} for electronic final states and \ref{tab:pdf_ratios_muons} for muonic final states.
+			
+			\subsubsection{PDF Uncertainty}
+			The parton distribution functions (PDFs) used to describe the kinematics of the constituents in the colliding protons have inherent theoretical uncertainty. Different groups have calculated PDFs with a variety of methods, using both data and theoretical predictions. The acceptances for the nominal values from each PDF set are shown in table \ref{tab:pdf_comparison}.
+			
+			Each PDF set also provides a measure of its uncertainty. The baseline amc@NLO uses NNPDF3.0, which provides a set of 100 replica PDFs from which we calculate the acceptance error as the the standard deviation of acceptances across the replica sets. 
+			
+			A contribution to the uncertainty of the PDF set is the value of $\alpha_{s}$ used in making the PDF set. The PDF4LHC working group recommends calculating the total uncertainty from the PDF by summing in quadrature the uncertainties from the PDF and Alphas contributions. 
+			
+			For the case of NNPDF provides a set of PDF replicas. The gen-level acceptance is calculated for each replica PDF, and the standard deviation of acceptances is reported as the PDF uncertainty on each acceptance. The results are summarized in table \ref{tab:pdf_uncertainty_electrons} for electronic final states and \ref{tab:pdf_uncertainty_muons} for muonic final states.
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{l  c}
+					Process 							& $\sigma_{A_{Gen}}$(Post-FSR) 		\\
+					$W^{+}\rightarrow e^{+}\nu$ 		& $0.430 \pm 0.002$ 		\\
+					$W^{-}\rightarrow e^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			\\		
+					$W\rightarrow e\nu$ 				& $0.515\pm 0.001$ 			\\
+					$W^{+}/W^{-}$					 	& $0.515\pm 0.001$ 			\\
+					$Z\rightarrow e^{+}e^{-}$ 			& $0.406\pm 0.001$ 			\\
+					$W^{+}/Z$				 			& $0.406\pm 0.001$ 			\\
+					$W^{-}/Z$				 			& $0.406\pm 0.001$ 			\\
+					$W/Z$				 				& $0.406\pm 0.001$ 			\\					
+				\end{tabular}
+				\caption{Uncertainty on acceptance values for aMC@NLO with NNPDF3.0 and Pythia8 for electronic final states}.
+				\label{tab:pdf_uncertainty_electrons}
+			\end{table}
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{l  c}
+					Process 								& $\sigma_{A_{Gen}}$(Post-FSR) 		\\
+					$W^{+}\rightarrow \mu^{+}\nu$ 			& $0.430 \pm 0.002$ 		\\
+					$W^{-}\rightarrow \mu^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			\\		
+					$W\rightarrow \mu\nu$ 					& $0.515\pm 0.001$ 			\\
+					$W^{+}/W^{-}$					 		& $0.515\pm 0.001$ 			\\
+					$Z\rightarrow \mu^{+}\mu^{-}$ 			& $0.406\pm 0.001$ 			\\
+					$W^{+}/Z$				 				& $0.406\pm 0.001$ 			\\
+					$W^{-}/Z$				 				& $0.406\pm 0.001$ 			\\
+					$W/Z$				 					& $0.406\pm 0.001$ 			\\					
+				\end{tabular}
+				\caption{Uncertainty on acceptance values for aMC@NLO with NNPDF3.0 and Pythia8 for muonic final states}.
+				\label{tab:pdf_uncertainty_muons}
+			\end{table}
+			
+			The uncertainty on the acceptance ratios between 5 TeV and 13 TeV is given in table \ref{tab:pdf_ratios_electrons} for electronic final states and \ref{tab:pdf_ratios_muons} for muonic final states 
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{l c c} 
+					Process 							& $A_{5TeV}/A_{13TeV}$ 		&$\sigma_{A_{5TeV}/A_{13TeV}}$	\\
+					$W^{+}\rightarrow e^{+}\nu$ 		& $0.430 \pm 0.002$ 		& $0.430 \pm 0.002$ \\
+					$W^{-}\rightarrow e^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\		
+					$W\rightarrow e\nu$ 				& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{+}/W^{-}$					 	& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\ 
+					$Z\rightarrow e^{+}e^{-}$ 			& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{+}/Z$				 			& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{-}/Z$				 			& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W/Z$				 				& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\					
+				\end{tabular}
+				\caption{Acceptance ratios and their uncertainties for 5TeV acceptance / 13 TeV acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for electronic final states}.
+				\label{tab:pdf_ratios_electrons}
+			\end{table}
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{l c c}
+					Process 								& $A_{5TeV}/A_{13TeV}$ 		&$\sigma_{A_{5TeV}/A_{13TeV}}$	\\
+					$W^{+}\rightarrow \mu^{+}\nu$ 			& $0.430 \pm 0.002$ 		& $0.430 \pm 0.002$ \\
+					$W^{-}\rightarrow \mu^{-}\bar{\nu}$ 	& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\		
+					$W\rightarrow \mu\nu$ 					& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{+}/W^{-}$					 		& $0.515\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$Z\rightarrow \mu^{+}\mu^{-}$ 			& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{+}/Z$				 				& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W^{-}/Z$				 				& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\
+					$W/Z$				 					& $0.406\pm 0.001$ 			& $0.430 \pm 0.002$ \\					
+				\end{tabular}
+				\caption{Acceptance ratios and their uncertainties for 5TeV acceptance / 13 TeV acceptance from aMC@NLO with NNPDF3.0 and Pythia8 for muonic final states}.
+				\label{tab:pdf_ratios_muons}
+			\end{table}			
+	
+		
 	\section{Results}
 		\subsection{Uncertainty Correlations}
 		\subsection{Cross-Section Results}

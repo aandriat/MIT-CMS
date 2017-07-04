@@ -11,7 +11,9 @@
 \contentsline {section}{\numberline {VIII}Theoretical Uncertainty}{1}{}
 \contentsline {subsection}{\numberline {A}Acceptances}{1}{}
 \contentsline {subsubsection}{\numberline {1}Generator-Level Acceptance}{1}{}
+\contentsline {subsubsection}{\numberline {2}PDF Uncertainty}{2}{}
 \contentsline {section}{\numberline {IX}Results}{2}{}
 \contentsline {subsection}{\numberline {A}Uncertainty Correlations}{2}{}
 \contentsline {subsection}{\numberline {B}Cross-Section Results}{2}{}
 \contentsline {section}{\numberline {X}Summary}{2}{}
+\contentsline {section}{\numberline {}References}{3}{}
