@@ -235,7 +235,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
 
         // // Stores lheweights in vector
         lheweight->clear();
-        for (int j = 0; j<109; j++)
+        for (int j = 0; j<110; j++)
          {
            lheweight->push_back(gen->lheweight[j]);
          }

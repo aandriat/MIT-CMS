@@ -66,14 +66,14 @@ void acceptance(  const TString outputDir=".",   // ntuple directory
     { "wmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
     { "wm",   std::pair<Double_t, Double_t> (0.0,0.0)},
     { "zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wpe-wme",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wpe-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wme-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "we-zee",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wpm-wmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wpm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wmm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
-    { "wm-zmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpewme",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpezee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wmezee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wezee",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpmwmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wpmzmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wmmzmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
+    { "wmzmm",  std::pair<Double_t, Double_t> (0.0,0.0)},
   };
 
   // Declare ntuple variables
@@ -219,29 +219,29 @@ void acceptance(  const TString outputDir=".",   // ntuple directory
     }
   }
 
-  acceptance_list["wpe-wme"].first = acceptance_list["wpe"].first/acceptance_list["wme"].first;
-  acceptance_list["wpe-wme"].second = acceptance_list["wpe-wme"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first));
+  acceptance_list["wpewme"].first = acceptance_list["wpe"].first/acceptance_list["wme"].first;
+  acceptance_list["wpewme"].second = acceptance_list["wpewme"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first));
 
-  acceptance_list["wpe-zee"].first = acceptance_list["wpe"].first/acceptance_list["zee"].first;
-  acceptance_list["wpe-zee"].second = acceptance_list["wpe-zee"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+  acceptance_list["wpezee"].first = acceptance_list["wpe"].first/acceptance_list["zee"].first;
+  acceptance_list["wpezee"].second = acceptance_list["wpezee"].first*sqrt((acceptance_list["wpe"].second/acceptance_list["wpe"].first)*(acceptance_list["wpe"].second/acceptance_list["wpe"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
 
-  acceptance_list["wme-zee"].first = acceptance_list["wme"].first/acceptance_list["zee"].first;
-  acceptance_list["wme-zee"].second = acceptance_list["wme-zee"].first*sqrt((acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+  acceptance_list["wmezee"].first = acceptance_list["wme"].first/acceptance_list["zee"].first;
+  acceptance_list["wmezee"].second = acceptance_list["wmezee"].first*sqrt((acceptance_list["wme"].second/acceptance_list["wme"].first)*(acceptance_list["wme"].second/acceptance_list["wme"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
 
-  acceptance_list["we-zee"].first = acceptance_list["we"].first/acceptance_list["zee"].first;
-  acceptance_list["we-zee"].second = acceptance_list["we-zee"].first*sqrt((acceptance_list["we"].second/acceptance_list["we"].first)*(acceptance_list["we"].second/acceptance_list["we"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
+  acceptance_list["wezee"].first = acceptance_list["we"].first/acceptance_list["zee"].first;
+  acceptance_list["wezee"].second = acceptance_list["wezee"].first*sqrt((acceptance_list["we"].second/acceptance_list["we"].first)*(acceptance_list["we"].second/acceptance_list["we"].first)+(acceptance_list["zee"].second/acceptance_list["zee"].first)*(acceptance_list["zee"].second/acceptance_list["zee"].first));
 
-  acceptance_list["wpm-wmm"].first = acceptance_list["wpm"].first/acceptance_list["wmm"].first;
-  acceptance_list["wpm-wmm"].second = acceptance_list["wpm-wmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["wmm"].second/acceptance_list["wmm"].first)*(acceptance_list["wmm"].second/acceptance_list["wmm"].first));
+  acceptance_list["wpmwmm"].first = acceptance_list["wpm"].first/acceptance_list["wmm"].first;
+  acceptance_list["wpmwmm"].second = acceptance_list["wpmwmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["wmm"].second/acceptance_list["wmm"].first)*(acceptance_list["wmm"].second/acceptance_list["wmm"].first));
 
-  acceptance_list["wpm-zmm"].first = acceptance_list["wpm"].first/acceptance_list["zmm"].first;
-  acceptance_list["wpm-zmm"].second = acceptance_list["wpm-zmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+  acceptance_list["wpmzmm"].first = acceptance_list["wpm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wpmzmm"].second = acceptance_list["wpmzmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
 
-  acceptance_list["wmm-zmm"].first = acceptance_list["wmm"].first/acceptance_list["zmm"].first;
-  acceptance_list["wmm-zmm"].second = acceptance_list["wpm-zmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+  acceptance_list["wmmzmm"].first = acceptance_list["wmm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wmmzmm"].second = acceptance_list["wmmzmm"].first*sqrt((acceptance_list["wpm"].second/acceptance_list["wpm"].first)*(acceptance_list["wpm"].second/acceptance_list["wpm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
 
-  acceptance_list["wm-zmm"].first = acceptance_list["wm"].first/acceptance_list["zmm"].first;
-  acceptance_list["wm-zmm"].second = acceptance_list["wm-zmm"].first*sqrt((acceptance_list["wm"].second/acceptance_list["wm"].first)*(acceptance_list["wm"].second/acceptance_list["wm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
+  acceptance_list["wmzmm"].first = acceptance_list["wm"].first/acceptance_list["zmm"].first;
+  acceptance_list["wmzmm"].second = acceptance_list["wmzmm"].first*sqrt((acceptance_list["wm"].second/acceptance_list["wm"].first)*(acceptance_list["wm"].second/acceptance_list["wm"].first)+(acceptance_list["zmm"].second/acceptance_list["zmm"].first)*(acceptance_list["zmm"].second/acceptance_list["zmm"].first));
 
   // Saves gen-level acceptance as a text file
   ofstream txtfile;
