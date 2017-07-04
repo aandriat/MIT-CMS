@@ -8,7 +8,7 @@ echo "Clear process log"
 rm process_log.txt
 
 echo "Calculate pdf acceptance uncertainty"
-root -l pdf_uncertainty_acceptance.C+\(\"/data/t3home000/aandriat/5TeV/ntuples\"\) -q |& tee -a process_log.txt
+root -l pdf_uncertainty_acceptance.C+\(\"/data/t3home000/aandriat/13TeV/ntuples\"\) -q |& tee -a process_log.txt
 
 
 rm *.so *.d *.pcm

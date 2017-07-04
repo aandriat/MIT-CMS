@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -rf ntuples/
-mkdir -p ntuples/
+rm -rf /data/t3home000/aandriat/5TeV/ntuples
+mkdir -p /data/t3home000/aandriat/5TeV/ntuples
 
-root -l flatten_gen.C+\(\"acceptance.conf\",\".\",0\) -q
+root -l flatten_gen.C+\(\"flatten_bacon.conf\",\"/data/t3home000/aandriat/5TeV/ntuples\",0\) -q
 
 rm *.so *.d *.pcm
