@@ -59,7 +59,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
   // Declare output ntuple variables
   Double_t weightGen;
   TLorentzVector *glep1=0, *glep2=0, *gvec=0;
-  Int_t glepq1, glepq2;
+  Int_t glepq1, glepq2, fiducial;
   std::vector<float> *lheweight = new std::vector<float>();
 
   // Data structures to store info from Bacon TTrees
@@ -71,7 +71,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
   TFile *infile=0;
   TTree *eventTree=0;
 
-  for(Int_t isam=0; isam<samplev.size(); isam++) {
+  for(Int_t isam=0; isam<(Int_t)samplev.size(); isam++) {
     CSample* samp = samplev[isam];
     cout << "Sample name: " << endl;
     cout << snamev[isam] << endl;
@@ -83,7 +83,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
   }
 
   // loop over samples
-  for(Int_t isam=0; isam<samplev.size(); isam++) {
+  for(Int_t isam=0; isam<(Int_t)samplev.size(); isam++) {
     CSample* samp = samplev[isam];
 
     // Set up output ntuple
@@ -97,6 +97,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
     outTree->Branch("gvec",       "TLorentzVector",  &gvec);     // boson 4-vector
     outTree->Branch("weightGen",   &weightGen,   "weightGen/D");    // event weight (MC)
     outTree->Branch("lheweight",  &lheweight); // lhe weights vector (same for all events)
+    outTree->Branch("fiducial", &fiducial, "fiducial/I"); // If event is in fiducial region of detector, store as 1
 
     // loop through files
     const Int_t nfiles = samp->fnamev.size();
@@ -142,6 +143,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
         gvec->SetPtEtaPhiM(0,0,0,0);
         glepq1=-99;
         glepq2=-99;
+        fiducial=0;
         Int_t BOSON_ID=0;
         Int_t LEPTON_ID=0;
         Bool_t isSignal=kFALSE;
@@ -159,6 +161,11 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (gvec->M() < 60 || gvec->M() > 120){
               mass_Zcut=kFALSE;
             }
+            if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4) && (TMath::Abs(glep2->Eta()) < 2.4) && (gvec->M() > 60 && gvec->M() < 120)){
+              fiducial=1;
+            }
+
+
           }
           else if (snamev[isam]=="zee"){
             LEPTON_ID = 11;
@@ -171,7 +178,10 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (gvec->M() < 60 || gvec->M() > 120){
               mass_Zcut=kFALSE;
             }
-          }
+            if ((glep1->Pt() > 25) && (glep2->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 ||(TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5)) && (TMath::Abs(glep2->Eta()) < 1.4442 || (TMath::Abs(glep2->Eta()) > 1.566 && TMath::Abs(glep2->Eta()) < 2.5)) && (gvec->M() > 60 && gvec->M() < 120)){
+              fiducial=1;
+            }
+          } 
           else if (snamev[isam]=="wpm"){
             LEPTON_ID = -13;
             BOSON_ID = 24;                        
@@ -180,6 +190,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+              fiducial=1;
+            }
           }
           else if (snamev[isam]=="wpe"){
             LEPTON_ID = -11;
@@ -189,6 +202,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+              fiducial=1;
+            }
           }
           else if (snamev[isam]=="wmm"){
             LEPTON_ID = 13;
@@ -198,6 +214,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+              fiducial=1;
+            }
           }
           else if (snamev[isam]=="wme"){
             LEPTON_ID = 11;
@@ -207,6 +226,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && toolbox::flavor(genPartArr, BOSON_ID)!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+              fiducial=1;
+            }
           }
           else if (snamev[isam]=="wm"){
             LEPTON_ID = 13;
@@ -216,6 +238,10 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
+              fiducial=1;
+            }
+
           }
           else if (snamev[isam]=="we"){
             LEPTON_ID = 11;
@@ -225,6 +251,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
+            if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
+              fiducial=1;
+            }            
           }
           else{
             cout << "Unsupported Channel" << endl;
@@ -235,7 +264,7 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
 
         // // Stores lheweights in vector
         lheweight->clear();
-        for (int j = 0; j<110; j++)
+        for (int j = -1; j<110; j++)
          {
            lheweight->push_back(gen->lheweight[j]);
          }
