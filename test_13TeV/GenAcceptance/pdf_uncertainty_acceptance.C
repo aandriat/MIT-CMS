@@ -128,7 +128,7 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
 
   // Calculates acceptances for each LHE weight and associated error
   cout << "Calculating Acceptances " << endl;
-  for (Int_t i=0; i<111; i++){
+  for (Int_t i=0; i<112; i++){
     cout << "PDF Number " << i << endl;
     for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){ // Quantities from process_gen.root files
       max_events = n_events;
@@ -214,31 +214,33 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
 
   cout << "Calculating Errors " << endl;
   ofstream txtfile;
-  txtfile.open("pdf_acceptances.txt", ios::app);
+  txtfile.open("pdf_acceptances.txt", ios::out);
   txtfile << "Process " << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
 
   for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
     parname = setparameters->first;
     parname_err = parname + string_err;
 
+    if (setparameters->second==0) continue;
+
     cout << parname << endl;
 
     Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc=0.0,  alphas_acc_err = 0.0;
 
-      intree->GetEntry(0);
+      intree->GetEntry(0); // The nominal acceptance
       nomacc = (*parameters)[parname];
       nomacc_err = (*parameters)[parname_err];
 
     n_pdfs = 100;
-    for(Int_t ientry=9; ientry<109; ientry++) {
+    for(Int_t ientry=10; ientry<110; ientry++) { // entry 9 is the nominal value again, then 100 replicas
       intree->GetEntry(ientry);      
       mean += (*parameters)[parname]/n_pdfs;
       mean2 += TMath::Power((*parameters)[parname],2)/n_pdfs;
     }
     err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
 
-    n_pdfs = 1; //actually 2
-    for(Int_t ientry=109; ientry<110; ientry++) { // Actually 111 but Alphas_up is broken
+    n_pdfs = 2; //actually 2
+    for(Int_t ientry=110; ientry<112; ientry++) { // Alpha s up and down uncertainty
       intree->GetEntry(ientry);      
       alphas_acc += (*parameters)[parname]/n_pdfs;
     }
