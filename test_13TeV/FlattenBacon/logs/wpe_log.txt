@@ -1,0 +1,54 @@
+Info in <TUnixSystem::ACLiC>: creating shared library /home/aandriat/CMSSW_7_6_3_patch2/src/MIT-CMS/test_13TeV/FlattenBacon/./../Utils/CPlot_cc.so
+Info in <TUnixSystem::ACLiC>: creating shared library /home/aandriat/CMSSW_7_6_3_patch2/src/MIT-CMS/test_13TeV/FlattenBacon/./../Utils/MitStyleRemix_cc.so
+126456 pts/4    00:00:20 root.exe
+126589 pts/4    00:00:17 root.exe
+126702 pts/4    00:00:08 root.exe
+126789 pts/4    00:00:08 root.exe
+126860 pts/4    00:00:07 root.exe
+127003 pts/4    00:00:01 root.exe
+127062 pts/4    00:00:00 root.exe
+127156 pts/4    00:00:00 root.exe
+(CPlot) @0x5298390
+ MIT root style REMIX($Author: klawhorn $$,$Modified by ksung $$).
+
+ Use: MakeCanvas(name,title)
+      InitSubPad(pad,nPad)
+      InitHist(hist,xTitle,yTitle,color)
+
+
+Processing flatten_gen.C+("flatten_bacon_wpe.conf","/data/t3home000/aandriat/13TeV/ntuples/Madgraph5",0)...
+Sample name: 
+wpe
+File name: 
+/data/t3home000/sabrandt/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+Processing /data/t3home000/sabrandt/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root [xsec = 5902 pb] ... 
+Processing event 0. 0 percent done with this file.
+Processing event 1000000. 4.13974 percent done with this file.
+Processing event 2000000. 8.27947 percent done with this file.
+Processing event 3000000. 12.4192 percent done with this file.
+Processing event 4000000. 16.5589 percent done with this file.
+Processing event 5000000. 20.6987 percent done with this file.
+Processing event 6000000. 24.8384 percent done with this file.
+Processing event 7000000. 28.9782 percent done with this file.
+Processing event 8000000. 33.1179 percent done with this file.
+Processing event 9000000. 37.2576 percent done with this file.
+Processing event 10000000. 41.3974 percent done with this file.
+Processing event 11000000. 45.5371 percent done with this file.
+Processing event 12000000. 49.6768 percent done with this file.
+Processing event 13000000. 53.8166 percent done with this file.
+Processing event 14000000. 57.9563 percent done with this file.
+Processing event 15000000. 62.0961 percent done with this file.
+Processing event 16000000. 66.2358 percent done with this file.
+Processing event 17000000. 70.3755 percent done with this file.
+Processing event 18000000. 74.5153 percent done with this file.
+Processing event 19000000. 78.655 percent done with this file.
+Processing event 20000000. 82.7947 percent done with this file.
+Processing event 21000000. 86.9345 percent done with this file.
+Processing event 22000000. 91.0742 percent done with this file.
+Processing event 23000000. 95.214 percent done with this file.
+Processing event 24000000. 99.3537 percent done with this file.
+Total GenWeight for sample /data/t3home000/sabrandt/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root is 3.73198e+12
+
+  <> Output saved in /data/t3home000/aandriat/13TeV/ntuples/Madgraph5/
+
+flatten_gen: Real Time = 2035.46 seconds Cpu Time = 1638.58 seconds

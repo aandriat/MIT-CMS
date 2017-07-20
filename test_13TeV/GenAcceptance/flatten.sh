@@ -1,8 +1,13 @@
 #!/bin/bash
+echo "Starting flatten.sh"
 
-rm -rf /data/t3home000/aandriat/13TeV/ntuples
-mkdir -p /data/t3home000/aandriat/13TeV/ntuples
+echo "Make ntuple dir"
+mkdir -p /data/t3home000/aandriat/13TeV/ntuples/Madgraph5
 
-root -l flatten_gen.C+\(\"flatten_bacon.conf\",\"/data/t3home000/aandriat/13TeV/ntuples\",0\) -q
+echo "Clear process log"
+rm process_log.txt
+
+echo "Flatten Bacon"
+root -l flatten_gen.C+\(\"flatten_bacon.conf\",\"/data/t3home000/aandriat/13TeV/ntuples/Madgraph5\",0\) -q |& tee -a process_log.txt
 
 rm *.so *.d *.pcm
