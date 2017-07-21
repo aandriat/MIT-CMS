@@ -15,8 +15,8 @@ curl -s --insecure https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_frag
 
 scram b
 cd ../../
-cmsDriver.py Configuration/GenProduction/python/SMP-RunIISummer15wmLHEGS-00128-fragment.py --fileout file:SMP-RunIISummer15wmLHEGS-00128.root --mc --eventcontent RAWSIM,LHE --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM,LHE --conditions MCRUN2_71_V1::All --beamspot Realistic50ns13TeVCollision --step LHE,GEN --magField 38T_PostLS1 --python_filename SMP-RunIISummer15wmLHEGS-00128_1_cfg.py --no_exec -n 1000 || exit $? ; 
-
+cmsDriver.py Configuration/GenProduction/python/SMP-RunIISummer15wmLHEGS-00128-fragment.py --fileout file:lhegensim.root --mc --eventcontent RAWSIM,LHE --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,Configuration/DataProcessing/Utils.addMonitoring,Configuration/GenProduction/randomizeSeeds.randomizeSeeds --datatier GEN-SIM,LHE --conditions MCRUN2_71_V1::All --beamspot Realistic50ns13TeVCollision --step LHE,GEN --magField 38T_PostLS1 --python_filename cmsRun_cfg.py --no_exec -n 1000 || exit $? ; 
+	
 
 
 echo "nothing" ;cmsDriver.py Configuration/GenProduction/python/SMP-RunIISummer15wmLHEGS-00128-fragment.py --fileout file:SMP-RunIISummer15wmLHEGS-00128.root --mc --eventcontent DQM --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1 --datatier DQM --conditions MCRUN2_71_V1::All --beamspot Realistic50ns13TeVCollision --step LHE,GEN,VALIDATION:genvalid_all --magField 38T_PostLS1  --fileout file:SMP-RunIISummer15wmLHEGS-00128_genvalid.root --mc -n 1000 --python_filename SMP-RunIISummer15wmLHEGS-00128_genvalid.py --dump_python --no_exec || exit $? ;

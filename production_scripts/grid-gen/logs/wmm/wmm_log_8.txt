@@ -1,0 +1,2490 @@
+Sender: LSF System <lsfadmin@b688d8a167.cern.ch>
+Subject: Job 60435880: <export PRODHOME=/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen; run_gridlhe.sh W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz wmm 8 /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/tarballs /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen /eos/user/a/aandriat/wz/13TeV/samples/Powheg/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_6_3_patch2/src> in cluster <batch> Done
+
+Job <export PRODHOME=/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen; run_gridlhe.sh W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz wmm 8 /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/tarballs /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen /eos/user/a/aandriat/wz/13TeV/samples/Powheg/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_6_3_patch2/src> was submitted from host <lxplus095.cern.ch> by user <aandriat> in cluster <batch>.
+Job was executed on host(s) <b688d8a167.cern.ch>, in queue <1nh>, as user <aandriat> in cluster <batch>.
+</afs/cern.ch/user/a/aandriat> was used as the home directory.
+</afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen> was used as the working directory.
+Started at Fri Jul 21 15:05:18 2017
+Results reported on Fri Jul 21 15:17:50 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+export PRODHOME=/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen; run_gridlhe.sh W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz wmm 8 /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/tarballs /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen /eos/user/a/aandriat/wz/13TeV/samples/Powheg/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/ /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_6_3_patch2/src
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   626.12 sec.
+    Max Memory :                                 397.05 MB
+    Average Memory :                             287.20 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3602.95 MB
+    Max Swap :                                   1312 MB
+    Max Processes :                              12
+    Max Threads :                                13
+    Run time :                                   749 sec.
+    Turnaround time :                            808 sec.
+
+The output (if any) follows:
+
+@(#)CERN job starter $Date: 2010/06/23 14:22:16 $
+Working directory is </pool/lsf/aandriat/60435880> on <b688d8a167.cern.ch>
+
+
+/pool/lsf/aandriat/60435880
+
+
+W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz
+
+
+Substituting actual sample path in config file
+
+File -> 1500642262.60435880.out
+File -> wmm
+
+Starting cmsRun
+
+==> using COND/Services/RelationalAuthenticationService for auth, sys 1
+==> using COND/Services/RelationalAuthenticationService for auth, sys 1
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.226      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 26 Apr 2017  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 21 Jul 2017 at 15:06:19    |  | 
+ |  |                                                                              |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: torbjorn@thep.lu.se                                             |  | 
+ |  |   Nishita Desai;  Laboratoire Charles Coulomb (L2C),                         |  | 
+ |  |      CNRS-Universite de Montpellier, 34090 Montpellier, France;              |  | 
+ |  |      e-mail: nishita.desai@umontpellier.fr                                   |  | 
+ |  |   Nadine Fischer;  School of Physics,                                        |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: nadine.fischer@monash.edu                                       |  | 
+ |  |   Ilkka Helenius;  Institute for Theoretical Physics,                        |  | 
+ |  |     Tuebingen University, Auf der Morgenstelle 14, 72076 Tuebingen, Germany; |  | 
+ |  |      e-mail: ilkka.helenius@uni-tuebingen.de                                 |  | 
+ |  |   Philip Ilten;  Massachusetts Institute of Technology,                      |  | 
+ |  |      77 Massachusetts Ave, Cambridge, MA 02139, USA;                         |  | 
+ |  |      e-mail: philten@cern.ch                                                 |  | 
+ |  |   Leif Lonnblad;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: leif.lonnblad@thep.lu.se                                        |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: mrenna@fnal.gov                                                 |  | 
+ |  |   Stefan Prestel;  Theoretical Physics Department,                           |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 106, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: sprestel@fnal.gov                                               |  | 
+ |  |   Christine O. Rasmussen;  Department of Astronomy and Theoretical Physics,  |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christine.rasmussen@thep.lu.se                                  |  | 
+ |  |   Peter Skands;  School of Physics,                                          |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: peter.skands@monash.edu                                         |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjostrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/Pythia                                               |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2017 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.226      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 26 Apr 2017  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 21 Jul 2017 at 15:06:20    |  | 
+ |  |                                                                              |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: torbjorn@thep.lu.se                                             |  | 
+ |  |   Nishita Desai;  Laboratoire Charles Coulomb (L2C),                         |  | 
+ |  |      CNRS-Universite de Montpellier, 34090 Montpellier, France;              |  | 
+ |  |      e-mail: nishita.desai@umontpellier.fr                                   |  | 
+ |  |   Nadine Fischer;  School of Physics,                                        |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: nadine.fischer@monash.edu                                       |  | 
+ |  |   Ilkka Helenius;  Institute for Theoretical Physics,                        |  | 
+ |  |     Tuebingen University, Auf der Morgenstelle 14, 72076 Tuebingen, Germany; |  | 
+ |  |      e-mail: ilkka.helenius@uni-tuebingen.de                                 |  | 
+ |  |   Philip Ilten;  Massachusetts Institute of Technology,                      |  | 
+ |  |      77 Massachusetts Ave, Cambridge, MA 02139, USA;                         |  | 
+ |  |      e-mail: philten@cern.ch                                                 |  | 
+ |  |   Leif Lonnblad;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: leif.lonnblad@thep.lu.se                                        |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: mrenna@fnal.gov                                                 |  | 
+ |  |   Stefan Prestel;  Theoretical Physics Department,                           |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 106, Batavia, IL 60510, USA;  |  | 
+ |  |      e-mail: sprestel@fnal.gov                                               |  | 
+ |  |   Christine O. Rasmussen;  Department of Astronomy and Theoretical Physics,  |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      e-mail: christine.rasmussen@thep.lu.se                                  |  | 
+ |  |   Peter Skands;  School of Physics,                                          |  | 
+ |  |      Monash University, PO Box 27, 3800 Melbourne, Australia;                |  | 
+ |  |      e-mail: peter.skands@monash.edu                                         |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is 'An Introduction to PYTHIA 8.2',             |  | 
+ |  |   T. Sjostrand et al, Comput. Phys. Commun. 191 (2015) 159                   |  | 
+ |  |   [arXiv:1410.3012 [hep-ph]]                                                 |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]  |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/Pythia                                               |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2017 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+   ______________________________________     
+         Running Generic Tarball/Gridpack     
+   ______________________________________     
+gridpack tarball path = /afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/tarballs/W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz
+%MSG-MG5 number of events requested = 1000
+%MSG-MG5 random seed used for the run = 757837913
+   ______________________________________     
+         Running Powheg                       
+   ______________________________________     
+ !!!!!! OH MY GOD THE RIGHT FILE IS RUNCMSGRID_POWHEG.SH !!!! 
+%MSG-POWHEG number of events requested = 1000
+%MSG-POWHEG random seed used for the run = 757837913
+%MSG-POWHEG number of cputs for the run = 1
+%MSG-MG5 SCRAM_ARCH version = slc6_amd64_gcc481
+%MSG-MG5 CMSSW version = CMSSW_7_1_28
+WARNING: In non-interactive mode release checks e.g. deprecated releases, production architectures are disabled.
+!Single vector boson production parameters
+idvecbos -24   ! PDG code for vector boson to be produced ( W+:24 W-:-24 )
+vdecaymode 2      !(1:electronic decay, 2: muonic decay, 3: tauonic decay) 
+
+numevts 1000
+ih1   1           ! hadron 1 (1 for protons, -1 for antiprotons)
+ih2   1           ! hadron 2 (1 for protons, -1 for antiprotons)
+ndns1 131         ! pdf set for hadron 1 (mlm numbering)
+ndns2 131         ! pdf set for hadron 2 (mlm numbering)
+ebeam1 6500d0    ! energy of beam 1
+ebeam2 6500d0    ! energy of beam 2
+
+! To be set only if using LHA pdfs
+lhans1  292200    ! pdf set for hadron 1 (LHA numbering)
+lhans2  292200     ! pdf set for hadron 2 (LHA numbering)
+! To be set only if using different pdf sets for the two incoming hadrons
+! QCDLambda5  0.25 ! for not equal pdf sets 
+
+! Parameters to allow or not the use of stored data
+use-old-grid    1 ! if 1 use old grid if file pwggrids.dat is present (<> 1 regenerate)
+use-old-ubound  1 ! if 1 use norm of upper bounding function stored in pwgubound.dat, if present; <> 1 regenerate
+
+ncall1 120000   ! number of calls for initializing the integration grid
+itmx1    5     ! number of iterations for initializing the integration grid
+ncall2 250000   ! number of calls for computing the integral and finding upper bound
+itmx2    5     ! number of iterations for computing the integral and finding upper bound
+foldcsi   1    ! number of folds on csi integration
+foldy     1    ! number of folds on  y  integration
+foldphi   1    ! number of folds on phi integration
+nubound 20000  ! number of bbarra calls to setup norm of upper bounding function
+icsimax  1     ! <= 100, number of csi subdivision when computing the upper bounds
+iymax    1     ! <= 100, number of y subdivision when computing the upper bounds
+xupbound 2d0   ! increase upper bound for radiation generation
+
+! OPTIONAL PARAMETERS
+
+renscfact  1d0   ! (default 1d0) ren scale factor: muren  = muref * renscfact 
+facscfact  1d0   ! (default 1d0) fac scale factor: mufact = muref * facscfact 
+#ptsupp     0d0   ! (default 0d0)  mass param for Born suppression factor (generation cut) If < 0 suppfact = 1
+#bornonly   1      ! (default 0) if 1 do Born only
+#smartsig   0      ! (default 1) remember equal amplitudes (0 do not remember)
+#withsubtr  0      ! (default 1) subtract real counterterms (0 do not subtract)
+withdamp    1      ! (default 0, do not use) use Born-zero damping factor
+#ptsqmin    0.8    ! (default 0.8 GeV) minimum pt for generation of radiation
+#charmthr   1.5    ! (default 1.5 GeV) charm treshold for gluon splitting 
+#bottomthr  5.0    ! (default 5.0 GeV) bottom treshold for gluon splitting
+testplots  1      ! (default 0, do not) do NLO and PWHG distributions
+#hfact    100d0    ! (default no dumping factor) dump factor for high-pt radiation: > 0 dumpfac=h**2/(pt2+h**2)
+#testsuda  1       ! (default 0, do not test) test Sudakov form factor
+#radregion 1       ! (default all regions) only generate radiation in the selected singular region  
+#charmthrpdf  1.5  ! (default 1.5 GeV) pdf charm treshold
+#bottomthrpdf 5.0  ! (default 5.0 GeV) pdf bottom treshold
+
+iseed 757837913
+#rand1     -1      ! initialize random number sequence 
+#rand2     -1      ! initialize random number sequence 
+
+#iupperisr 1 ! (default 1) choice of ISR upper bounding functional form 
+#iupperfsr 2 ! (default 2) choice of FSR upper bounding functional form 
+
+
+
+
+
+#manyseeds 1 ! (default 0) allow for the generation of different statistically independent samples (see Docs/Manyseeds.pdf) 
+
+pdfreweight 1       ! PDF reweighting
+storeinfo_rwgt 1    ! store weight information
+withnegweights 0 ! default 0
+#parallelstage 4
+
+#xgriditeration 1 1
+
+lhrwgt_id 'c'
+lhrwgt_descr 'muR=0.10000E+01 muF=0.10000E+01'
+lhrwgt_group_name 'scale_variation'
+lhrwgt_group_combine 'envelope'
+
+computing weights for 9 scale variations
+
+
+ doing scale 1, 1
+
+
+ doing scale 1, 2
+
+
+ doing scale 1, 0.5
+
+
+ doing scale 2, 1
+
+
+ doing scale 2, 2
+
+
+ doing scale 2, 0.5
+
+
+ doing scale 0.5, 1
+
+
+ doing scale 0.5, 2
+
+
+ doing scale 0.5, 0.5
+
+
+computing weights for 103 NNPDF3.0 nlo variations with alphas
+
+
+ PDF set 292200
+
+ PDF set 292201
+
+ PDF set 292202
+
+ PDF set 292203
+
+ PDF set 292204
+
+ PDF set 292205
+
+ PDF set 292206
+
+ PDF set 292207
+
+ PDF set 292208
+
+ PDF set 292209
+
+ PDF set 292210
+
+ PDF set 292211
+
+ PDF set 292212
+
+ PDF set 292213
+
+ PDF set 292214
+
+ PDF set 292215
+
+ PDF set 292216
+
+ PDF set 292217
+
+ PDF set 292218
+
+ PDF set 292219
+
+ PDF set 292220
+
+ PDF set 292221
+
+ PDF set 292222
+
+ PDF set 292223
+
+ PDF set 292224
+
+ PDF set 292225
+
+ PDF set 292226
+
+ PDF set 292227
+
+ PDF set 292228
+
+ PDF set 292229
+
+ PDF set 292230
+
+ PDF set 292231
+
+ PDF set 292232
+
+ PDF set 292233
+
+ PDF set 292234
+
+ PDF set 292235
+
+ PDF set 292236
+
+ PDF set 292237
+
+ PDF set 292238
+
+ PDF set 292239
+
+ PDF set 292240
+
+ PDF set 292241
+
+ PDF set 292242
+
+ PDF set 292243
+
+ PDF set 292244
+
+ PDF set 292245
+
+ PDF set 292246
+
+ PDF set 292247
+
+ PDF set 292248
+
+ PDF set 292249
+
+ PDF set 292250
+
+ PDF set 292251
+
+ PDF set 292252
+
+ PDF set 292253
+
+ PDF set 292254
+
+ PDF set 292255
+
+ PDF set 292256
+
+ PDF set 292257
+
+ PDF set 292258
+
+ PDF set 292259
+
+ PDF set 292260
+
+ PDF set 292261
+
+ PDF set 292262
+
+ PDF set 292263
+
+ PDF set 292264
+
+ PDF set 292265
+
+ PDF set 292266
+
+ PDF set 292267
+
+ PDF set 292268
+
+ PDF set 292269
+
+ PDF set 292270
+
+ PDF set 292271
+
+ PDF set 292272
+
+ PDF set 292273
+
+ PDF set 292274
+
+ PDF set 292275
+
+ PDF set 292276
+
+ PDF set 292277
+
+ PDF set 292278
+
+ PDF set 292279
+
+ PDF set 292280
+
+ PDF set 292281
+
+ PDF set 292282
+
+ PDF set 292283
+
+ PDF set 292284
+
+ PDF set 292285
+
+ PDF set 292286
+
+ PDF set 292287
+
+ PDF set 292288
+
+ PDF set 292289
+
+ PDF set 292290
+
+ PDF set 292291
+
+ PDF set 292292
+
+ PDF set 292293
+
+ PDF set 292294
+
+ PDF set 292295
+
+ PDF set 292296
+
+ PDF set 292297
+
+ PDF set 292298
+
+ PDF set 292299
+
+ PDF set 292300
+
+ PDF set 292301
+
+ PDF set 292302
+
+computing weights for 103 NNPDF3.1 nlo variations with alphas
+
+
+ PDF set 303400
+
+ PDF set 303401
+
+ PDF set 303402
+
+ PDF set 303403
+
+ PDF set 303404
+
+ PDF set 303405
+
+ PDF set 303406
+
+ PDF set 303407
+
+ PDF set 303408
+
+ PDF set 303409
+
+ PDF set 303410
+
+ PDF set 303411
+
+ PDF set 303412
+
+ PDF set 303413
+
+ PDF set 303414
+
+ PDF set 303415
+
+ PDF set 303416
+
+ PDF set 303417
+
+ PDF set 303418
+
+ PDF set 303419
+
+ PDF set 303420
+
+ PDF set 303421
+
+ PDF set 303422
+
+ PDF set 303423
+
+ PDF set 303424
+
+ PDF set 303425
+
+ PDF set 303426
+
+ PDF set 303427
+
+ PDF set 303428
+
+ PDF set 303429
+
+ PDF set 303430
+
+ PDF set 303431
+
+ PDF set 303432
+
+ PDF set 303433
+
+ PDF set 303434
+
+ PDF set 303435
+
+ PDF set 303436
+
+ PDF set 303437
+
+ PDF set 303438
+
+ PDF set 303439
+
+ PDF set 303440
+
+ PDF set 303441
+
+ PDF set 303442
+
+ PDF set 303443
+
+ PDF set 303444
+
+ PDF set 303445
+
+ PDF set 303446
+
+ PDF set 303447
+
+ PDF set 303448
+
+ PDF set 303449
+
+ PDF set 303450
+
+ PDF set 303451
+
+ PDF set 303452
+
+ PDF set 303453
+
+ PDF set 303454
+
+ PDF set 303455
+
+ PDF set 303456
+
+ PDF set 303457
+
+ PDF set 303458
+
+ PDF set 303459
+
+ PDF set 303460
+
+ PDF set 303461
+
+ PDF set 303462
+
+ PDF set 303463
+
+ PDF set 303464
+
+ PDF set 303465
+
+ PDF set 303466
+
+ PDF set 303467
+
+ PDF set 303468
+
+ PDF set 303469
+
+ PDF set 303470
+
+ PDF set 303471
+
+ PDF set 303472
+
+ PDF set 303473
+
+ PDF set 303474
+
+ PDF set 303475
+
+ PDF set 303476
+
+ PDF set 303477
+
+ PDF set 303478
+
+ PDF set 303479
+
+ PDF set 303480
+
+ PDF set 303481
+
+ PDF set 303482
+
+ PDF set 303483
+
+ PDF set 303484
+
+ PDF set 303485
+
+ PDF set 303486
+
+ PDF set 303487
+
+ PDF set 303488
+
+ PDF set 303489
+
+ PDF set 303490
+
+ PDF set 303491
+
+ PDF set 303492
+
+ PDF set 303493
+
+ PDF set 303494
+
+ PDF set 303495
+
+ PDF set 303496
+
+ PDF set 303497
+
+ PDF set 303498
+
+ PDF set 303499
+
+ PDF set 303500
+
+computing weights for 56+1 CT14 nlo PDF variations
+
+
+ PDF set 13100
+
+ PDF set 13101
+
+ PDF set 13102
+
+ PDF set 13103
+
+ PDF set 13104
+
+ PDF set 13105
+
+ PDF set 13106
+
+ PDF set 13107
+
+ PDF set 13108
+
+ PDF set 13109
+
+ PDF set 13110
+
+ PDF set 13111
+
+ PDF set 13112
+
+ PDF set 13113
+
+ PDF set 13114
+
+ PDF set 13115
+
+ PDF set 13116
+
+ PDF set 13117
+
+ PDF set 13118
+
+ PDF set 13119
+
+ PDF set 13120
+
+ PDF set 13121
+
+ PDF set 13122
+
+ PDF set 13123
+
+ PDF set 13124
+
+ PDF set 13125
+
+ PDF set 13126
+
+ PDF set 13127
+
+ PDF set 13128
+
+ PDF set 13129
+
+ PDF set 13130
+
+ PDF set 13131
+
+ PDF set 13132
+
+ PDF set 13133
+
+ PDF set 13134
+
+ PDF set 13135
+
+ PDF set 13136
+
+ PDF set 13137
+
+ PDF set 13138
+
+ PDF set 13139
+
+ PDF set 13140
+
+ PDF set 13141
+
+ PDF set 13142
+
+ PDF set 13143
+
+ PDF set 13144
+
+ PDF set 13145
+
+ PDF set 13146
+
+ PDF set 13147
+
+ PDF set 13148
+
+ PDF set 13149
+
+ PDF set 13150
+
+ PDF set 13151
+
+ PDF set 13152
+
+ PDF set 13153
+
+ PDF set 13154
+
+ PDF set 13155
+
+ PDF set 13156
+
+computing weights for CT14 nlo alphas=0.117 variation
+
+
+ PDF set 13164
+
+computing weights for CT14 nlo alphas=0.119 variation
+
+
+ PDF set 13166
+
+computing weights for 50+1 MMHT2014nlo68clas118 PDF variations
+
+
+ PDF set 25200
+
+ PDF set 25201
+
+ PDF set 25202
+
+ PDF set 25203
+
+ PDF set 25204
+
+ PDF set 25205
+
+ PDF set 25206
+
+ PDF set 25207
+
+ PDF set 25208
+
+ PDF set 25209
+
+ PDF set 25210
+
+ PDF set 25211
+
+ PDF set 25212
+
+ PDF set 25213
+
+ PDF set 25214
+
+ PDF set 25215
+
+ PDF set 25216
+
+ PDF set 25217
+
+ PDF set 25218
+
+ PDF set 25219
+
+ PDF set 25220
+
+ PDF set 25221
+
+ PDF set 25222
+
+ PDF set 25223
+
+ PDF set 25224
+
+ PDF set 25225
+
+ PDF set 25226
+
+ PDF set 25227
+
+ PDF set 25228
+
+ PDF set 25229
+
+ PDF set 25230
+
+ PDF set 25231
+
+ PDF set 25232
+
+ PDF set 25233
+
+ PDF set 25234
+
+ PDF set 25235
+
+ PDF set 25236
+
+ PDF set 25237
+
+ PDF set 25238
+
+ PDF set 25239
+
+ PDF set 25240
+
+ PDF set 25241
+
+ PDF set 25242
+
+ PDF set 25243
+
+ PDF set 25244
+
+ PDF set 25245
+
+ PDF set 25246
+
+ PDF set 25247
+
+ PDF set 25248
+
+ PDF set 25249
+
+ PDF set 25250
+
+computing weights for 5 MMHT2014nlo68cl 5 alphas variations
+
+
+ PDF set 25260
+
+ PDF set 25261
+
+ PDF set 25262
+
+ PDF set 25263
+
+ PDF set 25264
+
+ finished computing weights ..
+
+-rw-r--r--. 1 aandriat zh 14306415 Jul 21 15:14 cmsgrid_final.lhe
+/pool/lsf/aandriat/60435880/wmm/lheevent/powhegbox_W
+Output ready with cmsgrid_final.lhe at /pool/lsf/aandriat/60435880/wmm/lheevent
+End of job on  Fri Jul 21 15:14:12 CEST 2017
+21-Jul-2017 15:14:32 CEST  Initiating request to open LHE file cmsgrid_final.lhe
+21-Jul-2017 15:14:32 CEST  Successfully opened LHE file cmsgrid_final.lhe
+%MSG-w LogicError:  Pythia8HadronizerFilter:generator@beginRun  21-Jul-2017 15:14:32 CEST Run: 1
+::getByLabel: An attempt was made to read a Run product before endRun() was called.
+The product is of type 'LHERunInfoProduct'.
+The specified ModuleLabel was 'externalLHEProducer'.
+The specified productInstanceName was ''.
+
+%MSG
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 1.300e+04 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Les Houches User Process(es)                  9999 |   8.391e-06 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Multiparton Interactions Initialization  ---------* 
+ |                                                                  | 
+ |                   sigmaNonDiffractive =    56.79 mb              | 
+ |                                                                  | 
+ |    pT0 =  2.81 gives sigmaInteraction =   267.53 mb: accepted    | 
+ |                                                                  | 
+ *-------  End PYTHIA Multiparton Interactions Initialization  -----* 
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Beams:frameType                               |                        5 |            1           1           5 | 
+ | Check:epTolErr                                |                0.0100000 |   1.0000e-04                         | 
+ | Main:timesAllowErrors                         |                     1000 |           10           0             | 
+ | MultipartonInteractions:ecmPow                |                  0.25208 |      0.21500         0.0     0.50000 | 
+ | MultipartonInteractions:expPow                |                  1.60000 |      1.85000     0.40000    10.00000 | 
+ | MultipartonInteractions:pT0Ref                |                  2.40240 |      2.28000     0.50000    10.00000 | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | ParticleDecays:allowPhotonRadiation           |                       on |          off                         | 
+ | ParticleDecays:limitTau0                      |                       on |          off                         | 
+ | SLHA:minMassSM                                |                 1000.000 |    100.00000                         | 
+ | Tune:preferLHAPDF                             |                        2 |            1           0           2 | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | ParticleDecays:allowPhotonRadiation           |                       on |          off                         | 
+ | ParticleDecays:limitTau0                      |                       on |          off                         | 
+ | ProcessLevel:all                              |                      off |           on                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+Begin processing the 1st record. Run 1, Event 1, LumiSection 1 at 21-Jul-2017 15:14:34.064 CEST
+
+ --------  LHA event information and listing  ---------------------------------------------------------------------- 
+
+    process =    10013    weight =   1.0000e+00     scale =   1.2299e+01 (GeV) 
+                        alpha_em =  -1.0000e+00    alpha_strong =   1.8591e-01
+
+    Participating Particles 
+    no        id stat     mothers     colours      p_x        p_y        p_z         e          m        tau    spin 
+     1         1   -1     0     0   501     0      0.000      0.000     19.549     19.549      0.000   0.000   9.000
+     2        -2   -1     0     0     0   511      0.000      0.000   -115.531    115.531      0.000   0.000   9.000
+     3       -24    2     1     2     0     0     11.569      4.175    -75.305    111.022     80.646   0.000   9.000
+     4        13    1     3     3     0     0     26.057    -20.537     -3.076     33.320      0.106   0.000   9.000
+     5       -14    1     3     3     0     0    -14.488     24.712    -72.229     77.702      0.000   0.000   9.000
+     6        21    1     1     2   501   511    -11.569     -4.175    -20.677     24.059      0.000   0.000   9.000
+
+     pdf: id1 =    1 id2 =   -2 x1 = 2.716e-03 x2 = 1.417e-02 scalePDF = 8.065e+01 pdf1 = 1.022e+00 pdf2 = 4.369e-01
+
+ --------  End LHA event information and listing  ------------------------------------------------------------------ 
+
+ --------  PYTHIA Info Listing  ---------------------------------------- 
+ 
+ Beam A: id =   2212, pz =  6.500e+03, e =  6.500e+03, m =  9.383e-01.
+ Beam B: id =   2212, pz = -6.500e+03, e =  6.500e+03, m =  9.383e-01.
+
+ In 1: id =    1, x =  2.716e-03, pdf =  1.022e+00 at Q2 =  6.504e+03.
+ In 2: id =   -2, x =  1.417e-02, pdf =  4.369e-01 at same Q2.
+ Warning: above flavour/x info does not match incoming partons in event!
+
+ Process Les Houches User Process(es) with code 9999 is 2 -> 2.
+ Subprocess user process 10013 with code 10013 is 2 -> 2.
+ It has sHat =  9.034e+03,    tHat = -7.813e+02,    uHat = -1.749e+03,
+       pTHat =  1.230e+01,   m3Hat =  8.065e+01,   m4Hat =  2.384e-07,
+    thetaHat =  1.178e+00,  phiHat =  3.463e-01.
+     alphaEM =  7.644e-03,  alphaS =  1.859e-01    at Q2 =  1.513e+02.
+
+ Impact parameter b =  1.209e+00 gives enhancement factor =  2.631e-01.
+ Max pT scale for MPI =  1.300e+04, ISR =  1.230e+01, FSR =  1.230e+01.
+ Number of MPI =     2, ISR =     4, FSRproc =     6, FSRreson =     1.
+
+ --------  End PYTHIA Info Listing  ------------------------------------
+
+ --------  PYTHIA Event Listing  (hard process)  -----------------------------------------------------------------------------------
+ 
+    no        id   name            status     mothers   daughters     colours      p_x        p_y        p_z         e          m 
+     0        90   (system)           -11     0     0     0     0     0     0      0.000      0.000      0.000  13000.000  13000.000
+     1      2212   (p+)               -12     0     0     3     0     0     0      0.000      0.000   6500.000   6500.000      0.938
+     2      2212   (p+)               -12     0     0     4     0     0     0      0.000      0.000  -6500.000   6500.000      0.938
+     3         1   (d)                -21     1     0     5     6   501     0      0.000      0.000     19.549     19.549      0.000
+     4        -2   (ubar)             -21     2     0     5     6     0   511      0.000      0.000   -115.531    115.531      0.000
+     5       -24   (W-)               -22     3     4     7     8     0     0     11.569      4.175    -75.305    111.022     80.646
+     6        21   g                   23     3     4     0     0   501   511    -11.569     -4.175    -20.677     24.059      0.000
+     7        13   mu-                 23     5     0     0     0     0     0     26.057    -20.537     -3.076     33.320      0.106
+     8       -14   nu_mubar            23     5     0     0     0     0     0    -14.488     24.712    -72.229     77.702      0.000
+                                   Charge sum: -1.000           Momentum sum:      0.000      0.000    -95.982    135.080     95.048
+
+ --------  End PYTHIA Event Listing  -----------------------------------------------------------------------------------------------
+
+ --------  PYTHIA Info Listing  ---------------------------------------- 
+ 
+ Beam A: id =   2212, pz =  6.500e+03, e =  6.500e+03, m =  9.383e-01.
+ Beam B: id =   2212, pz = -6.500e+03, e =  6.500e+03, m =  9.383e-01.
+
+ In 1: id =    1, x =  2.716e-03, pdf =  1.022e+00 at Q2 =  6.504e+03.
+ In 2: id =   -2, x =  1.417e-02, pdf =  4.369e-01 at same Q2.
+ Warning: above flavour/x info does not match incoming partons in event!
+
+ Process Les Houches User Process(es) with code 9999 is 2 -> 2.
+ Subprocess user process 10013 with code 10013 is 2 -> 2.
+ It has sHat =  9.034e+03,    tHat = -7.813e+02,    uHat = -1.749e+03,
+       pTHat =  1.230e+01,   m3Hat =  8.065e+01,   m4Hat =  2.384e-07,
+    thetaHat =  1.178e+00,  phiHat =  3.463e-01.
+     alphaEM =  7.644e-03,  alphaS =  1.859e-01    at Q2 =  1.513e+02.
+
+ Impact parameter b =  1.209e+00 gives enhancement factor =  2.631e-01.
+ Max pT scale for MPI =  1.300e+04, ISR =  1.230e+01, FSR =  1.230e+01.
+ Number of MPI =     2, ISR =     4, FSRproc =     6, FSRreson =     1.
+
+ --------  End PYTHIA Info Listing  ------------------------------------
+
+ --------  PYTHIA Event Listing  (complete event)  ---------------------------------------------------------------------------------
+ 
+    no        id   name            status     mothers   daughters     colours      p_x        p_y        p_z         e          m 
+     0        90   (system)           -11     0     0     0     0     0     0      0.000      0.000      0.000  13000.000  13000.000
+     1      2212   (p+)               -12     0     0    53     0     0     0      0.000      0.000   6500.000   6500.000      0.938
+     2      2212   (p+)               -12     0     0    54     0     0     0      0.000      0.000  -6500.000   6500.000      0.938
+     3         1   (d)                -21     7     7     5     6   501     0      0.000      0.000     19.549     19.549      0.000
+     4        -2   (ubar)             -21     8     0     5     6     0   511      0.000      0.000   -115.531    115.531      0.000
+     5       -24   (W-)               -22     3     4     9     9     0     0     11.569      4.175    -75.305    111.022     80.646
+     6        21   (g)                -23     3     4    10    10   501   511    -11.569     -4.175    -20.677     24.059      0.000
+     7         1   (d)                -42    12     0     3     3   501     0     -0.000     -0.000     19.549     19.549      0.000
+     8        21   (g)                -41    13    13    11     4   512   511      0.000      0.000  -1179.601   1179.601      0.000
+     9       -24   (W-)               -44     5     5    14    14     0     0     16.672      8.057    -75.655    112.118     80.646
+    10        21   (g)                -44     6     6    15    15   501   511    -10.344     -3.243    -21.239     23.845      0.000
+    11         2   (u)                -43     8     0    16    16   512     0     -6.328     -4.814  -1063.158   1063.188      0.330
+    12         1   (d)                -41    22    22    17     7   513     0      0.000     -0.000     20.762     20.762      0.000
+    13        21   (g)                -42    23     0     8     8   512   511     -0.000     -0.000  -1179.601   1179.601      0.000
+    14       -24   (W-)               -44     9     9    24    24     0     0     22.155      8.088    -77.750    114.478     80.646
+    15        21   (g)                -44    10    10    25    25   501   511     -9.952     -3.240    -19.548     22.174      0.000
+    16         2   (u)                -44    11    11    26    26   512     0     -6.323     -4.814  -1054.534   1054.564      0.330
+    17        21   (g)                -43    12     0    27    27   513   501     -5.880     -0.034     -7.006      9.147      0.000
+    18        21   (g)                -31    35     0    20    21   514   515      0.000      0.000      0.622      0.622      0.000
+    19        21   (g)                -31    36    36    20    21   515   516      0.000      0.000    -48.341     48.341      0.000
+    20        21   (g)                -33    18    19    31    31   514   517      0.080     -1.424     -0.221      1.444      0.000
+    21        21   (g)                -33    18    19    29    30   517   516     -0.080      1.424    -47.498     47.519      0.000
+    22         1   (d)                -42    49    49    12    12   513     0      0.000      0.000     20.762     20.762      0.000
+    23        21   (g)                -41    43    43    28    13   518   511     -0.000     -0.000  -1515.957   1515.957      0.000
+    24       -24   (W-)               -44    14    14    55    55     0     0     22.216      8.165    -77.748    114.493     80.646
+    25        21   (g)                -44    15    15    32    33   501   511     -9.939     -3.224    -19.554     22.171      0.000
+    26         2   (u)                -44    16    16    57    57   512     0     -5.652     -3.967  -1054.609   1054.631      0.330
+    27        21   (g)                -44    17    17    34    34   513   501     -5.875     -0.027     -7.009      9.145      0.000
+    28        21   (g)                -43    23     0    41    42   518   512     -0.751     -0.948   -336.276    336.278      0.000
+    29        21   (g)                -51    21     0    38    38   519   516     -0.897      1.140    -42.618     42.643      0.000
+    30        21   (g)                -51    21     0    39    39   517   519      0.823      0.196     -4.894      4.966      0.000
+    31        21   (g)                -52    20    20    37    37   514   517      0.075     -1.336     -0.207      1.354      0.000
+    32        21   (g)                -51    25     0    56    56   520   511     -6.281     -2.489    -13.403     15.009      0.000
+    33        21   (g)                -51    25     0    60    60   501   520     -5.263     -0.742     -8.067      9.660      0.000
+    34        21   (g)                -52    27    27    47    48   513   501     -4.270     -0.020     -5.094      6.647      0.000
+    35        21   (g)                -41    64    64    40    18   514   521     -0.000      0.000      4.197      4.197      0.000
+    36        21   (g)                -42    65    65    19    19   515   516      0.000     -0.000    -48.341     48.341      0.000
+    37        21   (g)                -44    31    31    44    45   514   517      0.100     -2.135     -1.399      2.554      0.000
+    38        21   (g)                -44    29    29    67    67   519   516     -0.897      1.123    -41.505     41.530      0.000
+    39        21   (g)                -44    30    30    46    46   517   519      0.824      0.146     -4.757      4.831      0.000
+    40        21   (g)                -43    35     0    69    69   515   521     -0.028      0.866      3.518      3.623      0.000
+    41        -2   (ubar)             -51    28     0    59    59     0   512     -0.503      0.100   -225.687    225.687      0.330
+    42         2   (u)                -51    28     0    61    61   518     0     -0.247     -1.048   -470.299    470.301      0.330
+    43        21   (g)                -53    54    54    23    23   518   511     -0.000     -0.000  -1875.667   1875.667      0.000
+    44        21   (g)                -51    37     0    66    66   514   522     -0.335     -1.178     -0.562      1.347      0.000
+    45        21   (g)                -51    37     0    70    70   522   517      0.524     -0.941     -1.348      1.725      0.000
+    46        21   (g)                -52    39    39    68    68   517   519      0.736      0.130     -4.247      4.312      0.000
+    47        21   (g)                -51    34     0    58    58   523   501     -3.216     -0.015     -4.623      5.632      0.000
+    48        21   (g)                -51    34     0    50    51   513   523     -1.054     -0.005     -0.370      1.116      0.000
+    49         1   (d)                -53    52    52    22    22   513     0      0.000      0.000     20.863     20.863      0.000
+    50        21   (g)                -51    48     0    62    62   524   523     -0.142      0.173     -0.411      0.468      0.000
+    51        21   (g)                -51    48     0    63    63   513   524     -0.911     -0.177      0.406      1.013      0.000
+    52         1   (d)                -53    53    53    49    49   513     0      0.000      0.000     21.227     21.227      0.000
+    53         1   (d)                -61     1     0    52    52   515     0      0.283      0.488     21.223     21.230      0.000
+    54        21   (g)                -61     2     0    43    43   518   511     -3.174     -1.329  -1875.715   1875.719      0.000
+    55       -24   (W-)               -62    24    24    76    77     0     0     22.298      8.520    -78.018    114.719     80.646
+    56        21   (g)                -62    32    32    99    99   520   517     -6.294     -2.481    -13.326     14.945      0.000
+    57         2   (u)                -62    26    26    84    84   512     0     -7.436     -4.714  -1054.546   1054.583      0.330
+    58        21   (g)                -62    47    47    81     0   523   501     -3.218     -0.007     -4.599      5.613      0.000
+    59        -2   (ubar)             -62    41    41    85    85     0   512     -0.885     -0.060   -225.690    225.692      0.330
+    60        21   (g)                -62    33    33    81     0   501   520     -5.267     -0.730     -8.019      9.622      0.000
+    61         2   (u)                -62    42    42    89    89   518     0     -1.043     -1.381   -470.297    470.301      0.330
+    62        21   (g)                -62    50    50   101   101   524   523     -0.142      0.173     -0.412      0.469      0.000
+    63        21   (g)                -62    51    51   104   104   513   514     -0.902     -0.161      0.414      1.006      0.000
+    64        21   (g)                -61     1     0    35    35   516   516      1.515     -1.440      3.930      4.452      0.000
+    65        21   (g)                -61     2     0    36    36   521   521      1.600      1.892    -48.343     48.406      0.000
+    66        21   (g)                -62    44    44   103   103   514   522     -0.161     -1.268     -0.758      1.487      0.000
+    67        21   (g)                -62    38    38    97    97   519   511      0.473      2.732    -41.146     41.239      0.000
+    68        21   (g)                -62    46    46    98    98   517   519      0.893      0.289     -4.345      4.445      0.000
+    69        21   (g)                -62    40    40   105   105   515   513      1.260     -0.363      3.462      3.702      0.000
+    70        21   (g)                -62    45    45   102   102   522   524      0.649     -0.938     -1.626      1.986      0.000
+    71      2203   (uu_1)             -63     1     0   106   106     0   515     -0.339     -0.123   4905.112   4905.112      0.771
+    72         1   (d)                -63     1     0    82    83   526     0     -0.713      0.933   1276.071   1276.072      0.330
+    73        -1   (dbar)             -63     1     0    82    83     0   526     -0.746      0.141    293.364    293.365      0.330
+    74         2   (u)                -63     2     0    96    96   511     0      0.894     -0.089   -208.425    208.427      0.330
+    75      2101   (ud_0)             -63     2     0    90    90     0   518      0.680     -0.474  -4367.217   4367.217      0.579
+    76        13   (mu-)              -23    55     0    78    79     0     0     29.317    -19.217     -3.900     35.270      0.106
+    77       -14   (nu_mubar)         -23    55     0    80    80     0     0     -7.019     27.736    -74.118     79.448      0.000
+    78        13   mu-                 51    76     0     0     0     0     0     29.172    -19.115     -3.877     35.092      0.106
+    79        22   gamma               51    76     0     0     0     0     0      0.145     -0.102     -0.023      0.179      0.000
+    80       -14   nu_mubar            52    77    77     0     0     0     0     -7.019     27.736    -74.118     79.448      0.000
+    81        21   (g)                -73    58    60   100   100   523   520     -8.485     -0.737    -12.618     15.235      0.589
+    82       111   (pi0)              -82    72    73   160   161     0     0     -0.491      0.542   1059.085   1059.085      0.135
+    83       221   (eta)              -82    72    73   162   163     0     0     -0.968      0.533    510.350    510.352      0.548
+    84         2   (u)                -71    57    57    86    88   512     0     -7.436     -4.714  -1054.546   1054.583      0.330
+    85        -2   (ubar)             -71    59    59    86    88     0   512     -0.885     -0.060   -225.690    225.692      0.330
+    86       211   pi+                 83    84    85     0     0     0     0     -2.114     -1.451   -355.263    355.272      0.140
+    87      -213   (rho-)             -83    84    85   131   132     0     0     -5.914     -3.500   -831.067    831.096      0.789
+    88       111   (pi0)              -84    84    85   164   165     0     0     -0.293      0.177    -93.906     93.907      0.135
+    89         2   (u)                -71    61    61    91    95   518     0     -1.043     -1.381   -470.297    470.301      0.330
+    90      2101   (ud_0)             -71    75    75    91    95     0   518      0.680     -0.474  -4367.217   4367.217      0.579
+    91       211   pi+                 83    89    90     0     0     0     0     -0.866     -1.120   -456.950    456.952      0.140
+    92       223   (omega)            -83    89    90   166   168     0     0      0.347     -0.143   -879.146    879.146      0.785
+    93      -211   pi-                 83    89    90     0     0     0     0      0.266     -0.088  -1244.577   1244.578      0.140
+    94       211   pi+                 84    89    90     0     0     0     0     -0.433     -0.217   -275.760    275.761      0.140
+    95      2112   n0                  84    89    90     0     0     0     0      0.323     -0.287  -1981.080   1981.081      0.940
+    96         2   (u)                -71    74    74   107   130   511     0      0.894     -0.089   -208.425    208.427      0.330
+    97        21   (g)                -71    67    67   107   130   519   511      0.473      2.732    -41.146     41.239      0.000
+    98        21   (g)                -71    68    68   107   130   517   519      0.893      0.289     -4.345      4.445      0.000
+    99        21   (g)                -71    56    56   107   130   520   517     -6.294     -2.481    -13.326     14.945      0.000
+   100        21   (g)                -71    81    81   107   130   523   520     -8.485     -0.737    -12.618     15.235      0.589
+   101        21   (g)                -71    62    62   107   130   524   523     -0.142      0.173     -0.412      0.469      0.000
+   102        21   (g)                -71    70    70   107   130   522   524      0.649     -0.938     -1.626      1.986      0.000
+   103        21   (g)                -71    66    66   107   130   514   522     -0.161     -1.268     -0.758      1.487      0.000
+   104        21   (g)                -71    63    63   107   130   513   514     -0.902     -0.161      0.414      1.006      0.000
+   105        21   (g)                -71    69    69   107   130   515   513      1.260     -0.363      3.462      3.702      0.000
+   106      2203   (uu_1)             -71    71    71   107   130     0   515     -0.339     -0.123   4905.112   4905.112      0.771
+   107       323   (K*+)              -83    96   106   133   134     0     0      0.294     -0.219   -129.660    129.663      0.878
+   108      -313   (K*bar0)           -83    96   106   135   136     0     0      0.925      0.835    -46.775     46.798      0.814
+   109      -211   pi-                 83    96   106     0     0     0     0     -0.521      0.296    -35.017     35.022      0.140
+   110       211   pi+                 83    96   106     0     0     0     0      0.429      0.380     -8.651      8.671      0.140
+   111      -213   (rho-)             -83    96   106   137   138     0     0      0.247      0.567    -15.808     15.852      1.004
+   112      2214   (Delta+)           -83    96   106   139   140     0     0      0.423      0.956    -14.888     14.974      1.212
+   113     -2114   (Deltabar0)        -83    96   106   141   142     0     0     -0.390     -0.578     -4.490      4.706      1.228
+   114       113   (rho0)             -83    96   106   143   144     0     0     -2.743     -0.556     -5.084      5.834      0.597
+   115      2112   n0                  83    96   106     0     0     0     0     -1.893     -0.280     -3.658      4.234      0.940
+   116     -2112   nbar0               83    96   106     0     0     0     0     -3.627     -0.439     -7.144      8.079      0.940
+   117      2112   n0                  83    96   106     0     0     0     0     -2.458     -0.983     -3.530      4.511      0.940
+   118     -2112   nbar0               83    96   106     0     0     0     0     -2.295      0.046     -3.970      4.681      0.940
+   119       223   (omega)            -83    96   106   169   171     0     0     -0.664     -1.620     -1.981      2.755      0.776
+   120      -211   pi-                 83    96   106     0     0     0     0     -0.104      0.242     -0.265      0.399      0.140
+   121       213   (rho+)             -83    96   106   145   146     0     0     -0.358     -0.614     -1.323      1.956      1.253
+   122      2112   n0                  83    96   106     0     0     0     0     -0.031     -0.418     -0.035      1.029      0.940
+   123       113   (rho0)             -84    96   106   147   148     0     0      0.520     -0.395      2.704      2.914      0.868
+   124     -2114   (Deltabar0)        -84    96   106   149   150     0     0      0.347     -0.032     14.148     14.202      1.186
+   125      -211   pi-                 84    96   106     0     0     0     0     -0.170     -0.123     26.033     26.034      0.140
+   126       211   pi+                 84    96   106     0     0     0     0      0.547     -0.043     45.621     45.624      0.140
+   127      -213   (rho-)             -84    96   106   151   152     0     0     -0.203     -0.018     61.972     61.977      0.756
+   128       213   (rho+)             -84    96   106   153   154     0     0     -0.211      0.667    226.450    226.452      0.800
+   129      -213   (rho-)             -84    96   106   155   156     0     0     -0.003     -0.074   1179.950   1179.950      0.694
+   130      2224   (Delta++)          -84    96   106   157   158     0     0     -0.215     -0.564   3351.733   3351.733      1.343
+   131      -211   pi-                 91    87     0     0     0     0     0     -3.700     -1.871   -470.993    471.011      0.140
+   132       111   (pi0)              -91    87     0   172   173     0     0     -2.214     -1.629   -360.074    360.085      0.135
+   133       311   (K0)               -91   107     0   159   159     0     0      0.337      0.078    -72.552     72.555      0.498
+   134       211   pi+                 91   107     0     0     0     0     0     -0.043     -0.297    -57.108     57.109      0.140
+   135      -321   K-                  91   108     0     0     0     0     0      0.873      0.694    -43.600     43.617      0.494
+   136       211   pi+                 91   108     0     0     0     0     0      0.052      0.141     -3.175      3.181      0.140
+   137      -211   pi-                 91   111     0     0     0     0     0     -0.144     -0.025     -9.587      9.589      0.140
+   138       111   (pi0)              -91   111     0   174   175     0     0      0.391      0.592     -6.221      6.262      0.135
+   139      2212   p+                  91   112     0     0     0     0     0      0.194      0.833    -13.157     13.218      0.938
+   140       111   (pi0)              -91   112     0   176   177     0     0      0.230      0.123     -1.731      1.756      0.135
+   141     -2212   pbar-               91   113     0     0     0     0     0     -0.088     -0.438     -3.580      3.728      0.938
+   142       211   pi+                 91   113     0     0     0     0     0     -0.302     -0.139     -0.910      0.979      0.140
+   143       211   pi+                 91   114     0     0     0     0     0     -1.366     -0.032     -2.224      2.614      0.140
+   144      -211   pi-                 91   114     0     0     0     0     0     -1.377     -0.524     -2.860      3.220      0.140
+   145       211   pi+                 91   121     0     0     0     0     0     -0.116      0.371     -0.458      0.617      0.140
+   146       111   (pi0)              -91   121     0   178   179     0     0     -0.242     -0.985     -0.865      1.340      0.135
+   147       211   pi+                 91   123     0     0     0     0     0      0.524     -0.613      2.195      2.343      0.140
+   148      -211   pi-                 91   123     0     0     0     0     0     -0.004      0.219      0.508      0.571      0.140
+   149     -2112   nbar0               91   124     0     0     0     0     0      0.360     -0.163     12.840     12.880      0.940
+   150       111   (pi0)              -91   124     0   180   181     0     0     -0.013      0.131      1.308      1.321      0.135
+   151      -211   pi-                 91   127     0     0     0     0     0     -0.413     -0.194     36.288     36.291      0.140
+   152       111   (pi0)              -91   127     0   182   183     0     0      0.209      0.176     25.684     25.686      0.135
+   153       211   pi+                 91   128     0     0     0     0     0     -0.437      0.588    189.956    189.958      0.140
+   154       111   (pi0)              -91   128     0   184   185     0     0      0.225      0.079     36.494     36.495      0.135
+   155      -211   pi-                 91   129     0     0     0     0     0     -0.147     -0.023   1068.579   1068.579      0.140
+   156       111   (pi0)              -91   129     0   186   187     0     0      0.144     -0.051    111.371    111.371      0.135
+   157      2212   p+                  91   130     0     0     0     0     0      0.087     -0.615   2399.924   2399.924      0.938
+   158       211   pi+                 91   130     0     0     0     0     0     -0.303      0.051    951.809    951.809      0.140
+   159       310   K_S0                91   133   133     0     0     0     0      0.337      0.078    -72.552     72.555      0.498
+   160        22   gamma               91    82     0     0     0     0     0     -0.370      0.313    702.969    702.969      0.000
+   161        22   gamma               91    82     0     0     0     0     0     -0.121      0.228    356.116    356.116      0.000
+   162        22   gamma               91    83     0     0     0     0     0     -0.373      0.234    102.454    102.455      0.000
+   163        22   gamma               91    83     0     0     0     0     0     -0.595      0.299    407.896    407.896      0.000
+   164        22   gamma               91    88     0     0     0     0     0     -0.289      0.132    -86.417     86.418      0.000
+   165        22   gamma               91    88     0     0     0     0     0     -0.004      0.045     -7.489      7.489      0.000
+   166       211   pi+                 91    92     0     0     0     0     0      0.050     -0.172   -351.354    351.354      0.140
+   167      -211   pi-                 91    92     0     0     0     0     0      0.397     -0.057   -379.603    379.603      0.140
+   168       111   (pi0)              -91    92     0   188   189     0     0     -0.100      0.085   -148.189    148.189      0.135
+   169       211   pi+                 91   119     0     0     0     0     0     -0.444     -0.560     -0.921      1.175      0.140
+   170      -211   pi-                 91   119     0     0     0     0     0     -0.002     -0.369     -0.181      0.434      0.140
+   171       111   (pi0)              -91   119     0   190   191     0     0     -0.217     -0.691     -0.878      1.146      0.135
+   172        22   gamma               91   132     0     0     0     0     0     -0.052     -0.017     -6.344      6.344      0.000
+   173        22   gamma               91   132     0     0     0     0     0     -2.162     -1.612   -353.730    353.740      0.000
+   174        22   gamma               91   138     0     0     0     0     0      0.364      0.472     -5.359      5.392      0.000
+   175        22   gamma               91   138     0     0     0     0     0      0.028      0.120     -0.862      0.871      0.000
+   176        22   gamma               91   140     0     0     0     0     0      0.239      0.090     -1.423      1.446      0.000
+   177        22   gamma               91   140     0     0     0     0     0     -0.010      0.033     -0.309      0.310      0.000
+   178        22   gamma               91   146     0     0     0     0     0     -0.162     -0.381     -0.347      0.540      0.000
+   179        22   gamma               91   146     0     0     0     0     0     -0.080     -0.604     -0.518      0.799      0.000
+   180        22   gamma               91   150     0     0     0     0     0     -0.027      0.035      0.095      0.105      0.000
+   181        22   gamma               91   150     0     0     0     0     0      0.014      0.096      1.213      1.217      0.000
+   182        22   gamma               91   152     0     0     0     0     0      0.017     -0.022      3.007      3.008      0.000
+   183        22   gamma               91   152     0     0     0     0     0      0.192      0.198     22.677     22.679      0.000
+   184        22   gamma               91   154     0     0     0     0     0      0.192      0.085     35.088     35.089      0.000
+   185        22   gamma               91   154     0     0     0     0     0      0.033     -0.006      1.406      1.406      0.000
+   186        22   gamma               91   156     0     0     0     0     0      0.088     -0.093     83.406     83.406      0.000
+   187        22   gamma               91   156     0     0     0     0     0      0.056      0.042     27.965     27.965      0.000
+   188        22   gamma               91   168     0     0     0     0     0     -0.042     -0.015    -86.040     86.040      0.000
+   189        22   gamma               91   168     0     0     0     0     0     -0.058      0.100    -62.149     62.149      0.000
+   190        22   gamma               91   171     0     0     0     0     0     -0.094     -0.476     -0.635      0.799      0.000
+   191        22   gamma               91   171     0     0     0     0     0     -0.123     -0.215     -0.243      0.347      0.000
+                                   Charge sum:  2.000           Momentum sum:      0.000      0.000     -0.000  13000.000  13000.000
+
+ --------  End PYTHIA Event Listing  -----------------------------------------------------------------------------------------------
+Begin processing the 2nd record. Run 1, Event 2, LumiSection 1 at 21-Jul-2017 15:14:34.129 CEST
+Begin processing the 3rd record. Run 1, Event 3, LumiSection 1 at 21-Jul-2017 15:14:34.238 CEST
+Begin processing the 4th record. Run 1, Event 4, LumiSection 1 at 21-Jul-2017 15:14:34.337 CEST
+Begin processing the 5th record. Run 1, Event 5, LumiSection 1 at 21-Jul-2017 15:14:34.351 CEST
+Begin processing the 6th record. Run 1, Event 6, LumiSection 1 at 21-Jul-2017 15:14:34.365 CEST
+Begin processing the 7th record. Run 1, Event 7, LumiSection 1 at 21-Jul-2017 15:14:34.532 CEST
+Begin processing the 8th record. Run 1, Event 8, LumiSection 1 at 21-Jul-2017 15:14:34.654 CEST
+Begin processing the 9th record. Run 1, Event 9, LumiSection 1 at 21-Jul-2017 15:14:34.678 CEST
+Begin processing the 10th record. Run 1, Event 10, LumiSection 1 at 21-Jul-2017 15:14:34.977 CEST
+Begin processing the 11th record. Run 1, Event 11, LumiSection 1 at 21-Jul-2017 15:14:35.006 CEST
+Begin processing the 12th record. Run 1, Event 12, LumiSection 1 at 21-Jul-2017 15:14:35.048 CEST
+Begin processing the 13th record. Run 1, Event 13, LumiSection 1 at 21-Jul-2017 15:14:35.121 CEST
+Begin processing the 14th record. Run 1, Event 14, LumiSection 1 at 21-Jul-2017 15:14:35.193 CEST
+Begin processing the 15th record. Run 1, Event 15, LumiSection 1 at 21-Jul-2017 15:14:35.286 CEST
+Begin processing the 16th record. Run 1, Event 16, LumiSection 1 at 21-Jul-2017 15:14:35.353 CEST
+Begin processing the 17th record. Run 1, Event 17, LumiSection 1 at 21-Jul-2017 15:14:35.558 CEST
+Begin processing the 18th record. Run 1, Event 18, LumiSection 1 at 21-Jul-2017 15:14:35.667 CEST
+Begin processing the 19th record. Run 1, Event 19, LumiSection 1 at 21-Jul-2017 15:14:35.785 CEST
+Begin processing the 20th record. Run 1, Event 20, LumiSection 1 at 21-Jul-2017 15:14:35.851 CEST
+Begin processing the 21st record. Run 1, Event 21, LumiSection 1 at 21-Jul-2017 15:14:35.917 CEST
+Begin processing the 22nd record. Run 1, Event 22, LumiSection 1 at 21-Jul-2017 15:14:35.995 CEST
+Begin processing the 23rd record. Run 1, Event 23, LumiSection 1 at 21-Jul-2017 15:14:36.111 CEST
+Begin processing the 24th record. Run 1, Event 24, LumiSection 1 at 21-Jul-2017 15:14:36.246 CEST
+Begin processing the 25th record. Run 1, Event 25, LumiSection 1 at 21-Jul-2017 15:14:36.329 CEST
+Begin processing the 26th record. Run 1, Event 26, LumiSection 1 at 21-Jul-2017 15:14:36.377 CEST
+Begin processing the 27th record. Run 1, Event 27, LumiSection 1 at 21-Jul-2017 15:14:36.398 CEST
+Begin processing the 28th record. Run 1, Event 28, LumiSection 1 at 21-Jul-2017 15:14:36.740 CEST
+Begin processing the 29th record. Run 1, Event 29, LumiSection 1 at 21-Jul-2017 15:14:36.987 CEST
+Begin processing the 30th record. Run 1, Event 30, LumiSection 1 at 21-Jul-2017 15:14:37.031 CEST
+Begin processing the 31st record. Run 1, Event 31, LumiSection 1 at 21-Jul-2017 15:14:37.077 CEST
+Begin processing the 32nd record. Run 1, Event 32, LumiSection 1 at 21-Jul-2017 15:14:37.109 CEST
+Begin processing the 33rd record. Run 1, Event 33, LumiSection 1 at 21-Jul-2017 15:14:37.163 CEST
+Begin processing the 34th record. Run 1, Event 34, LumiSection 1 at 21-Jul-2017 15:14:37.248 CEST
+Begin processing the 35th record. Run 1, Event 35, LumiSection 1 at 21-Jul-2017 15:14:37.379 CEST
+Begin processing the 36th record. Run 1, Event 36, LumiSection 1 at 21-Jul-2017 15:14:37.456 CEST
+Begin processing the 37th record. Run 1, Event 37, LumiSection 1 at 21-Jul-2017 15:14:37.617 CEST
+Begin processing the 38th record. Run 1, Event 38, LumiSection 1 at 21-Jul-2017 15:14:37.695 CEST
+Begin processing the 39th record. Run 1, Event 39, LumiSection 1 at 21-Jul-2017 15:14:37.747 CEST
+Begin processing the 40th record. Run 1, Event 40, LumiSection 1 at 21-Jul-2017 15:14:37.911 CEST
+Begin processing the 41st record. Run 1, Event 41, LumiSection 1 at 21-Jul-2017 15:14:37.935 CEST
+Begin processing the 42nd record. Run 1, Event 42, LumiSection 1 at 21-Jul-2017 15:14:38.159 CEST
+Begin processing the 43rd record. Run 1, Event 43, LumiSection 1 at 21-Jul-2017 15:14:38.254 CEST
+Begin processing the 44th record. Run 1, Event 44, LumiSection 1 at 21-Jul-2017 15:14:38.293 CEST
+Begin processing the 45th record. Run 1, Event 45, LumiSection 1 at 21-Jul-2017 15:14:38.304 CEST
+Begin processing the 46th record. Run 1, Event 46, LumiSection 1 at 21-Jul-2017 15:14:38.318 CEST
+Begin processing the 47th record. Run 1, Event 47, LumiSection 1 at 21-Jul-2017 15:14:38.348 CEST
+Begin processing the 48th record. Run 1, Event 48, LumiSection 1 at 21-Jul-2017 15:14:38.544 CEST
+Begin processing the 49th record. Run 1, Event 49, LumiSection 1 at 21-Jul-2017 15:14:38.568 CEST
+Begin processing the 50th record. Run 1, Event 50, LumiSection 1 at 21-Jul-2017 15:14:38.629 CEST
+Begin processing the 51st record. Run 1, Event 51, LumiSection 1 at 21-Jul-2017 15:14:38.769 CEST
+Begin processing the 52nd record. Run 1, Event 52, LumiSection 1 at 21-Jul-2017 15:14:38.845 CEST
+Begin processing the 53rd record. Run 1, Event 53, LumiSection 1 at 21-Jul-2017 15:14:38.941 CEST
+Begin processing the 54th record. Run 1, Event 54, LumiSection 1 at 21-Jul-2017 15:14:38.994 CEST
+Begin processing the 55th record. Run 1, Event 55, LumiSection 1 at 21-Jul-2017 15:14:39.129 CEST
+Begin processing the 56th record. Run 1, Event 56, LumiSection 1 at 21-Jul-2017 15:14:39.156 CEST
+Begin processing the 57th record. Run 1, Event 57, LumiSection 1 at 21-Jul-2017 15:14:39.327 CEST
+Begin processing the 58th record. Run 1, Event 58, LumiSection 1 at 21-Jul-2017 15:14:39.520 CEST
+Begin processing the 59th record. Run 1, Event 59, LumiSection 1 at 21-Jul-2017 15:14:39.542 CEST
+Begin processing the 60th record. Run 1, Event 60, LumiSection 1 at 21-Jul-2017 15:14:39.651 CEST
+Begin processing the 61st record. Run 1, Event 61, LumiSection 1 at 21-Jul-2017 15:14:39.782 CEST
+Begin processing the 62nd record. Run 1, Event 62, LumiSection 1 at 21-Jul-2017 15:14:39.828 CEST
+Begin processing the 63rd record. Run 1, Event 63, LumiSection 1 at 21-Jul-2017 15:14:39.890 CEST
+Begin processing the 64th record. Run 1, Event 64, LumiSection 1 at 21-Jul-2017 15:14:40.045 CEST
+Begin processing the 65th record. Run 1, Event 65, LumiSection 1 at 21-Jul-2017 15:14:40.068 CEST
+Begin processing the 66th record. Run 1, Event 66, LumiSection 1 at 21-Jul-2017 15:14:40.101 CEST
+Begin processing the 67th record. Run 1, Event 67, LumiSection 1 at 21-Jul-2017 15:14:40.246 CEST
+Begin processing the 68th record. Run 1, Event 68, LumiSection 1 at 21-Jul-2017 15:14:40.279 CEST
+ PYTHIA Error in StringFragmentation::fragment: stuck in joining  
+ PYTHIA Error in Pythia::next: hadronLevel failed; try again  
+Begin processing the 69th record. Run 1, Event 69, LumiSection 1 at 21-Jul-2017 15:14:40.355 CEST
+Begin processing the 70th record. Run 1, Event 70, LumiSection 1 at 21-Jul-2017 15:14:40.460 CEST
+Begin processing the 71st record. Run 1, Event 71, LumiSection 1 at 21-Jul-2017 15:14:40.592 CEST
+Begin processing the 72nd record. Run 1, Event 72, LumiSection 1 at 21-Jul-2017 15:14:40.615 CEST
+Begin processing the 73rd record. Run 1, Event 73, LumiSection 1 at 21-Jul-2017 15:14:40.685 CEST
+Begin processing the 74th record. Run 1, Event 74, LumiSection 1 at 21-Jul-2017 15:14:40.730 CEST
+Begin processing the 75th record. Run 1, Event 75, LumiSection 1 at 21-Jul-2017 15:14:40.827 CEST
+Begin processing the 76th record. Run 1, Event 76, LumiSection 1 at 21-Jul-2017 15:14:40.939 CEST
+Begin processing the 77th record. Run 1, Event 77, LumiSection 1 at 21-Jul-2017 15:14:40.971 CEST
+Begin processing the 78th record. Run 1, Event 78, LumiSection 1 at 21-Jul-2017 15:14:41.032 CEST
+Begin processing the 79th record. Run 1, Event 79, LumiSection 1 at 21-Jul-2017 15:14:41.091 CEST
+Begin processing the 80th record. Run 1, Event 80, LumiSection 1 at 21-Jul-2017 15:14:41.247 CEST
+Begin processing the 81st record. Run 1, Event 81, LumiSection 1 at 21-Jul-2017 15:14:41.487 CEST
+Begin processing the 82nd record. Run 1, Event 82, LumiSection 1 at 21-Jul-2017 15:14:41.494 CEST
+Begin processing the 83rd record. Run 1, Event 83, LumiSection 1 at 21-Jul-2017 15:14:41.534 CEST
+Begin processing the 84th record. Run 1, Event 84, LumiSection 1 at 21-Jul-2017 15:14:41.597 CEST
+Begin processing the 85th record. Run 1, Event 85, LumiSection 1 at 21-Jul-2017 15:14:41.684 CEST
+Begin processing the 86th record. Run 1, Event 86, LumiSection 1 at 21-Jul-2017 15:14:41.732 CEST
+Begin processing the 87th record. Run 1, Event 87, LumiSection 1 at 21-Jul-2017 15:14:41.925 CEST
+Begin processing the 88th record. Run 1, Event 88, LumiSection 1 at 21-Jul-2017 15:14:42.010 CEST
+Begin processing the 89th record. Run 1, Event 89, LumiSection 1 at 21-Jul-2017 15:14:42.052 CEST
+Begin processing the 90th record. Run 1, Event 90, LumiSection 1 at 21-Jul-2017 15:14:42.199 CEST
+Begin processing the 91st record. Run 1, Event 91, LumiSection 1 at 21-Jul-2017 15:14:42.282 CEST
+Begin processing the 92nd record. Run 1, Event 92, LumiSection 1 at 21-Jul-2017 15:14:42.308 CEST
+Begin processing the 93rd record. Run 1, Event 93, LumiSection 1 at 21-Jul-2017 15:14:42.375 CEST
+Begin processing the 94th record. Run 1, Event 94, LumiSection 1 at 21-Jul-2017 15:14:42.386 CEST
+Begin processing the 95th record. Run 1, Event 95, LumiSection 1 at 21-Jul-2017 15:14:42.438 CEST
+Begin processing the 96th record. Run 1, Event 96, LumiSection 1 at 21-Jul-2017 15:14:42.508 CEST
+Begin processing the 97th record. Run 1, Event 97, LumiSection 1 at 21-Jul-2017 15:14:42.519 CEST
+Begin processing the 98th record. Run 1, Event 98, LumiSection 1 at 21-Jul-2017 15:14:42.543 CEST
+Begin processing the 99th record. Run 1, Event 99, LumiSection 1 at 21-Jul-2017 15:14:42.642 CEST
+Begin processing the 100th record. Run 1, Event 100, LumiSection 1 at 21-Jul-2017 15:14:42.697 CEST
+Begin processing the 101st record. Run 1, Event 101, LumiSection 1 at 21-Jul-2017 15:14:42.829 CEST
+ PYTHIA Warning in TimeShower::findMEcorr: ME weight above PS one  
+Begin processing the 102nd record. Run 1, Event 102, LumiSection 1 at 21-Jul-2017 15:14:42.893 CEST
+Begin processing the 103rd record. Run 1, Event 103, LumiSection 1 at 21-Jul-2017 15:14:42.925 CEST
+Begin processing the 104th record. Run 1, Event 104, LumiSection 1 at 21-Jul-2017 15:14:42.958 CEST
+Begin processing the 105th record. Run 1, Event 105, LumiSection 1 at 21-Jul-2017 15:14:43.840 CEST
+Begin processing the 106th record. Run 1, Event 106, LumiSection 1 at 21-Jul-2017 15:14:43.893 CEST
+Begin processing the 107th record. Run 1, Event 107, LumiSection 1 at 21-Jul-2017 15:14:43.916 CEST
+Begin processing the 108th record. Run 1, Event 108, LumiSection 1 at 21-Jul-2017 15:14:43.932 CEST
+Begin processing the 109th record. Run 1, Event 109, LumiSection 1 at 21-Jul-2017 15:14:43.939 CEST
+Begin processing the 110th record. Run 1, Event 110, LumiSection 1 at 21-Jul-2017 15:14:44.056 CEST
+Begin processing the 111th record. Run 1, Event 111, LumiSection 1 at 21-Jul-2017 15:14:44.146 CEST
+Begin processing the 112th record. Run 1, Event 112, LumiSection 1 at 21-Jul-2017 15:14:44.220 CEST
+Begin processing the 113th record. Run 1, Event 113, LumiSection 1 at 21-Jul-2017 15:14:44.277 CEST
+Begin processing the 114th record. Run 1, Event 114, LumiSection 1 at 21-Jul-2017 15:14:44.322 CEST
+Begin processing the 115th record. Run 1, Event 115, LumiSection 1 at 21-Jul-2017 15:14:44.390 CEST
+Begin processing the 116th record. Run 1, Event 116, LumiSection 1 at 21-Jul-2017 15:14:44.491 CEST
+Begin processing the 117th record. Run 1, Event 117, LumiSection 1 at 21-Jul-2017 15:14:44.497 CEST
+Begin processing the 118th record. Run 1, Event 118, LumiSection 1 at 21-Jul-2017 15:14:44.533 CEST
+Begin processing the 119th record. Run 1, Event 119, LumiSection 1 at 21-Jul-2017 15:14:45.151 CEST
+Begin processing the 120th record. Run 1, Event 120, LumiSection 1 at 21-Jul-2017 15:14:45.170 CEST
+Begin processing the 121st record. Run 1, Event 121, LumiSection 1 at 21-Jul-2017 15:14:45.234 CEST
+Begin processing the 122nd record. Run 1, Event 122, LumiSection 1 at 21-Jul-2017 15:14:45.293 CEST
+Begin processing the 123rd record. Run 1, Event 123, LumiSection 1 at 21-Jul-2017 15:14:45.307 CEST
+Begin processing the 124th record. Run 1, Event 124, LumiSection 1 at 21-Jul-2017 15:14:45.382 CEST
+Begin processing the 125th record. Run 1, Event 125, LumiSection 1 at 21-Jul-2017 15:14:45.415 CEST
+Begin processing the 126th record. Run 1, Event 126, LumiSection 1 at 21-Jul-2017 15:14:45.453 CEST
+Begin processing the 127th record. Run 1, Event 127, LumiSection 1 at 21-Jul-2017 15:14:45.480 CEST
+Begin processing the 128th record. Run 1, Event 128, LumiSection 1 at 21-Jul-2017 15:14:45.496 CEST
+Begin processing the 129th record. Run 1, Event 129, LumiSection 1 at 21-Jul-2017 15:14:45.506 CEST
+Begin processing the 130th record. Run 1, Event 130, LumiSection 1 at 21-Jul-2017 15:14:45.552 CEST
+Begin processing the 131st record. Run 1, Event 131, LumiSection 1 at 21-Jul-2017 15:14:45.620 CEST
+Begin processing the 132nd record. Run 1, Event 132, LumiSection 1 at 21-Jul-2017 15:14:45.709 CEST
+Begin processing the 133rd record. Run 1, Event 133, LumiSection 1 at 21-Jul-2017 15:14:45.773 CEST
+Begin processing the 134th record. Run 1, Event 134, LumiSection 1 at 21-Jul-2017 15:14:45.862 CEST
+Begin processing the 135th record. Run 1, Event 135, LumiSection 1 at 21-Jul-2017 15:14:45.909 CEST
+Begin processing the 136th record. Run 1, Event 136, LumiSection 1 at 21-Jul-2017 15:14:45.983 CEST
+Begin processing the 137th record. Run 1, Event 137, LumiSection 1 at 21-Jul-2017 15:14:46.062 CEST
+Begin processing the 138th record. Run 1, Event 138, LumiSection 1 at 21-Jul-2017 15:14:46.107 CEST
+Begin processing the 139th record. Run 1, Event 139, LumiSection 1 at 21-Jul-2017 15:14:46.187 CEST
+Begin processing the 140th record. Run 1, Event 140, LumiSection 1 at 21-Jul-2017 15:14:46.259 CEST
+Begin processing the 141st record. Run 1, Event 141, LumiSection 1 at 21-Jul-2017 15:14:46.281 CEST
+Begin processing the 142nd record. Run 1, Event 142, LumiSection 1 at 21-Jul-2017 15:14:46.310 CEST
+Begin processing the 143rd record. Run 1, Event 143, LumiSection 1 at 21-Jul-2017 15:14:46.409 CEST
+Begin processing the 144th record. Run 1, Event 144, LumiSection 1 at 21-Jul-2017 15:14:46.475 CEST
+Begin processing the 145th record. Run 1, Event 145, LumiSection 1 at 21-Jul-2017 15:14:46.600 CEST
+Begin processing the 146th record. Run 1, Event 146, LumiSection 1 at 21-Jul-2017 15:14:46.686 CEST
+Begin processing the 147th record. Run 1, Event 147, LumiSection 1 at 21-Jul-2017 15:14:46.742 CEST
+Begin processing the 148th record. Run 1, Event 148, LumiSection 1 at 21-Jul-2017 15:14:46.770 CEST
+Begin processing the 149th record. Run 1, Event 149, LumiSection 1 at 21-Jul-2017 15:14:46.811 CEST
+Begin processing the 150th record. Run 1, Event 150, LumiSection 1 at 21-Jul-2017 15:14:46.826 CEST
+Begin processing the 151st record. Run 1, Event 151, LumiSection 1 at 21-Jul-2017 15:14:46.898 CEST
+Begin processing the 152nd record. Run 1, Event 152, LumiSection 1 at 21-Jul-2017 15:14:47.082 CEST
+Begin processing the 153rd record. Run 1, Event 153, LumiSection 1 at 21-Jul-2017 15:14:47.162 CEST
+Begin processing the 154th record. Run 1, Event 154, LumiSection 1 at 21-Jul-2017 15:14:47.329 CEST
+Begin processing the 155th record. Run 1, Event 155, LumiSection 1 at 21-Jul-2017 15:14:47.423 CEST
+Begin processing the 156th record. Run 1, Event 156, LumiSection 1 at 21-Jul-2017 15:14:47.453 CEST
+Begin processing the 157th record. Run 1, Event 157, LumiSection 1 at 21-Jul-2017 15:14:47.500 CEST
+Begin processing the 158th record. Run 1, Event 158, LumiSection 1 at 21-Jul-2017 15:14:47.517 CEST
+Begin processing the 159th record. Run 1, Event 159, LumiSection 1 at 21-Jul-2017 15:14:48.417 CEST
+Begin processing the 160th record. Run 1, Event 160, LumiSection 1 at 21-Jul-2017 15:14:48.460 CEST
+Begin processing the 161st record. Run 1, Event 161, LumiSection 1 at 21-Jul-2017 15:14:48.527 CEST
+Begin processing the 162nd record. Run 1, Event 162, LumiSection 1 at 21-Jul-2017 15:14:48.635 CEST
+Begin processing the 163rd record. Run 1, Event 163, LumiSection 1 at 21-Jul-2017 15:14:48.673 CEST
+Begin processing the 164th record. Run 1, Event 164, LumiSection 1 at 21-Jul-2017 15:14:48.798 CEST
+Begin processing the 165th record. Run 1, Event 165, LumiSection 1 at 21-Jul-2017 15:14:48.882 CEST
+Begin processing the 166th record. Run 1, Event 166, LumiSection 1 at 21-Jul-2017 15:14:48.987 CEST
+Begin processing the 167th record. Run 1, Event 167, LumiSection 1 at 21-Jul-2017 15:14:49.045 CEST
+Begin processing the 168th record. Run 1, Event 168, LumiSection 1 at 21-Jul-2017 15:14:49.059 CEST
+Begin processing the 169th record. Run 1, Event 169, LumiSection 1 at 21-Jul-2017 15:14:49.221 CEST
+Begin processing the 170th record. Run 1, Event 170, LumiSection 1 at 21-Jul-2017 15:14:49.238 CEST
+Begin processing the 171st record. Run 1, Event 171, LumiSection 1 at 21-Jul-2017 15:14:49.321 CEST
+Begin processing the 172nd record. Run 1, Event 172, LumiSection 1 at 21-Jul-2017 15:14:49.400 CEST
+Begin processing the 173rd record. Run 1, Event 173, LumiSection 1 at 21-Jul-2017 15:14:49.417 CEST
+Begin processing the 174th record. Run 1, Event 174, LumiSection 1 at 21-Jul-2017 15:14:49.498 CEST
+Begin processing the 175th record. Run 1, Event 175, LumiSection 1 at 21-Jul-2017 15:14:49.568 CEST
+Begin processing the 176th record. Run 1, Event 176, LumiSection 1 at 21-Jul-2017 15:14:49.575 CEST
+Begin processing the 177th record. Run 1, Event 177, LumiSection 1 at 21-Jul-2017 15:14:49.584 CEST
+Begin processing the 178th record. Run 1, Event 178, LumiSection 1 at 21-Jul-2017 15:14:50.493 CEST
+Begin processing the 179th record. Run 1, Event 179, LumiSection 1 at 21-Jul-2017 15:14:50.518 CEST
+Begin processing the 180th record. Run 1, Event 180, LumiSection 1 at 21-Jul-2017 15:14:50.578 CEST
+Begin processing the 181st record. Run 1, Event 181, LumiSection 1 at 21-Jul-2017 15:14:50.600 CEST
+Begin processing the 182nd record. Run 1, Event 182, LumiSection 1 at 21-Jul-2017 15:14:50.607 CEST
+Begin processing the 183rd record. Run 1, Event 183, LumiSection 1 at 21-Jul-2017 15:14:50.665 CEST
+Begin processing the 184th record. Run 1, Event 184, LumiSection 1 at 21-Jul-2017 15:14:50.677 CEST
+Begin processing the 185th record. Run 1, Event 185, LumiSection 1 at 21-Jul-2017 15:14:50.698 CEST
+Begin processing the 186th record. Run 1, Event 186, LumiSection 1 at 21-Jul-2017 15:14:50.747 CEST
+ PYTHIA Warning in TimeShower::pTnext: negative dipole mass.  
+Begin processing the 187th record. Run 1, Event 187, LumiSection 1 at 21-Jul-2017 15:14:50.761 CEST
+Begin processing the 188th record. Run 1, Event 188, LumiSection 1 at 21-Jul-2017 15:14:50.767 CEST
+Begin processing the 189th record. Run 1, Event 189, LumiSection 1 at 21-Jul-2017 15:14:50.794 CEST
+Begin processing the 190th record. Run 1, Event 190, LumiSection 1 at 21-Jul-2017 15:14:50.934 CEST
+Begin processing the 191st record. Run 1, Event 191, LumiSection 1 at 21-Jul-2017 15:14:50.945 CEST
+Begin processing the 192nd record. Run 1, Event 192, LumiSection 1 at 21-Jul-2017 15:14:51.000 CEST
+Begin processing the 193rd record. Run 1, Event 193, LumiSection 1 at 21-Jul-2017 15:14:51.099 CEST
+Begin processing the 194th record. Run 1, Event 194, LumiSection 1 at 21-Jul-2017 15:14:51.167 CEST
+Begin processing the 195th record. Run 1, Event 195, LumiSection 1 at 21-Jul-2017 15:14:51.185 CEST
+Begin processing the 196th record. Run 1, Event 196, LumiSection 1 at 21-Jul-2017 15:14:51.246 CEST
+Begin processing the 197th record. Run 1, Event 197, LumiSection 1 at 21-Jul-2017 15:14:51.269 CEST
+Begin processing the 198th record. Run 1, Event 198, LumiSection 1 at 21-Jul-2017 15:14:51.304 CEST
+Begin processing the 199th record. Run 1, Event 199, LumiSection 1 at 21-Jul-2017 15:14:51.343 CEST
+Begin processing the 200th record. Run 1, Event 200, LumiSection 1 at 21-Jul-2017 15:14:51.407 CEST
+Begin processing the 201st record. Run 1, Event 201, LumiSection 1 at 21-Jul-2017 15:14:51.432 CEST
+Begin processing the 202nd record. Run 1, Event 202, LumiSection 1 at 21-Jul-2017 15:14:51.479 CEST
+Begin processing the 203rd record. Run 1, Event 203, LumiSection 1 at 21-Jul-2017 15:14:51.512 CEST
+Begin processing the 204th record. Run 1, Event 204, LumiSection 1 at 21-Jul-2017 15:14:51.560 CEST
+Begin processing the 205th record. Run 1, Event 205, LumiSection 1 at 21-Jul-2017 15:14:51.616 CEST
+Begin processing the 206th record. Run 1, Event 206, LumiSection 1 at 21-Jul-2017 15:14:51.654 CEST
+Begin processing the 207th record. Run 1, Event 207, LumiSection 1 at 21-Jul-2017 15:14:51.709 CEST
+Begin processing the 208th record. Run 1, Event 208, LumiSection 1 at 21-Jul-2017 15:14:51.776 CEST
+Begin processing the 209th record. Run 1, Event 209, LumiSection 1 at 21-Jul-2017 15:14:51.797 CEST
+Begin processing the 210th record. Run 1, Event 210, LumiSection 1 at 21-Jul-2017 15:14:51.803 CEST
+Begin processing the 211th record. Run 1, Event 211, LumiSection 1 at 21-Jul-2017 15:14:51.812 CEST
+Begin processing the 212th record. Run 1, Event 212, LumiSection 1 at 21-Jul-2017 15:14:51.846 CEST
+Begin processing the 213th record. Run 1, Event 213, LumiSection 1 at 21-Jul-2017 15:14:51.869 CEST
+Begin processing the 214th record. Run 1, Event 214, LumiSection 1 at 21-Jul-2017 15:14:51.897 CEST
+Begin processing the 215th record. Run 1, Event 215, LumiSection 1 at 21-Jul-2017 15:14:51.906 CEST
+Begin processing the 216th record. Run 1, Event 216, LumiSection 1 at 21-Jul-2017 15:14:51.917 CEST
+Begin processing the 217th record. Run 1, Event 217, LumiSection 1 at 21-Jul-2017 15:14:51.970 CEST
+Begin processing the 218th record. Run 1, Event 218, LumiSection 1 at 21-Jul-2017 15:14:52.115 CEST
+Begin processing the 219th record. Run 1, Event 219, LumiSection 1 at 21-Jul-2017 15:14:52.195 CEST
+Begin processing the 220th record. Run 1, Event 220, LumiSection 1 at 21-Jul-2017 15:14:52.238 CEST
+Begin processing the 221st record. Run 1, Event 221, LumiSection 1 at 21-Jul-2017 15:14:52.293 CEST
+Begin processing the 222nd record. Run 1, Event 222, LumiSection 1 at 21-Jul-2017 15:14:52.343 CEST
+Begin processing the 223rd record. Run 1, Event 223, LumiSection 1 at 21-Jul-2017 15:14:52.436 CEST
+Begin processing the 224th record. Run 1, Event 224, LumiSection 1 at 21-Jul-2017 15:14:53.140 CEST
+Begin processing the 225th record. Run 1, Event 225, LumiSection 1 at 21-Jul-2017 15:14:53.157 CEST
+Begin processing the 226th record. Run 1, Event 226, LumiSection 1 at 21-Jul-2017 15:14:53.176 CEST
+Begin processing the 227th record. Run 1, Event 227, LumiSection 1 at 21-Jul-2017 15:14:53.182 CEST
+Begin processing the 228th record. Run 1, Event 228, LumiSection 1 at 21-Jul-2017 15:14:53.324 CEST
+Begin processing the 229th record. Run 1, Event 229, LumiSection 1 at 21-Jul-2017 15:14:53.445 CEST
+Begin processing the 230th record. Run 1, Event 230, LumiSection 1 at 21-Jul-2017 15:14:53.460 CEST
+Begin processing the 231st record. Run 1, Event 231, LumiSection 1 at 21-Jul-2017 15:14:53.487 CEST
+Begin processing the 232nd record. Run 1, Event 232, LumiSection 1 at 21-Jul-2017 15:14:53.496 CEST
+Begin processing the 233rd record. Run 1, Event 233, LumiSection 1 at 21-Jul-2017 15:14:53.511 CEST
+Begin processing the 234th record. Run 1, Event 234, LumiSection 1 at 21-Jul-2017 15:14:53.524 CEST
+Begin processing the 235th record. Run 1, Event 235, LumiSection 1 at 21-Jul-2017 15:14:53.599 CEST
+Begin processing the 236th record. Run 1, Event 236, LumiSection 1 at 21-Jul-2017 15:14:53.678 CEST
+Begin processing the 237th record. Run 1, Event 237, LumiSection 1 at 21-Jul-2017 15:14:54.253 CEST
+Begin processing the 238th record. Run 1, Event 238, LumiSection 1 at 21-Jul-2017 15:14:54.333 CEST
+Begin processing the 239th record. Run 1, Event 239, LumiSection 1 at 21-Jul-2017 15:14:54.354 CEST
+Begin processing the 240th record. Run 1, Event 240, LumiSection 1 at 21-Jul-2017 15:14:54.366 CEST
+Begin processing the 241st record. Run 1, Event 241, LumiSection 1 at 21-Jul-2017 15:14:54.422 CEST
+Begin processing the 242nd record. Run 1, Event 242, LumiSection 1 at 21-Jul-2017 15:14:54.442 CEST
+Begin processing the 243rd record. Run 1, Event 243, LumiSection 1 at 21-Jul-2017 15:14:54.679 CEST
+Begin processing the 244th record. Run 1, Event 244, LumiSection 1 at 21-Jul-2017 15:14:54.778 CEST
+Begin processing the 245th record. Run 1, Event 245, LumiSection 1 at 21-Jul-2017 15:14:54.817 CEST
+Begin processing the 246th record. Run 1, Event 246, LumiSection 1 at 21-Jul-2017 15:14:55.055 CEST
+Begin processing the 247th record. Run 1, Event 247, LumiSection 1 at 21-Jul-2017 15:14:55.161 CEST
+Begin processing the 248th record. Run 1, Event 248, LumiSection 1 at 21-Jul-2017 15:14:55.215 CEST
+Begin processing the 249th record. Run 1, Event 249, LumiSection 1 at 21-Jul-2017 15:14:55.327 CEST
+Begin processing the 250th record. Run 1, Event 250, LumiSection 1 at 21-Jul-2017 15:14:55.380 CEST
+Begin processing the 251st record. Run 1, Event 251, LumiSection 1 at 21-Jul-2017 15:14:55.445 CEST
+Begin processing the 252nd record. Run 1, Event 252, LumiSection 1 at 21-Jul-2017 15:14:55.501 CEST
+Begin processing the 253rd record. Run 1, Event 253, LumiSection 1 at 21-Jul-2017 15:14:55.512 CEST
+Begin processing the 254th record. Run 1, Event 254, LumiSection 1 at 21-Jul-2017 15:14:55.547 CEST
+Begin processing the 255th record. Run 1, Event 255, LumiSection 1 at 21-Jul-2017 15:14:55.582 CEST
+Begin processing the 256th record. Run 1, Event 256, LumiSection 1 at 21-Jul-2017 15:14:55.744 CEST
+Begin processing the 257th record. Run 1, Event 257, LumiSection 1 at 21-Jul-2017 15:14:55.837 CEST
+Begin processing the 258th record. Run 1, Event 258, LumiSection 1 at 21-Jul-2017 15:14:56.101 CEST
+Begin processing the 259th record. Run 1, Event 259, LumiSection 1 at 21-Jul-2017 15:14:56.128 CEST
+Begin processing the 260th record. Run 1, Event 260, LumiSection 1 at 21-Jul-2017 15:14:56.261 CEST
+Begin processing the 261st record. Run 1, Event 261, LumiSection 1 at 21-Jul-2017 15:14:56.380 CEST
+Begin processing the 262nd record. Run 1, Event 262, LumiSection 1 at 21-Jul-2017 15:14:56.407 CEST
+Begin processing the 263rd record. Run 1, Event 263, LumiSection 1 at 21-Jul-2017 15:14:56.462 CEST
+Begin processing the 264th record. Run 1, Event 264, LumiSection 1 at 21-Jul-2017 15:14:56.723 CEST
+Begin processing the 265th record. Run 1, Event 265, LumiSection 1 at 21-Jul-2017 15:14:56.737 CEST
+Begin processing the 266th record. Run 1, Event 266, LumiSection 1 at 21-Jul-2017 15:14:56.898 CEST
+Begin processing the 267th record. Run 1, Event 267, LumiSection 1 at 21-Jul-2017 15:14:57.026 CEST
+Begin processing the 268th record. Run 1, Event 268, LumiSection 1 at 21-Jul-2017 15:14:57.143 CEST
+Begin processing the 269th record. Run 1, Event 269, LumiSection 1 at 21-Jul-2017 15:14:57.303 CEST
+Begin processing the 270th record. Run 1, Event 270, LumiSection 1 at 21-Jul-2017 15:14:57.374 CEST
+Begin processing the 271st record. Run 1, Event 271, LumiSection 1 at 21-Jul-2017 15:14:57.410 CEST
+Begin processing the 272nd record. Run 1, Event 272, LumiSection 1 at 21-Jul-2017 15:14:57.544 CEST
+Begin processing the 273rd record. Run 1, Event 273, LumiSection 1 at 21-Jul-2017 15:14:57.700 CEST
+Begin processing the 274th record. Run 1, Event 274, LumiSection 1 at 21-Jul-2017 15:14:57.783 CEST
+Begin processing the 275th record. Run 1, Event 275, LumiSection 1 at 21-Jul-2017 15:14:57.861 CEST
+Begin processing the 276th record. Run 1, Event 276, LumiSection 1 at 21-Jul-2017 15:14:58.733 CEST
+Begin processing the 277th record. Run 1, Event 277, LumiSection 1 at 21-Jul-2017 15:14:58.834 CEST
+Begin processing the 278th record. Run 1, Event 278, LumiSection 1 at 21-Jul-2017 15:14:58.910 CEST
+Begin processing the 279th record. Run 1, Event 279, LumiSection 1 at 21-Jul-2017 15:14:58.969 CEST
+Begin processing the 280th record. Run 1, Event 280, LumiSection 1 at 21-Jul-2017 15:14:59.001 CEST
+Begin processing the 281st record. Run 1, Event 281, LumiSection 1 at 21-Jul-2017 15:14:59.088 CEST
+Begin processing the 282nd record. Run 1, Event 282, LumiSection 1 at 21-Jul-2017 15:14:59.109 CEST
+Begin processing the 283rd record. Run 1, Event 283, LumiSection 1 at 21-Jul-2017 15:14:59.121 CEST
+Begin processing the 284th record. Run 1, Event 284, LumiSection 1 at 21-Jul-2017 15:14:59.175 CEST
+Begin processing the 285th record. Run 1, Event 285, LumiSection 1 at 21-Jul-2017 15:14:59.297 CEST
+Begin processing the 286th record. Run 1, Event 286, LumiSection 1 at 21-Jul-2017 15:14:59.452 CEST
+Begin processing the 287th record. Run 1, Event 287, LumiSection 1 at 21-Jul-2017 15:14:59.477 CEST
+Begin processing the 288th record. Run 1, Event 288, LumiSection 1 at 21-Jul-2017 15:14:59.588 CEST
+Begin processing the 289th record. Run 1, Event 289, LumiSection 1 at 21-Jul-2017 15:14:59.724 CEST
+Begin processing the 290th record. Run 1, Event 290, LumiSection 1 at 21-Jul-2017 15:14:59.774 CEST
+Begin processing the 291st record. Run 1, Event 291, LumiSection 1 at 21-Jul-2017 15:14:59.820 CEST
+Begin processing the 292nd record. Run 1, Event 292, LumiSection 1 at 21-Jul-2017 15:14:59.834 CEST
+Begin processing the 293rd record. Run 1, Event 293, LumiSection 1 at 21-Jul-2017 15:15:00.545 CEST
+Begin processing the 294th record. Run 1, Event 294, LumiSection 1 at 21-Jul-2017 15:15:00.631 CEST
+Begin processing the 295th record. Run 1, Event 295, LumiSection 1 at 21-Jul-2017 15:15:00.752 CEST
+Begin processing the 296th record. Run 1, Event 296, LumiSection 1 at 21-Jul-2017 15:15:01.382 CEST
+Begin processing the 297th record. Run 1, Event 297, LumiSection 1 at 21-Jul-2017 15:15:01.521 CEST
+Begin processing the 298th record. Run 1, Event 298, LumiSection 1 at 21-Jul-2017 15:15:01.533 CEST
+Begin processing the 299th record. Run 1, Event 299, LumiSection 1 at 21-Jul-2017 15:15:01.576 CEST
+Begin processing the 300th record. Run 1, Event 300, LumiSection 1 at 21-Jul-2017 15:15:01.646 CEST
+Begin processing the 301st record. Run 1, Event 301, LumiSection 1 at 21-Jul-2017 15:15:01.721 CEST
+Begin processing the 302nd record. Run 1, Event 302, LumiSection 1 at 21-Jul-2017 15:15:01.839 CEST
+Begin processing the 303rd record. Run 1, Event 303, LumiSection 1 at 21-Jul-2017 15:15:01.886 CEST
+Begin processing the 304th record. Run 1, Event 304, LumiSection 1 at 21-Jul-2017 15:15:01.900 CEST
+Begin processing the 305th record. Run 1, Event 305, LumiSection 1 at 21-Jul-2017 15:15:01.948 CEST
+Begin processing the 306th record. Run 1, Event 306, LumiSection 1 at 21-Jul-2017 15:15:01.961 CEST
+Begin processing the 307th record. Run 1, Event 307, LumiSection 1 at 21-Jul-2017 15:15:01.998 CEST
+Begin processing the 308th record. Run 1, Event 308, LumiSection 1 at 21-Jul-2017 15:15:02.061 CEST
+ PYTHIA Warning in StringFragmentation::fragmentToJunction: bad convergence junction rest frame  
+Begin processing the 309th record. Run 1, Event 309, LumiSection 1 at 21-Jul-2017 15:15:02.150 CEST
+Begin processing the 310th record. Run 1, Event 310, LumiSection 1 at 21-Jul-2017 15:15:02.229 CEST
+Begin processing the 311th record. Run 1, Event 311, LumiSection 1 at 21-Jul-2017 15:15:02.250 CEST
+Begin processing the 312th record. Run 1, Event 312, LumiSection 1 at 21-Jul-2017 15:15:02.262 CEST
+Begin processing the 313th record. Run 1, Event 313, LumiSection 1 at 21-Jul-2017 15:15:02.430 CEST
+Begin processing the 314th record. Run 1, Event 314, LumiSection 1 at 21-Jul-2017 15:15:02.518 CEST
+Begin processing the 315th record. Run 1, Event 315, LumiSection 1 at 21-Jul-2017 15:15:02.612 CEST
+Begin processing the 316th record. Run 1, Event 316, LumiSection 1 at 21-Jul-2017 15:15:02.640 CEST
+Begin processing the 317th record. Run 1, Event 317, LumiSection 1 at 21-Jul-2017 15:15:02.745 CEST
+Begin processing the 318th record. Run 1, Event 318, LumiSection 1 at 21-Jul-2017 15:15:02.794 CEST
+Begin processing the 319th record. Run 1, Event 319, LumiSection 1 at 21-Jul-2017 15:15:02.844 CEST
+Begin processing the 320th record. Run 1, Event 320, LumiSection 1 at 21-Jul-2017 15:15:02.889 CEST
+Begin processing the 321st record. Run 1, Event 321, LumiSection 1 at 21-Jul-2017 15:15:02.996 CEST
+Begin processing the 322nd record. Run 1, Event 322, LumiSection 1 at 21-Jul-2017 15:15:03.048 CEST
+Begin processing the 323rd record. Run 1, Event 323, LumiSection 1 at 21-Jul-2017 15:15:03.064 CEST
+Begin processing the 324th record. Run 1, Event 324, LumiSection 1 at 21-Jul-2017 15:15:03.174 CEST
+Begin processing the 325th record. Run 1, Event 325, LumiSection 1 at 21-Jul-2017 15:15:03.295 CEST
+Begin processing the 326th record. Run 1, Event 326, LumiSection 1 at 21-Jul-2017 15:15:03.308 CEST
+Begin processing the 327th record. Run 1, Event 327, LumiSection 1 at 21-Jul-2017 15:15:03.490 CEST
+Begin processing the 328th record. Run 1, Event 328, LumiSection 1 at 21-Jul-2017 15:15:03.502 CEST
+Begin processing the 329th record. Run 1, Event 329, LumiSection 1 at 21-Jul-2017 15:15:03.548 CEST
+Begin processing the 330th record. Run 1, Event 330, LumiSection 1 at 21-Jul-2017 15:15:03.707 CEST
+Begin processing the 331st record. Run 1, Event 331, LumiSection 1 at 21-Jul-2017 15:15:03.732 CEST
+Begin processing the 332nd record. Run 1, Event 332, LumiSection 1 at 21-Jul-2017 15:15:03.810 CEST
+Begin processing the 333rd record. Run 1, Event 333, LumiSection 1 at 21-Jul-2017 15:15:03.831 CEST
+Begin processing the 334th record. Run 1, Event 334, LumiSection 1 at 21-Jul-2017 15:15:03.843 CEST
+Begin processing the 335th record. Run 1, Event 335, LumiSection 1 at 21-Jul-2017 15:15:03.902 CEST
+Begin processing the 336th record. Run 1, Event 336, LumiSection 1 at 21-Jul-2017 15:15:03.939 CEST
+Begin processing the 337th record. Run 1, Event 337, LumiSection 1 at 21-Jul-2017 15:15:04.005 CEST
+Begin processing the 338th record. Run 1, Event 338, LumiSection 1 at 21-Jul-2017 15:15:04.085 CEST
+Begin processing the 339th record. Run 1, Event 339, LumiSection 1 at 21-Jul-2017 15:15:04.255 CEST
+Begin processing the 340th record. Run 1, Event 340, LumiSection 1 at 21-Jul-2017 15:15:04.280 CEST
+Begin processing the 341st record. Run 1, Event 341, LumiSection 1 at 21-Jul-2017 15:15:04.358 CEST
+Begin processing the 342nd record. Run 1, Event 342, LumiSection 1 at 21-Jul-2017 15:15:04.367 CEST
+Begin processing the 343rd record. Run 1, Event 343, LumiSection 1 at 21-Jul-2017 15:15:04.473 CEST
+Begin processing the 344th record. Run 1, Event 344, LumiSection 1 at 21-Jul-2017 15:15:04.529 CEST
+Begin processing the 345th record. Run 1, Event 345, LumiSection 1 at 21-Jul-2017 15:15:04.621 CEST
+Begin processing the 346th record. Run 1, Event 346, LumiSection 1 at 21-Jul-2017 15:15:04.638 CEST
+Begin processing the 347th record. Run 1, Event 347, LumiSection 1 at 21-Jul-2017 15:15:04.659 CEST
+Begin processing the 348th record. Run 1, Event 348, LumiSection 1 at 21-Jul-2017 15:15:04.684 CEST
+Begin processing the 349th record. Run 1, Event 349, LumiSection 1 at 21-Jul-2017 15:15:05.518 CEST
+Begin processing the 350th record. Run 1, Event 350, LumiSection 1 at 21-Jul-2017 15:15:05.545 CEST
+Begin processing the 351st record. Run 1, Event 351, LumiSection 1 at 21-Jul-2017 15:15:05.731 CEST
+Begin processing the 352nd record. Run 1, Event 352, LumiSection 1 at 21-Jul-2017 15:15:05.881 CEST
+Begin processing the 353rd record. Run 1, Event 353, LumiSection 1 at 21-Jul-2017 15:15:05.923 CEST
+Begin processing the 354th record. Run 1, Event 354, LumiSection 1 at 21-Jul-2017 15:15:05.988 CEST
+Begin processing the 355th record. Run 1, Event 355, LumiSection 1 at 21-Jul-2017 15:15:06.581 CEST
+Begin processing the 356th record. Run 1, Event 356, LumiSection 1 at 21-Jul-2017 15:15:06.607 CEST
+Begin processing the 357th record. Run 1, Event 357, LumiSection 1 at 21-Jul-2017 15:15:06.698 CEST
+Begin processing the 358th record. Run 1, Event 358, LumiSection 1 at 21-Jul-2017 15:15:06.853 CEST
+Begin processing the 359th record. Run 1, Event 359, LumiSection 1 at 21-Jul-2017 15:15:06.875 CEST
+Begin processing the 360th record. Run 1, Event 360, LumiSection 1 at 21-Jul-2017 15:15:06.977 CEST
+Begin processing the 361st record. Run 1, Event 361, LumiSection 1 at 21-Jul-2017 15:15:07.005 CEST
+Begin processing the 362nd record. Run 1, Event 362, LumiSection 1 at 21-Jul-2017 15:15:07.145 CEST
+Begin processing the 363rd record. Run 1, Event 363, LumiSection 1 at 21-Jul-2017 15:15:07.266 CEST
+Begin processing the 364th record. Run 1, Event 364, LumiSection 1 at 21-Jul-2017 15:15:07.397 CEST
+Begin processing the 365th record. Run 1, Event 365, LumiSection 1 at 21-Jul-2017 15:15:07.432 CEST
+Begin processing the 366th record. Run 1, Event 366, LumiSection 1 at 21-Jul-2017 15:15:07.471 CEST
+Begin processing the 367th record. Run 1, Event 367, LumiSection 1 at 21-Jul-2017 15:15:07.587 CEST
+Begin processing the 368th record. Run 1, Event 368, LumiSection 1 at 21-Jul-2017 15:15:07.663 CEST
+Begin processing the 369th record. Run 1, Event 369, LumiSection 1 at 21-Jul-2017 15:15:07.680 CEST
+Begin processing the 370th record. Run 1, Event 370, LumiSection 1 at 21-Jul-2017 15:15:07.710 CEST
+Begin processing the 371st record. Run 1, Event 371, LumiSection 1 at 21-Jul-2017 15:15:07.899 CEST
+Begin processing the 372nd record. Run 1, Event 372, LumiSection 1 at 21-Jul-2017 15:15:07.990 CEST
+Begin processing the 373rd record. Run 1, Event 373, LumiSection 1 at 21-Jul-2017 15:15:08.070 CEST
+Begin processing the 374th record. Run 1, Event 374, LumiSection 1 at 21-Jul-2017 15:15:08.124 CEST
+Begin processing the 375th record. Run 1, Event 375, LumiSection 1 at 21-Jul-2017 15:15:08.210 CEST
+Begin processing the 376th record. Run 1, Event 376, LumiSection 1 at 21-Jul-2017 15:15:08.257 CEST
+Begin processing the 377th record. Run 1, Event 377, LumiSection 1 at 21-Jul-2017 15:15:08.313 CEST
+Begin processing the 378th record. Run 1, Event 378, LumiSection 1 at 21-Jul-2017 15:15:08.364 CEST
+Begin processing the 379th record. Run 1, Event 379, LumiSection 1 at 21-Jul-2017 15:15:08.455 CEST
+Begin processing the 380th record. Run 1, Event 380, LumiSection 1 at 21-Jul-2017 15:15:08.485 CEST
+Begin processing the 381st record. Run 1, Event 381, LumiSection 1 at 21-Jul-2017 15:15:08.561 CEST
+Begin processing the 382nd record. Run 1, Event 382, LumiSection 1 at 21-Jul-2017 15:15:08.598 CEST
+Begin processing the 383rd record. Run 1, Event 383, LumiSection 1 at 21-Jul-2017 15:15:08.787 CEST
+Begin processing the 384th record. Run 1, Event 384, LumiSection 1 at 21-Jul-2017 15:15:08.854 CEST
+Begin processing the 385th record. Run 1, Event 385, LumiSection 1 at 21-Jul-2017 15:15:09.043 CEST
+Begin processing the 386th record. Run 1, Event 386, LumiSection 1 at 21-Jul-2017 15:15:09.177 CEST
+Begin processing the 387th record. Run 1, Event 387, LumiSection 1 at 21-Jul-2017 15:15:09.232 CEST
+Begin processing the 388th record. Run 1, Event 388, LumiSection 1 at 21-Jul-2017 15:15:09.274 CEST
+Begin processing the 389th record. Run 1, Event 389, LumiSection 1 at 21-Jul-2017 15:15:09.298 CEST
+Begin processing the 390th record. Run 1, Event 390, LumiSection 1 at 21-Jul-2017 15:15:09.433 CEST
+Begin processing the 391st record. Run 1, Event 391, LumiSection 1 at 21-Jul-2017 15:15:09.523 CEST
+Begin processing the 392nd record. Run 1, Event 392, LumiSection 1 at 21-Jul-2017 15:15:09.550 CEST
+Begin processing the 393rd record. Run 1, Event 393, LumiSection 1 at 21-Jul-2017 15:15:09.701 CEST
+Begin processing the 394th record. Run 1, Event 394, LumiSection 1 at 21-Jul-2017 15:15:10.693 CEST
+Begin processing the 395th record. Run 1, Event 395, LumiSection 1 at 21-Jul-2017 15:15:10.825 CEST
+Begin processing the 396th record. Run 1, Event 396, LumiSection 1 at 21-Jul-2017 15:15:10.870 CEST
+Begin processing the 397th record. Run 1, Event 397, LumiSection 1 at 21-Jul-2017 15:15:10.902 CEST
+Begin processing the 398th record. Run 1, Event 398, LumiSection 1 at 21-Jul-2017 15:15:10.935 CEST
+Begin processing the 399th record. Run 1, Event 399, LumiSection 1 at 21-Jul-2017 15:15:11.010 CEST
+Begin processing the 400th record. Run 1, Event 400, LumiSection 1 at 21-Jul-2017 15:15:11.075 CEST
+Begin processing the 401st record. Run 1, Event 401, LumiSection 1 at 21-Jul-2017 15:15:11.094 CEST
+Begin processing the 402nd record. Run 1, Event 402, LumiSection 1 at 21-Jul-2017 15:15:11.220 CEST
+Begin processing the 403rd record. Run 1, Event 403, LumiSection 1 at 21-Jul-2017 15:15:11.234 CEST
+Begin processing the 404th record. Run 1, Event 404, LumiSection 1 at 21-Jul-2017 15:15:11.278 CEST
+Begin processing the 405th record. Run 1, Event 405, LumiSection 1 at 21-Jul-2017 15:15:11.420 CEST
+Begin processing the 406th record. Run 1, Event 406, LumiSection 1 at 21-Jul-2017 15:15:11.516 CEST
+Begin processing the 407th record. Run 1, Event 407, LumiSection 1 at 21-Jul-2017 15:15:11.616 CEST
+Begin processing the 408th record. Run 1, Event 408, LumiSection 1 at 21-Jul-2017 15:15:11.644 CEST
+Begin processing the 409th record. Run 1, Event 409, LumiSection 1 at 21-Jul-2017 15:15:11.710 CEST
+Begin processing the 410th record. Run 1, Event 410, LumiSection 1 at 21-Jul-2017 15:15:11.921 CEST
+Begin processing the 411th record. Run 1, Event 411, LumiSection 1 at 21-Jul-2017 15:15:11.987 CEST
+Begin processing the 412th record. Run 1, Event 412, LumiSection 1 at 21-Jul-2017 15:15:12.113 CEST
+Begin processing the 413th record. Run 1, Event 413, LumiSection 1 at 21-Jul-2017 15:15:12.123 CEST
+Begin processing the 414th record. Run 1, Event 414, LumiSection 1 at 21-Jul-2017 15:15:12.947 CEST
+Begin processing the 415th record. Run 1, Event 415, LumiSection 1 at 21-Jul-2017 15:15:12.966 CEST
+Begin processing the 416th record. Run 1, Event 416, LumiSection 1 at 21-Jul-2017 15:15:13.118 CEST
+Begin processing the 417th record. Run 1, Event 417, LumiSection 1 at 21-Jul-2017 15:15:13.153 CEST
+Begin processing the 418th record. Run 1, Event 418, LumiSection 1 at 21-Jul-2017 15:15:13.238 CEST
+Begin processing the 419th record. Run 1, Event 419, LumiSection 1 at 21-Jul-2017 15:15:13.324 CEST
+Begin processing the 420th record. Run 1, Event 420, LumiSection 1 at 21-Jul-2017 15:15:13.363 CEST
+Begin processing the 421st record. Run 1, Event 421, LumiSection 1 at 21-Jul-2017 15:15:13.389 CEST
+Begin processing the 422nd record. Run 1, Event 422, LumiSection 1 at 21-Jul-2017 15:15:13.433 CEST
+Begin processing the 423rd record. Run 1, Event 423, LumiSection 1 at 21-Jul-2017 15:15:13.465 CEST
+Begin processing the 424th record. Run 1, Event 424, LumiSection 1 at 21-Jul-2017 15:15:13.498 CEST
+Begin processing the 425th record. Run 1, Event 425, LumiSection 1 at 21-Jul-2017 15:15:13.507 CEST
+Begin processing the 426th record. Run 1, Event 426, LumiSection 1 at 21-Jul-2017 15:15:13.567 CEST
+Begin processing the 427th record. Run 1, Event 427, LumiSection 1 at 21-Jul-2017 15:15:13.613 CEST
+Begin processing the 428th record. Run 1, Event 428, LumiSection 1 at 21-Jul-2017 15:15:13.625 CEST
+Begin processing the 429th record. Run 1, Event 429, LumiSection 1 at 21-Jul-2017 15:15:13.667 CEST
+Begin processing the 430th record. Run 1, Event 430, LumiSection 1 at 21-Jul-2017 15:15:13.704 CEST
+Begin processing the 431st record. Run 1, Event 431, LumiSection 1 at 21-Jul-2017 15:15:13.725 CEST
+Begin processing the 432nd record. Run 1, Event 432, LumiSection 1 at 21-Jul-2017 15:15:13.764 CEST
+Begin processing the 433rd record. Run 1, Event 433, LumiSection 1 at 21-Jul-2017 15:15:13.818 CEST
+Begin processing the 434th record. Run 1, Event 434, LumiSection 1 at 21-Jul-2017 15:15:13.955 CEST
+Begin processing the 435th record. Run 1, Event 435, LumiSection 1 at 21-Jul-2017 15:15:13.977 CEST
+Begin processing the 436th record. Run 1, Event 436, LumiSection 1 at 21-Jul-2017 15:15:14.039 CEST
+Begin processing the 437th record. Run 1, Event 437, LumiSection 1 at 21-Jul-2017 15:15:14.057 CEST
+Begin processing the 438th record. Run 1, Event 438, LumiSection 1 at 21-Jul-2017 15:15:14.109 CEST
+Begin processing the 439th record. Run 1, Event 439, LumiSection 1 at 21-Jul-2017 15:15:14.180 CEST
+Begin processing the 440th record. Run 1, Event 440, LumiSection 1 at 21-Jul-2017 15:15:14.220 CEST
+Begin processing the 441st record. Run 1, Event 441, LumiSection 1 at 21-Jul-2017 15:15:14.234 CEST
+Begin processing the 442nd record. Run 1, Event 442, LumiSection 1 at 21-Jul-2017 15:15:14.283 CEST
+Begin processing the 443rd record. Run 1, Event 443, LumiSection 1 at 21-Jul-2017 15:15:14.294 CEST
+Begin processing the 444th record. Run 1, Event 444, LumiSection 1 at 21-Jul-2017 15:15:14.449 CEST
+Begin processing the 445th record. Run 1, Event 445, LumiSection 1 at 21-Jul-2017 15:15:14.507 CEST
+Begin processing the 446th record. Run 1, Event 446, LumiSection 1 at 21-Jul-2017 15:15:14.543 CEST
+Begin processing the 447th record. Run 1, Event 447, LumiSection 1 at 21-Jul-2017 15:15:14.575 CEST
+Begin processing the 448th record. Run 1, Event 448, LumiSection 1 at 21-Jul-2017 15:15:14.583 CEST
+Begin processing the 449th record. Run 1, Event 449, LumiSection 1 at 21-Jul-2017 15:15:14.658 CEST
+Begin processing the 450th record. Run 1, Event 450, LumiSection 1 at 21-Jul-2017 15:15:14.707 CEST
+Begin processing the 451st record. Run 1, Event 451, LumiSection 1 at 21-Jul-2017 15:15:14.716 CEST
+Begin processing the 452nd record. Run 1, Event 452, LumiSection 1 at 21-Jul-2017 15:15:14.750 CEST
+Begin processing the 453rd record. Run 1, Event 453, LumiSection 1 at 21-Jul-2017 15:15:14.759 CEST
+Begin processing the 454th record. Run 1, Event 454, LumiSection 1 at 21-Jul-2017 15:15:14.844 CEST
+Begin processing the 455th record. Run 1, Event 455, LumiSection 1 at 21-Jul-2017 15:15:14.876 CEST
+Begin processing the 456th record. Run 1, Event 456, LumiSection 1 at 21-Jul-2017 15:15:14.923 CEST
+Begin processing the 457th record. Run 1, Event 457, LumiSection 1 at 21-Jul-2017 15:15:14.952 CEST
+Begin processing the 458th record. Run 1, Event 458, LumiSection 1 at 21-Jul-2017 15:15:15.020 CEST
+Begin processing the 459th record. Run 1, Event 459, LumiSection 1 at 21-Jul-2017 15:15:15.162 CEST
+Begin processing the 460th record. Run 1, Event 460, LumiSection 1 at 21-Jul-2017 15:15:15.229 CEST
+Begin processing the 461st record. Run 1, Event 461, LumiSection 1 at 21-Jul-2017 15:15:15.974 CEST
+Begin processing the 462nd record. Run 1, Event 462, LumiSection 1 at 21-Jul-2017 15:15:16.044 CEST
+Begin processing the 463rd record. Run 1, Event 463, LumiSection 1 at 21-Jul-2017 15:15:16.096 CEST
+Begin processing the 464th record. Run 1, Event 464, LumiSection 1 at 21-Jul-2017 15:15:16.214 CEST
+Begin processing the 465th record. Run 1, Event 465, LumiSection 1 at 21-Jul-2017 15:15:16.250 CEST
+Begin processing the 466th record. Run 1, Event 466, LumiSection 1 at 21-Jul-2017 15:15:16.283 CEST
+Begin processing the 467th record. Run 1, Event 467, LumiSection 1 at 21-Jul-2017 15:15:16.344 CEST
+Begin processing the 468th record. Run 1, Event 468, LumiSection 1 at 21-Jul-2017 15:15:16.415 CEST
+Begin processing the 469th record. Run 1, Event 469, LumiSection 1 at 21-Jul-2017 15:15:16.471 CEST
+Begin processing the 470th record. Run 1, Event 470, LumiSection 1 at 21-Jul-2017 15:15:16.502 CEST
+Begin processing the 471st record. Run 1, Event 471, LumiSection 1 at 21-Jul-2017 15:15:16.524 CEST
+Begin processing the 472nd record. Run 1, Event 472, LumiSection 1 at 21-Jul-2017 15:15:16.547 CEST
+Begin processing the 473rd record. Run 1, Event 473, LumiSection 1 at 21-Jul-2017 15:15:17.122 CEST
+Begin processing the 474th record. Run 1, Event 474, LumiSection 1 at 21-Jul-2017 15:15:17.177 CEST
+Begin processing the 475th record. Run 1, Event 475, LumiSection 1 at 21-Jul-2017 15:15:17.337 CEST
+Begin processing the 476th record. Run 1, Event 476, LumiSection 1 at 21-Jul-2017 15:15:17.345 CEST
+Begin processing the 477th record. Run 1, Event 477, LumiSection 1 at 21-Jul-2017 15:15:17.393 CEST
+Begin processing the 478th record. Run 1, Event 478, LumiSection 1 at 21-Jul-2017 15:15:17.420 CEST
+Begin processing the 479th record. Run 1, Event 479, LumiSection 1 at 21-Jul-2017 15:15:17.430 CEST
+Begin processing the 480th record. Run 1, Event 480, LumiSection 1 at 21-Jul-2017 15:15:17.474 CEST
+Begin processing the 481st record. Run 1, Event 481, LumiSection 1 at 21-Jul-2017 15:15:17.592 CEST
+Begin processing the 482nd record. Run 1, Event 482, LumiSection 1 at 21-Jul-2017 15:15:17.610 CEST
+Begin processing the 483rd record. Run 1, Event 483, LumiSection 1 at 21-Jul-2017 15:15:17.688 CEST
+Begin processing the 484th record. Run 1, Event 484, LumiSection 1 at 21-Jul-2017 15:15:17.786 CEST
+Begin processing the 485th record. Run 1, Event 485, LumiSection 1 at 21-Jul-2017 15:15:17.849 CEST
+Begin processing the 486th record. Run 1, Event 486, LumiSection 1 at 21-Jul-2017 15:15:17.866 CEST
+Begin processing the 487th record. Run 1, Event 487, LumiSection 1 at 21-Jul-2017 15:15:17.897 CEST
+Begin processing the 488th record. Run 1, Event 488, LumiSection 1 at 21-Jul-2017 15:15:17.929 CEST
+Begin processing the 489th record. Run 1, Event 489, LumiSection 1 at 21-Jul-2017 15:15:18.043 CEST
+Begin processing the 490th record. Run 1, Event 490, LumiSection 1 at 21-Jul-2017 15:15:18.113 CEST
+Begin processing the 491st record. Run 1, Event 491, LumiSection 1 at 21-Jul-2017 15:15:18.187 CEST
+Begin processing the 492nd record. Run 1, Event 492, LumiSection 1 at 21-Jul-2017 15:15:18.265 CEST
+Begin processing the 493rd record. Run 1, Event 493, LumiSection 1 at 21-Jul-2017 15:15:18.287 CEST
+Begin processing the 494th record. Run 1, Event 494, LumiSection 1 at 21-Jul-2017 15:15:18.299 CEST
+Begin processing the 495th record. Run 1, Event 495, LumiSection 1 at 21-Jul-2017 15:15:18.336 CEST
+Begin processing the 496th record. Run 1, Event 496, LumiSection 1 at 21-Jul-2017 15:15:18.401 CEST
+Begin processing the 497th record. Run 1, Event 497, LumiSection 1 at 21-Jul-2017 15:15:18.408 CEST
+Begin processing the 498th record. Run 1, Event 498, LumiSection 1 at 21-Jul-2017 15:15:18.422 CEST
+Begin processing the 499th record. Run 1, Event 499, LumiSection 1 at 21-Jul-2017 15:15:18.528 CEST
+Begin processing the 500th record. Run 1, Event 500, LumiSection 1 at 21-Jul-2017 15:15:18.574 CEST
+Begin processing the 501st record. Run 1, Event 501, LumiSection 1 at 21-Jul-2017 15:15:18.663 CEST
+Begin processing the 502nd record. Run 1, Event 502, LumiSection 1 at 21-Jul-2017 15:15:18.705 CEST
+Begin processing the 503rd record. Run 1, Event 503, LumiSection 1 at 21-Jul-2017 15:15:18.868 CEST
+Begin processing the 504th record. Run 1, Event 504, LumiSection 1 at 21-Jul-2017 15:15:18.879 CEST
+Begin processing the 505th record. Run 1, Event 505, LumiSection 1 at 21-Jul-2017 15:15:18.939 CEST
+Begin processing the 506th record. Run 1, Event 506, LumiSection 1 at 21-Jul-2017 15:15:18.957 CEST
+Begin processing the 507th record. Run 1, Event 507, LumiSection 1 at 21-Jul-2017 15:15:18.969 CEST
+Begin processing the 508th record. Run 1, Event 508, LumiSection 1 at 21-Jul-2017 15:15:19.002 CEST
+Begin processing the 509th record. Run 1, Event 509, LumiSection 1 at 21-Jul-2017 15:15:19.011 CEST
+Begin processing the 510th record. Run 1, Event 510, LumiSection 1 at 21-Jul-2017 15:15:19.033 CEST
+Begin processing the 511th record. Run 1, Event 511, LumiSection 1 at 21-Jul-2017 15:15:19.149 CEST
+Begin processing the 512th record. Run 1, Event 512, LumiSection 1 at 21-Jul-2017 15:15:19.167 CEST
+Begin processing the 513th record. Run 1, Event 513, LumiSection 1 at 21-Jul-2017 15:15:19.181 CEST
+Begin processing the 514th record. Run 1, Event 514, LumiSection 1 at 21-Jul-2017 15:15:19.279 CEST
+Begin processing the 515th record. Run 1, Event 515, LumiSection 1 at 21-Jul-2017 15:15:19.285 CEST
+Begin processing the 516th record. Run 1, Event 516, LumiSection 1 at 21-Jul-2017 15:15:19.300 CEST
+Begin processing the 517th record. Run 1, Event 517, LumiSection 1 at 21-Jul-2017 15:15:19.309 CEST
+Begin processing the 518th record. Run 1, Event 518, LumiSection 1 at 21-Jul-2017 15:15:20.010 CEST
+Begin processing the 519th record. Run 1, Event 519, LumiSection 1 at 21-Jul-2017 15:15:20.057 CEST
+Begin processing the 520th record. Run 1, Event 520, LumiSection 1 at 21-Jul-2017 15:15:20.084 CEST
+Begin processing the 521st record. Run 1, Event 521, LumiSection 1 at 21-Jul-2017 15:15:20.152 CEST
+Begin processing the 522nd record. Run 1, Event 522, LumiSection 1 at 21-Jul-2017 15:15:20.180 CEST
+Begin processing the 523rd record. Run 1, Event 523, LumiSection 1 at 21-Jul-2017 15:15:20.194 CEST
+Begin processing the 524th record. Run 1, Event 524, LumiSection 1 at 21-Jul-2017 15:15:20.203 CEST
+Begin processing the 525th record. Run 1, Event 525, LumiSection 1 at 21-Jul-2017 15:15:20.215 CEST
+Begin processing the 526th record. Run 1, Event 526, LumiSection 1 at 21-Jul-2017 15:15:20.361 CEST
+Begin processing the 527th record. Run 1, Event 527, LumiSection 1 at 21-Jul-2017 15:15:20.411 CEST
+Begin processing the 528th record. Run 1, Event 528, LumiSection 1 at 21-Jul-2017 15:15:20.429 CEST
+Begin processing the 529th record. Run 1, Event 529, LumiSection 1 at 21-Jul-2017 15:15:20.488 CEST
+Begin processing the 530th record. Run 1, Event 530, LumiSection 1 at 21-Jul-2017 15:15:20.602 CEST
+Begin processing the 531st record. Run 1, Event 531, LumiSection 1 at 21-Jul-2017 15:15:20.633 CEST
+Begin processing the 532nd record. Run 1, Event 532, LumiSection 1 at 21-Jul-2017 15:15:21.263 CEST
+Begin processing the 533rd record. Run 1, Event 533, LumiSection 1 at 21-Jul-2017 15:15:21.281 CEST
+Begin processing the 534th record. Run 1, Event 534, LumiSection 1 at 21-Jul-2017 15:15:21.297 CEST
+Begin processing the 535th record. Run 1, Event 535, LumiSection 1 at 21-Jul-2017 15:15:21.346 CEST
+Begin processing the 536th record. Run 1, Event 536, LumiSection 1 at 21-Jul-2017 15:15:21.361 CEST
+Begin processing the 537th record. Run 1, Event 537, LumiSection 1 at 21-Jul-2017 15:15:21.497 CEST
+Begin processing the 538th record. Run 1, Event 538, LumiSection 1 at 21-Jul-2017 15:15:21.533 CEST
+Begin processing the 539th record. Run 1, Event 539, LumiSection 1 at 21-Jul-2017 15:15:21.605 CEST
+Begin processing the 540th record. Run 1, Event 540, LumiSection 1 at 21-Jul-2017 15:15:21.653 CEST
+Begin processing the 541st record. Run 1, Event 541, LumiSection 1 at 21-Jul-2017 15:15:21.698 CEST
+Begin processing the 542nd record. Run 1, Event 542, LumiSection 1 at 21-Jul-2017 15:15:21.724 CEST
+Begin processing the 543rd record. Run 1, Event 543, LumiSection 1 at 21-Jul-2017 15:15:21.772 CEST
+Begin processing the 544th record. Run 1, Event 544, LumiSection 1 at 21-Jul-2017 15:15:21.855 CEST
+Begin processing the 545th record. Run 1, Event 545, LumiSection 1 at 21-Jul-2017 15:15:21.940 CEST
+Begin processing the 546th record. Run 1, Event 546, LumiSection 1 at 21-Jul-2017 15:15:21.950 CEST
+Begin processing the 547th record. Run 1, Event 547, LumiSection 1 at 21-Jul-2017 15:15:22.020 CEST
+Begin processing the 548th record. Run 1, Event 548, LumiSection 1 at 21-Jul-2017 15:15:22.125 CEST
+Begin processing the 549th record. Run 1, Event 549, LumiSection 1 at 21-Jul-2017 15:15:22.157 CEST
+Begin processing the 550th record. Run 1, Event 550, LumiSection 1 at 21-Jul-2017 15:15:22.197 CEST
+Begin processing the 551st record. Run 1, Event 551, LumiSection 1 at 21-Jul-2017 15:15:22.209 CEST
+Begin processing the 552nd record. Run 1, Event 552, LumiSection 1 at 21-Jul-2017 15:15:22.235 CEST
+Begin processing the 553rd record. Run 1, Event 553, LumiSection 1 at 21-Jul-2017 15:15:22.278 CEST
+Begin processing the 554th record. Run 1, Event 554, LumiSection 1 at 21-Jul-2017 15:15:22.333 CEST
+Begin processing the 555th record. Run 1, Event 555, LumiSection 1 at 21-Jul-2017 15:15:22.403 CEST
+Begin processing the 556th record. Run 1, Event 556, LumiSection 1 at 21-Jul-2017 15:15:22.505 CEST
+Begin processing the 557th record. Run 1, Event 557, LumiSection 1 at 21-Jul-2017 15:15:22.564 CEST
+Begin processing the 558th record. Run 1, Event 558, LumiSection 1 at 21-Jul-2017 15:15:22.657 CEST
+Begin processing the 559th record. Run 1, Event 559, LumiSection 1 at 21-Jul-2017 15:15:22.671 CEST
+Begin processing the 560th record. Run 1, Event 560, LumiSection 1 at 21-Jul-2017 15:15:22.847 CEST
+Begin processing the 561st record. Run 1, Event 561, LumiSection 1 at 21-Jul-2017 15:15:22.887 CEST
+Begin processing the 562nd record. Run 1, Event 562, LumiSection 1 at 21-Jul-2017 15:15:22.922 CEST
+Begin processing the 563rd record. Run 1, Event 563, LumiSection 1 at 21-Jul-2017 15:15:23.006 CEST
+Begin processing the 564th record. Run 1, Event 564, LumiSection 1 at 21-Jul-2017 15:15:23.034 CEST
+Begin processing the 565th record. Run 1, Event 565, LumiSection 1 at 21-Jul-2017 15:15:23.046 CEST
+Begin processing the 566th record. Run 1, Event 566, LumiSection 1 at 21-Jul-2017 15:15:23.098 CEST
+Begin processing the 567th record. Run 1, Event 567, LumiSection 1 at 21-Jul-2017 15:15:23.181 CEST
+Begin processing the 568th record. Run 1, Event 568, LumiSection 1 at 21-Jul-2017 15:15:23.274 CEST
+Begin processing the 569th record. Run 1, Event 569, LumiSection 1 at 21-Jul-2017 15:15:23.357 CEST
+Begin processing the 570th record. Run 1, Event 570, LumiSection 1 at 21-Jul-2017 15:15:24.666 CEST
+Begin processing the 571st record. Run 1, Event 571, LumiSection 1 at 21-Jul-2017 15:15:24.770 CEST
+Begin processing the 572nd record. Run 1, Event 572, LumiSection 1 at 21-Jul-2017 15:15:24.982 CEST
+Begin processing the 573rd record. Run 1, Event 573, LumiSection 1 at 21-Jul-2017 15:15:25.200 CEST
+Begin processing the 574th record. Run 1, Event 574, LumiSection 1 at 21-Jul-2017 15:15:25.222 CEST
+Begin processing the 575th record. Run 1, Event 575, LumiSection 1 at 21-Jul-2017 15:15:25.309 CEST
+Begin processing the 576th record. Run 1, Event 576, LumiSection 1 at 21-Jul-2017 15:15:25.502 CEST
+Begin processing the 577th record. Run 1, Event 577, LumiSection 1 at 21-Jul-2017 15:15:25.514 CEST
+Begin processing the 578th record. Run 1, Event 578, LumiSection 1 at 21-Jul-2017 15:15:25.535 CEST
+Begin processing the 579th record. Run 1, Event 579, LumiSection 1 at 21-Jul-2017 15:15:25.681 CEST
+Begin processing the 580th record. Run 1, Event 580, LumiSection 1 at 21-Jul-2017 15:15:25.717 CEST
+Begin processing the 581st record. Run 1, Event 581, LumiSection 1 at 21-Jul-2017 15:15:25.923 CEST
+Begin processing the 582nd record. Run 1, Event 582, LumiSection 1 at 21-Jul-2017 15:15:26.044 CEST
+Begin processing the 583rd record. Run 1, Event 583, LumiSection 1 at 21-Jul-2017 15:15:26.175 CEST
+Begin processing the 584th record. Run 1, Event 584, LumiSection 1 at 21-Jul-2017 15:15:26.255 CEST
+Begin processing the 585th record. Run 1, Event 585, LumiSection 1 at 21-Jul-2017 15:15:26.321 CEST
+Begin processing the 586th record. Run 1, Event 586, LumiSection 1 at 21-Jul-2017 15:15:26.371 CEST
+Begin processing the 587th record. Run 1, Event 587, LumiSection 1 at 21-Jul-2017 15:15:26.996 CEST
+Begin processing the 588th record. Run 1, Event 588, LumiSection 1 at 21-Jul-2017 15:15:27.081 CEST
+Begin processing the 589th record. Run 1, Event 589, LumiSection 1 at 21-Jul-2017 15:15:27.169 CEST
+Begin processing the 590th record. Run 1, Event 590, LumiSection 1 at 21-Jul-2017 15:15:27.314 CEST
+Begin processing the 591st record. Run 1, Event 591, LumiSection 1 at 21-Jul-2017 15:15:27.984 CEST
+Begin processing the 592nd record. Run 1, Event 592, LumiSection 1 at 21-Jul-2017 15:15:28.002 CEST
+Begin processing the 593rd record. Run 1, Event 593, LumiSection 1 at 21-Jul-2017 15:15:28.085 CEST
+Begin processing the 594th record. Run 1, Event 594, LumiSection 1 at 21-Jul-2017 15:15:28.111 CEST
+Begin processing the 595th record. Run 1, Event 595, LumiSection 1 at 21-Jul-2017 15:15:28.125 CEST
+Begin processing the 596th record. Run 1, Event 596, LumiSection 1 at 21-Jul-2017 15:15:28.193 CEST
+Begin processing the 597th record. Run 1, Event 597, LumiSection 1 at 21-Jul-2017 15:15:28.297 CEST
+Begin processing the 598th record. Run 1, Event 598, LumiSection 1 at 21-Jul-2017 15:15:28.316 CEST
+Begin processing the 599th record. Run 1, Event 599, LumiSection 1 at 21-Jul-2017 15:15:28.466 CEST
+Begin processing the 600th record. Run 1, Event 600, LumiSection 1 at 21-Jul-2017 15:15:28.643 CEST
+Begin processing the 601st record. Run 1, Event 601, LumiSection 1 at 21-Jul-2017 15:15:28.667 CEST
+Begin processing the 602nd record. Run 1, Event 602, LumiSection 1 at 21-Jul-2017 15:15:28.874 CEST
+Begin processing the 603rd record. Run 1, Event 603, LumiSection 1 at 21-Jul-2017 15:15:28.946 CEST
+Begin processing the 604th record. Run 1, Event 604, LumiSection 1 at 21-Jul-2017 15:15:29.017 CEST
+Begin processing the 605th record. Run 1, Event 605, LumiSection 1 at 21-Jul-2017 15:15:29.032 CEST
+Begin processing the 606th record. Run 1, Event 606, LumiSection 1 at 21-Jul-2017 15:15:29.228 CEST
+Begin processing the 607th record. Run 1, Event 607, LumiSection 1 at 21-Jul-2017 15:15:29.271 CEST
+Begin processing the 608th record. Run 1, Event 608, LumiSection 1 at 21-Jul-2017 15:15:29.345 CEST
+Begin processing the 609th record. Run 1, Event 609, LumiSection 1 at 21-Jul-2017 15:15:29.551 CEST
+Begin processing the 610th record. Run 1, Event 610, LumiSection 1 at 21-Jul-2017 15:15:29.644 CEST
+Begin processing the 611th record. Run 1, Event 611, LumiSection 1 at 21-Jul-2017 15:15:29.676 CEST
+Begin processing the 612th record. Run 1, Event 612, LumiSection 1 at 21-Jul-2017 15:15:29.725 CEST
+Begin processing the 613th record. Run 1, Event 613, LumiSection 1 at 21-Jul-2017 15:15:29.808 CEST
+Begin processing the 614th record. Run 1, Event 614, LumiSection 1 at 21-Jul-2017 15:15:29.830 CEST
+Begin processing the 615th record. Run 1, Event 615, LumiSection 1 at 21-Jul-2017 15:15:29.903 CEST
+Begin processing the 616th record. Run 1, Event 616, LumiSection 1 at 21-Jul-2017 15:15:29.935 CEST
+Begin processing the 617th record. Run 1, Event 617, LumiSection 1 at 21-Jul-2017 15:15:29.997 CEST
+Begin processing the 618th record. Run 1, Event 618, LumiSection 1 at 21-Jul-2017 15:15:30.082 CEST
+Begin processing the 619th record. Run 1, Event 619, LumiSection 1 at 21-Jul-2017 15:15:30.135 CEST
+Begin processing the 620th record. Run 1, Event 620, LumiSection 1 at 21-Jul-2017 15:15:30.385 CEST
+Begin processing the 621st record. Run 1, Event 621, LumiSection 1 at 21-Jul-2017 15:15:30.408 CEST
+Begin processing the 622nd record. Run 1, Event 622, LumiSection 1 at 21-Jul-2017 15:15:30.420 CEST
+Begin processing the 623rd record. Run 1, Event 623, LumiSection 1 at 21-Jul-2017 15:15:30.502 CEST
+Begin processing the 624th record. Run 1, Event 624, LumiSection 1 at 21-Jul-2017 15:15:30.610 CEST
+Begin processing the 625th record. Run 1, Event 625, LumiSection 1 at 21-Jul-2017 15:15:30.633 CEST
+Begin processing the 626th record. Run 1, Event 626, LumiSection 1 at 21-Jul-2017 15:15:30.649 CEST
+Begin processing the 627th record. Run 1, Event 627, LumiSection 1 at 21-Jul-2017 15:15:30.662 CEST
+Begin processing the 628th record. Run 1, Event 628, LumiSection 1 at 21-Jul-2017 15:15:30.697 CEST
+Begin processing the 629th record. Run 1, Event 629, LumiSection 1 at 21-Jul-2017 15:15:30.778 CEST
+Begin processing the 630th record. Run 1, Event 630, LumiSection 1 at 21-Jul-2017 15:15:30.792 CEST
+Begin processing the 631st record. Run 1, Event 631, LumiSection 1 at 21-Jul-2017 15:15:30.933 CEST
+Begin processing the 632nd record. Run 1, Event 632, LumiSection 1 at 21-Jul-2017 15:15:30.949 CEST
+Begin processing the 633rd record. Run 1, Event 633, LumiSection 1 at 21-Jul-2017 15:15:30.960 CEST
+Begin processing the 634th record. Run 1, Event 634, LumiSection 1 at 21-Jul-2017 15:15:30.970 CEST
+Begin processing the 635th record. Run 1, Event 635, LumiSection 1 at 21-Jul-2017 15:15:31.012 CEST
+Begin processing the 636th record. Run 1, Event 636, LumiSection 1 at 21-Jul-2017 15:15:31.090 CEST
+Begin processing the 637th record. Run 1, Event 637, LumiSection 1 at 21-Jul-2017 15:15:31.116 CEST
+Begin processing the 638th record. Run 1, Event 638, LumiSection 1 at 21-Jul-2017 15:15:31.802 CEST
+Begin processing the 639th record. Run 1, Event 639, LumiSection 1 at 21-Jul-2017 15:15:31.839 CEST
+Begin processing the 640th record. Run 1, Event 640, LumiSection 1 at 21-Jul-2017 15:15:31.890 CEST
+Begin processing the 641st record. Run 1, Event 641, LumiSection 1 at 21-Jul-2017 15:15:31.914 CEST
+Begin processing the 642nd record. Run 1, Event 642, LumiSection 1 at 21-Jul-2017 15:15:31.932 CEST
+Begin processing the 643rd record. Run 1, Event 643, LumiSection 1 at 21-Jul-2017 15:15:32.074 CEST
+Begin processing the 644th record. Run 1, Event 644, LumiSection 1 at 21-Jul-2017 15:15:32.181 CEST
+Begin processing the 645th record. Run 1, Event 645, LumiSection 1 at 21-Jul-2017 15:15:32.228 CEST
+Begin processing the 646th record. Run 1, Event 646, LumiSection 1 at 21-Jul-2017 15:15:32.260 CEST
+Begin processing the 647th record. Run 1, Event 647, LumiSection 1 at 21-Jul-2017 15:15:32.265 CEST
+Begin processing the 648th record. Run 1, Event 648, LumiSection 1 at 21-Jul-2017 15:15:32.287 CEST
+Begin processing the 649th record. Run 1, Event 649, LumiSection 1 at 21-Jul-2017 15:15:32.347 CEST
+Begin processing the 650th record. Run 1, Event 650, LumiSection 1 at 21-Jul-2017 15:15:33.081 CEST
+Begin processing the 651st record. Run 1, Event 651, LumiSection 1 at 21-Jul-2017 15:15:33.120 CEST
+Begin processing the 652nd record. Run 1, Event 652, LumiSection 1 at 21-Jul-2017 15:15:33.219 CEST
+Begin processing the 653rd record. Run 1, Event 653, LumiSection 1 at 21-Jul-2017 15:15:33.306 CEST
+Begin processing the 654th record. Run 1, Event 654, LumiSection 1 at 21-Jul-2017 15:15:33.366 CEST
+Begin processing the 655th record. Run 1, Event 655, LumiSection 1 at 21-Jul-2017 15:15:33.391 CEST
+Begin processing the 656th record. Run 1, Event 656, LumiSection 1 at 21-Jul-2017 15:15:33.467 CEST
+Begin processing the 657th record. Run 1, Event 657, LumiSection 1 at 21-Jul-2017 15:15:33.522 CEST
+Begin processing the 658th record. Run 1, Event 658, LumiSection 1 at 21-Jul-2017 15:15:33.574 CEST
+Begin processing the 659th record. Run 1, Event 659, LumiSection 1 at 21-Jul-2017 15:15:33.681 CEST
+Begin processing the 660th record. Run 1, Event 660, LumiSection 1 at 21-Jul-2017 15:15:33.745 CEST
+Begin processing the 661st record. Run 1, Event 661, LumiSection 1 at 21-Jul-2017 15:15:33.772 CEST
+Begin processing the 662nd record. Run 1, Event 662, LumiSection 1 at 21-Jul-2017 15:15:33.781 CEST
+Begin processing the 663rd record. Run 1, Event 663, LumiSection 1 at 21-Jul-2017 15:15:33.818 CEST
+Begin processing the 664th record. Run 1, Event 664, LumiSection 1 at 21-Jul-2017 15:15:33.835 CEST
+Begin processing the 665th record. Run 1, Event 665, LumiSection 1 at 21-Jul-2017 15:15:33.846 CEST
+Begin processing the 666th record. Run 1, Event 666, LumiSection 1 at 21-Jul-2017 15:15:33.939 CEST
+Begin processing the 667th record. Run 1, Event 667, LumiSection 1 at 21-Jul-2017 15:15:33.981 CEST
+Begin processing the 668th record. Run 1, Event 668, LumiSection 1 at 21-Jul-2017 15:15:33.992 CEST
+Begin processing the 669th record. Run 1, Event 669, LumiSection 1 at 21-Jul-2017 15:15:34.077 CEST
+Begin processing the 670th record. Run 1, Event 670, LumiSection 1 at 21-Jul-2017 15:15:34.152 CEST
+Begin processing the 671st record. Run 1, Event 671, LumiSection 1 at 21-Jul-2017 15:15:34.171 CEST
+Begin processing the 672nd record. Run 1, Event 672, LumiSection 1 at 21-Jul-2017 15:15:34.226 CEST
+Begin processing the 673rd record. Run 1, Event 673, LumiSection 1 at 21-Jul-2017 15:15:34.254 CEST
+Begin processing the 674th record. Run 1, Event 674, LumiSection 1 at 21-Jul-2017 15:15:34.306 CEST
+Begin processing the 675th record. Run 1, Event 675, LumiSection 1 at 21-Jul-2017 15:15:34.347 CEST
+Begin processing the 676th record. Run 1, Event 676, LumiSection 1 at 21-Jul-2017 15:15:34.394 CEST
+Begin processing the 677th record. Run 1, Event 677, LumiSection 1 at 21-Jul-2017 15:15:34.472 CEST
+Begin processing the 678th record. Run 1, Event 678, LumiSection 1 at 21-Jul-2017 15:15:34.483 CEST
+Begin processing the 679th record. Run 1, Event 679, LumiSection 1 at 21-Jul-2017 15:15:34.512 CEST
+Begin processing the 680th record. Run 1, Event 680, LumiSection 1 at 21-Jul-2017 15:15:34.527 CEST
+Begin processing the 681st record. Run 1, Event 681, LumiSection 1 at 21-Jul-2017 15:15:34.625 CEST
+Begin processing the 682nd record. Run 1, Event 682, LumiSection 1 at 21-Jul-2017 15:15:34.647 CEST
+Begin processing the 683rd record. Run 1, Event 683, LumiSection 1 at 21-Jul-2017 15:15:34.652 CEST
+Begin processing the 684th record. Run 1, Event 684, LumiSection 1 at 21-Jul-2017 15:15:34.717 CEST
+Begin processing the 685th record. Run 1, Event 685, LumiSection 1 at 21-Jul-2017 15:15:34.837 CEST
+Begin processing the 686th record. Run 1, Event 686, LumiSection 1 at 21-Jul-2017 15:15:34.872 CEST
+Begin processing the 687th record. Run 1, Event 687, LumiSection 1 at 21-Jul-2017 15:15:34.883 CEST
+Begin processing the 688th record. Run 1, Event 688, LumiSection 1 at 21-Jul-2017 15:15:34.900 CEST
+Begin processing the 689th record. Run 1, Event 689, LumiSection 1 at 21-Jul-2017 15:15:34.939 CEST
+Begin processing the 690th record. Run 1, Event 690, LumiSection 1 at 21-Jul-2017 15:15:35.018 CEST
+Begin processing the 691st record. Run 1, Event 691, LumiSection 1 at 21-Jul-2017 15:15:35.109 CEST
+Begin processing the 692nd record. Run 1, Event 692, LumiSection 1 at 21-Jul-2017 15:15:35.149 CEST
+Begin processing the 693rd record. Run 1, Event 693, LumiSection 1 at 21-Jul-2017 15:15:35.183 CEST
+Begin processing the 694th record. Run 1, Event 694, LumiSection 1 at 21-Jul-2017 15:15:35.216 CEST
+Begin processing the 695th record. Run 1, Event 695, LumiSection 1 at 21-Jul-2017 15:15:35.234 CEST
+Begin processing the 696th record. Run 1, Event 696, LumiSection 1 at 21-Jul-2017 15:15:35.849 CEST
+Begin processing the 697th record. Run 1, Event 697, LumiSection 1 at 21-Jul-2017 15:15:35.859 CEST
+Begin processing the 698th record. Run 1, Event 698, LumiSection 1 at 21-Jul-2017 15:15:35.876 CEST
+Begin processing the 699th record. Run 1, Event 699, LumiSection 1 at 21-Jul-2017 15:15:35.913 CEST
+Begin processing the 700th record. Run 1, Event 700, LumiSection 1 at 21-Jul-2017 15:15:35.974 CEST
+Begin processing the 701st record. Run 1, Event 701, LumiSection 1 at 21-Jul-2017 15:15:36.022 CEST
+Begin processing the 702nd record. Run 1, Event 702, LumiSection 1 at 21-Jul-2017 15:15:36.036 CEST
+Begin processing the 703rd record. Run 1, Event 703, LumiSection 1 at 21-Jul-2017 15:15:36.075 CEST
+Begin processing the 704th record. Run 1, Event 704, LumiSection 1 at 21-Jul-2017 15:15:36.132 CEST
+Begin processing the 705th record. Run 1, Event 705, LumiSection 1 at 21-Jul-2017 15:15:36.171 CEST
+Begin processing the 706th record. Run 1, Event 706, LumiSection 1 at 21-Jul-2017 15:15:36.241 CEST
+Begin processing the 707th record. Run 1, Event 707, LumiSection 1 at 21-Jul-2017 15:15:36.367 CEST
+Begin processing the 708th record. Run 1, Event 708, LumiSection 1 at 21-Jul-2017 15:15:36.378 CEST
+Begin processing the 709th record. Run 1, Event 709, LumiSection 1 at 21-Jul-2017 15:15:37.045 CEST
+Begin processing the 710th record. Run 1, Event 710, LumiSection 1 at 21-Jul-2017 15:15:37.104 CEST
+Begin processing the 711th record. Run 1, Event 711, LumiSection 1 at 21-Jul-2017 15:15:37.156 CEST
+Begin processing the 712th record. Run 1, Event 712, LumiSection 1 at 21-Jul-2017 15:15:37.200 CEST
+Begin processing the 713th record. Run 1, Event 713, LumiSection 1 at 21-Jul-2017 15:15:37.269 CEST
+Begin processing the 714th record. Run 1, Event 714, LumiSection 1 at 21-Jul-2017 15:15:37.325 CEST
+Begin processing the 715th record. Run 1, Event 715, LumiSection 1 at 21-Jul-2017 15:15:37.351 CEST
+Begin processing the 716th record. Run 1, Event 716, LumiSection 1 at 21-Jul-2017 15:15:37.365 CEST
+Begin processing the 717th record. Run 1, Event 717, LumiSection 1 at 21-Jul-2017 15:15:37.377 CEST
+Begin processing the 718th record. Run 1, Event 718, LumiSection 1 at 21-Jul-2017 15:15:37.506 CEST
+Begin processing the 719th record. Run 1, Event 719, LumiSection 1 at 21-Jul-2017 15:15:37.621 CEST
+Begin processing the 720th record. Run 1, Event 720, LumiSection 1 at 21-Jul-2017 15:15:37.628 CEST
+Begin processing the 721st record. Run 1, Event 721, LumiSection 1 at 21-Jul-2017 15:15:37.635 CEST
+Begin processing the 722nd record. Run 1, Event 722, LumiSection 1 at 21-Jul-2017 15:15:37.657 CEST
+Begin processing the 723rd record. Run 1, Event 723, LumiSection 1 at 21-Jul-2017 15:15:37.808 CEST
+Begin processing the 724th record. Run 1, Event 724, LumiSection 1 at 21-Jul-2017 15:15:37.912 CEST
+Begin processing the 725th record. Run 1, Event 725, LumiSection 1 at 21-Jul-2017 15:15:37.956 CEST
+Begin processing the 726th record. Run 1, Event 726, LumiSection 1 at 21-Jul-2017 15:15:38.000 CEST
+Begin processing the 727th record. Run 1, Event 727, LumiSection 1 at 21-Jul-2017 15:15:38.057 CEST
+Begin processing the 728th record. Run 1, Event 728, LumiSection 1 at 21-Jul-2017 15:15:38.095 CEST
+Begin processing the 729th record. Run 1, Event 729, LumiSection 1 at 21-Jul-2017 15:15:38.104 CEST
+Begin processing the 730th record. Run 1, Event 730, LumiSection 1 at 21-Jul-2017 15:15:38.114 CEST
+Begin processing the 731st record. Run 1, Event 731, LumiSection 1 at 21-Jul-2017 15:15:38.173 CEST
+Begin processing the 732nd record. Run 1, Event 732, LumiSection 1 at 21-Jul-2017 15:15:38.185 CEST
+Begin processing the 733rd record. Run 1, Event 733, LumiSection 1 at 21-Jul-2017 15:15:38.430 CEST
+Begin processing the 734th record. Run 1, Event 734, LumiSection 1 at 21-Jul-2017 15:15:38.557 CEST
+Begin processing the 735th record. Run 1, Event 735, LumiSection 1 at 21-Jul-2017 15:15:38.625 CEST
+Begin processing the 736th record. Run 1, Event 736, LumiSection 1 at 21-Jul-2017 15:15:38.753 CEST
+Begin processing the 737th record. Run 1, Event 737, LumiSection 1 at 21-Jul-2017 15:15:38.797 CEST
+Begin processing the 738th record. Run 1, Event 738, LumiSection 1 at 21-Jul-2017 15:15:38.890 CEST
+Begin processing the 739th record. Run 1, Event 739, LumiSection 1 at 21-Jul-2017 15:15:38.906 CEST
+Begin processing the 740th record. Run 1, Event 740, LumiSection 1 at 21-Jul-2017 15:15:39.006 CEST
+Begin processing the 741st record. Run 1, Event 741, LumiSection 1 at 21-Jul-2017 15:15:39.016 CEST
+Begin processing the 742nd record. Run 1, Event 742, LumiSection 1 at 21-Jul-2017 15:15:39.107 CEST
+Begin processing the 743rd record. Run 1, Event 743, LumiSection 1 at 21-Jul-2017 15:15:39.120 CEST
+Begin processing the 744th record. Run 1, Event 744, LumiSection 1 at 21-Jul-2017 15:15:39.226 CEST
+Begin processing the 745th record. Run 1, Event 745, LumiSection 1 at 21-Jul-2017 15:15:39.322 CEST
+Begin processing the 746th record. Run 1, Event 746, LumiSection 1 at 21-Jul-2017 15:15:39.339 CEST
+Begin processing the 747th record. Run 1, Event 747, LumiSection 1 at 21-Jul-2017 15:15:39.361 CEST
+Begin processing the 748th record. Run 1, Event 748, LumiSection 1 at 21-Jul-2017 15:15:39.426 CEST
+Begin processing the 749th record. Run 1, Event 749, LumiSection 1 at 21-Jul-2017 15:15:39.452 CEST
+Begin processing the 750th record. Run 1, Event 750, LumiSection 1 at 21-Jul-2017 15:15:39.483 CEST
+Begin processing the 751st record. Run 1, Event 751, LumiSection 1 at 21-Jul-2017 15:15:39.512 CEST
+Begin processing the 752nd record. Run 1, Event 752, LumiSection 1 at 21-Jul-2017 15:15:40.229 CEST
+Begin processing the 753rd record. Run 1, Event 753, LumiSection 1 at 21-Jul-2017 15:15:40.269 CEST
+Begin processing the 754th record. Run 1, Event 754, LumiSection 1 at 21-Jul-2017 15:15:40.311 CEST
+Begin processing the 755th record. Run 1, Event 755, LumiSection 1 at 21-Jul-2017 15:15:40.380 CEST
+Begin processing the 756th record. Run 1, Event 756, LumiSection 1 at 21-Jul-2017 15:15:40.490 CEST
+Begin processing the 757th record. Run 1, Event 757, LumiSection 1 at 21-Jul-2017 15:15:40.583 CEST
+Begin processing the 758th record. Run 1, Event 758, LumiSection 1 at 21-Jul-2017 15:15:40.592 CEST
+Begin processing the 759th record. Run 1, Event 759, LumiSection 1 at 21-Jul-2017 15:15:40.602 CEST
+Begin processing the 760th record. Run 1, Event 760, LumiSection 1 at 21-Jul-2017 15:15:40.675 CEST
+Begin processing the 761st record. Run 1, Event 761, LumiSection 1 at 21-Jul-2017 15:15:40.754 CEST
+Begin processing the 762nd record. Run 1, Event 762, LumiSection 1 at 21-Jul-2017 15:15:40.762 CEST
+Begin processing the 763rd record. Run 1, Event 763, LumiSection 1 at 21-Jul-2017 15:15:40.829 CEST
+Begin processing the 764th record. Run 1, Event 764, LumiSection 1 at 21-Jul-2017 15:15:40.840 CEST
+Begin processing the 765th record. Run 1, Event 765, LumiSection 1 at 21-Jul-2017 15:15:40.844 CEST
+Begin processing the 766th record. Run 1, Event 766, LumiSection 1 at 21-Jul-2017 15:15:40.878 CEST
+Begin processing the 767th record. Run 1, Event 767, LumiSection 1 at 21-Jul-2017 15:15:40.945 CEST
+Begin processing the 768th record. Run 1, Event 768, LumiSection 1 at 21-Jul-2017 15:15:41.900 CEST
+Begin processing the 769th record. Run 1, Event 769, LumiSection 1 at 21-Jul-2017 15:15:41.938 CEST
+Begin processing the 770th record. Run 1, Event 770, LumiSection 1 at 21-Jul-2017 15:15:42.025 CEST
+Begin processing the 771st record. Run 1, Event 771, LumiSection 1 at 21-Jul-2017 15:15:42.085 CEST
+Begin processing the 772nd record. Run 1, Event 772, LumiSection 1 at 21-Jul-2017 15:15:42.114 CEST
+Begin processing the 773rd record. Run 1, Event 773, LumiSection 1 at 21-Jul-2017 15:15:42.245 CEST
+Begin processing the 774th record. Run 1, Event 774, LumiSection 1 at 21-Jul-2017 15:15:42.586 CEST
+Begin processing the 775th record. Run 1, Event 775, LumiSection 1 at 21-Jul-2017 15:15:42.607 CEST
+Begin processing the 776th record. Run 1, Event 776, LumiSection 1 at 21-Jul-2017 15:15:42.621 CEST
+Begin processing the 777th record. Run 1, Event 777, LumiSection 1 at 21-Jul-2017 15:15:42.698 CEST
+Begin processing the 778th record. Run 1, Event 778, LumiSection 1 at 21-Jul-2017 15:15:42.728 CEST
+Begin processing the 779th record. Run 1, Event 779, LumiSection 1 at 21-Jul-2017 15:15:42.838 CEST
+Begin processing the 780th record. Run 1, Event 780, LumiSection 1 at 21-Jul-2017 15:15:42.862 CEST
+Begin processing the 781st record. Run 1, Event 781, LumiSection 1 at 21-Jul-2017 15:15:42.898 CEST
+Begin processing the 782nd record. Run 1, Event 782, LumiSection 1 at 21-Jul-2017 15:15:42.920 CEST
+Begin processing the 783rd record. Run 1, Event 783, LumiSection 1 at 21-Jul-2017 15:15:42.949 CEST
+Begin processing the 784th record. Run 1, Event 784, LumiSection 1 at 21-Jul-2017 15:15:42.984 CEST
+Begin processing the 785th record. Run 1, Event 785, LumiSection 1 at 21-Jul-2017 15:15:43.007 CEST
+Begin processing the 786th record. Run 1, Event 786, LumiSection 1 at 21-Jul-2017 15:15:43.068 CEST
+Begin processing the 787th record. Run 1, Event 787, LumiSection 1 at 21-Jul-2017 15:15:43.124 CEST
+Begin processing the 788th record. Run 1, Event 788, LumiSection 1 at 21-Jul-2017 15:15:43.186 CEST
+Begin processing the 789th record. Run 1, Event 789, LumiSection 1 at 21-Jul-2017 15:15:43.221 CEST
+Begin processing the 790th record. Run 1, Event 790, LumiSection 1 at 21-Jul-2017 15:15:43.276 CEST
+Begin processing the 791st record. Run 1, Event 791, LumiSection 1 at 21-Jul-2017 15:15:43.357 CEST
+Begin processing the 792nd record. Run 1, Event 792, LumiSection 1 at 21-Jul-2017 15:15:43.392 CEST
+Begin processing the 793rd record. Run 1, Event 793, LumiSection 1 at 21-Jul-2017 15:15:43.400 CEST
+Begin processing the 794th record. Run 1, Event 794, LumiSection 1 at 21-Jul-2017 15:15:43.458 CEST
+Begin processing the 795th record. Run 1, Event 795, LumiSection 1 at 21-Jul-2017 15:15:43.551 CEST
+Begin processing the 796th record. Run 1, Event 796, LumiSection 1 at 21-Jul-2017 15:15:43.574 CEST
+Begin processing the 797th record. Run 1, Event 797, LumiSection 1 at 21-Jul-2017 15:15:43.689 CEST
+Begin processing the 798th record. Run 1, Event 798, LumiSection 1 at 21-Jul-2017 15:15:43.723 CEST
+Begin processing the 799th record. Run 1, Event 799, LumiSection 1 at 21-Jul-2017 15:15:43.751 CEST
+Begin processing the 800th record. Run 1, Event 800, LumiSection 1 at 21-Jul-2017 15:15:43.764 CEST
+Begin processing the 801st record. Run 1, Event 801, LumiSection 1 at 21-Jul-2017 15:15:43.891 CEST
+Begin processing the 802nd record. Run 1, Event 802, LumiSection 1 at 21-Jul-2017 15:15:43.908 CEST
+Begin processing the 803rd record. Run 1, Event 803, LumiSection 1 at 21-Jul-2017 15:15:43.977 CEST
+Begin processing the 804th record. Run 1, Event 804, LumiSection 1 at 21-Jul-2017 15:15:44.003 CEST
+Begin processing the 805th record. Run 1, Event 805, LumiSection 1 at 21-Jul-2017 15:15:44.012 CEST
+Begin processing the 806th record. Run 1, Event 806, LumiSection 1 at 21-Jul-2017 15:15:44.172 CEST
+Begin processing the 807th record. Run 1, Event 807, LumiSection 1 at 21-Jul-2017 15:15:44.201 CEST
+Begin processing the 808th record. Run 1, Event 808, LumiSection 1 at 21-Jul-2017 15:15:44.298 CEST
+Begin processing the 809th record. Run 1, Event 809, LumiSection 1 at 21-Jul-2017 15:15:44.356 CEST
+Begin processing the 810th record. Run 1, Event 810, LumiSection 1 at 21-Jul-2017 15:15:44.390 CEST
+Begin processing the 811th record. Run 1, Event 811, LumiSection 1 at 21-Jul-2017 15:15:44.396 CEST
+Begin processing the 812th record. Run 1, Event 812, LumiSection 1 at 21-Jul-2017 15:15:44.414 CEST
+Begin processing the 813th record. Run 1, Event 813, LumiSection 1 at 21-Jul-2017 15:15:45.162 CEST
+Begin processing the 814th record. Run 1, Event 814, LumiSection 1 at 21-Jul-2017 15:15:45.281 CEST
+Begin processing the 815th record. Run 1, Event 815, LumiSection 1 at 21-Jul-2017 15:15:45.309 CEST
+Begin processing the 816th record. Run 1, Event 816, LumiSection 1 at 21-Jul-2017 15:15:45.377 CEST
+Begin processing the 817th record. Run 1, Event 817, LumiSection 1 at 21-Jul-2017 15:15:45.405 CEST
+Begin processing the 818th record. Run 1, Event 818, LumiSection 1 at 21-Jul-2017 15:15:45.436 CEST
+Begin processing the 819th record. Run 1, Event 819, LumiSection 1 at 21-Jul-2017 15:15:45.471 CEST
+Begin processing the 820th record. Run 1, Event 820, LumiSection 1 at 21-Jul-2017 15:15:45.559 CEST
+Begin processing the 821st record. Run 1, Event 821, LumiSection 1 at 21-Jul-2017 15:15:45.717 CEST
+Begin processing the 822nd record. Run 1, Event 822, LumiSection 1 at 21-Jul-2017 15:15:45.761 CEST
+Begin processing the 823rd record. Run 1, Event 823, LumiSection 1 at 21-Jul-2017 15:15:45.775 CEST
+Begin processing the 824th record. Run 1, Event 824, LumiSection 1 at 21-Jul-2017 15:15:46.020 CEST
+Begin processing the 825th record. Run 1, Event 825, LumiSection 1 at 21-Jul-2017 15:15:46.125 CEST
+Begin processing the 826th record. Run 1, Event 826, LumiSection 1 at 21-Jul-2017 15:15:46.183 CEST
+Begin processing the 827th record. Run 1, Event 827, LumiSection 1 at 21-Jul-2017 15:15:47.089 CEST
+Begin processing the 828th record. Run 1, Event 828, LumiSection 1 at 21-Jul-2017 15:15:47.312 CEST
+Begin processing the 829th record. Run 1, Event 829, LumiSection 1 at 21-Jul-2017 15:15:47.389 CEST
+Begin processing the 830th record. Run 1, Event 830, LumiSection 1 at 21-Jul-2017 15:15:47.479 CEST
+Begin processing the 831st record. Run 1, Event 831, LumiSection 1 at 21-Jul-2017 15:15:47.598 CEST
+Begin processing the 832nd record. Run 1, Event 832, LumiSection 1 at 21-Jul-2017 15:15:47.635 CEST
+Begin processing the 833rd record. Run 1, Event 833, LumiSection 1 at 21-Jul-2017 15:15:47.659 CEST
+Begin processing the 834th record. Run 1, Event 834, LumiSection 1 at 21-Jul-2017 15:15:47.763 CEST
+Begin processing the 835th record. Run 1, Event 835, LumiSection 1 at 21-Jul-2017 15:15:47.847 CEST
+Begin processing the 836th record. Run 1, Event 836, LumiSection 1 at 21-Jul-2017 15:15:47.933 CEST
+Begin processing the 837th record. Run 1, Event 837, LumiSection 1 at 21-Jul-2017 15:15:48.051 CEST
+Begin processing the 838th record. Run 1, Event 838, LumiSection 1 at 21-Jul-2017 15:15:48.117 CEST
+Begin processing the 839th record. Run 1, Event 839, LumiSection 1 at 21-Jul-2017 15:15:48.258 CEST
+Begin processing the 840th record. Run 1, Event 840, LumiSection 1 at 21-Jul-2017 15:15:48.296 CEST
+Begin processing the 841st record. Run 1, Event 841, LumiSection 1 at 21-Jul-2017 15:15:48.341 CEST
+Begin processing the 842nd record. Run 1, Event 842, LumiSection 1 at 21-Jul-2017 15:15:48.376 CEST
+Begin processing the 843rd record. Run 1, Event 843, LumiSection 1 at 21-Jul-2017 15:15:48.395 CEST
+Begin processing the 844th record. Run 1, Event 844, LumiSection 1 at 21-Jul-2017 15:15:48.425 CEST
+Begin processing the 845th record. Run 1, Event 845, LumiSection 1 at 21-Jul-2017 15:15:48.452 CEST
+Begin processing the 846th record. Run 1, Event 846, LumiSection 1 at 21-Jul-2017 15:15:48.500 CEST
+Begin processing the 847th record. Run 1, Event 847, LumiSection 1 at 21-Jul-2017 15:15:48.547 CEST
+Begin processing the 848th record. Run 1, Event 848, LumiSection 1 at 21-Jul-2017 15:15:48.649 CEST
+Begin processing the 849th record. Run 1, Event 849, LumiSection 1 at 21-Jul-2017 15:15:48.684 CEST
+Begin processing the 850th record. Run 1, Event 850, LumiSection 1 at 21-Jul-2017 15:15:48.828 CEST
+Begin processing the 851st record. Run 1, Event 851, LumiSection 1 at 21-Jul-2017 15:15:48.951 CEST
+Begin processing the 852nd record. Run 1, Event 852, LumiSection 1 at 21-Jul-2017 15:15:49.109 CEST
+Begin processing the 853rd record. Run 1, Event 853, LumiSection 1 at 21-Jul-2017 15:15:49.180 CEST
+Begin processing the 854th record. Run 1, Event 854, LumiSection 1 at 21-Jul-2017 15:15:49.404 CEST
+Begin processing the 855th record. Run 1, Event 855, LumiSection 1 at 21-Jul-2017 15:15:49.467 CEST
+Begin processing the 856th record. Run 1, Event 856, LumiSection 1 at 21-Jul-2017 15:15:49.532 CEST
+Begin processing the 857th record. Run 1, Event 857, LumiSection 1 at 21-Jul-2017 15:15:49.579 CEST
+Begin processing the 858th record. Run 1, Event 858, LumiSection 1 at 21-Jul-2017 15:15:49.768 CEST
+Begin processing the 859th record. Run 1, Event 859, LumiSection 1 at 21-Jul-2017 15:15:49.782 CEST
+Begin processing the 860th record. Run 1, Event 860, LumiSection 1 at 21-Jul-2017 15:15:49.922 CEST
+Begin processing the 861st record. Run 1, Event 861, LumiSection 1 at 21-Jul-2017 15:15:49.983 CEST
+Begin processing the 862nd record. Run 1, Event 862, LumiSection 1 at 21-Jul-2017 15:15:50.114 CEST
+Begin processing the 863rd record. Run 1, Event 863, LumiSection 1 at 21-Jul-2017 15:15:50.204 CEST
+Begin processing the 864th record. Run 1, Event 864, LumiSection 1 at 21-Jul-2017 15:15:50.243 CEST
+Begin processing the 865th record. Run 1, Event 865, LumiSection 1 at 21-Jul-2017 15:15:50.291 CEST
+Begin processing the 866th record. Run 1, Event 866, LumiSection 1 at 21-Jul-2017 15:15:50.329 CEST
+Begin processing the 867th record. Run 1, Event 867, LumiSection 1 at 21-Jul-2017 15:15:50.379 CEST
+Begin processing the 868th record. Run 1, Event 868, LumiSection 1 at 21-Jul-2017 15:15:51.356 CEST
+Begin processing the 869th record. Run 1, Event 869, LumiSection 1 at 21-Jul-2017 15:15:51.375 CEST
+Begin processing the 870th record. Run 1, Event 870, LumiSection 1 at 21-Jul-2017 15:15:51.428 CEST
+Begin processing the 871st record. Run 1, Event 871, LumiSection 1 at 21-Jul-2017 15:15:51.459 CEST
+Begin processing the 872nd record. Run 1, Event 872, LumiSection 1 at 21-Jul-2017 15:15:51.654 CEST
+Begin processing the 873rd record. Run 1, Event 873, LumiSection 1 at 21-Jul-2017 15:15:51.675 CEST
+Begin processing the 874th record. Run 1, Event 874, LumiSection 1 at 21-Jul-2017 15:15:51.705 CEST
+Begin processing the 875th record. Run 1, Event 875, LumiSection 1 at 21-Jul-2017 15:15:51.784 CEST
+Begin processing the 876th record. Run 1, Event 876, LumiSection 1 at 21-Jul-2017 15:15:51.847 CEST
+Begin processing the 877th record. Run 1, Event 877, LumiSection 1 at 21-Jul-2017 15:15:51.983 CEST
+Begin processing the 878th record. Run 1, Event 878, LumiSection 1 at 21-Jul-2017 15:15:52.019 CEST
+Begin processing the 879th record. Run 1, Event 879, LumiSection 1 at 21-Jul-2017 15:15:52.103 CEST
+Begin processing the 880th record. Run 1, Event 880, LumiSection 1 at 21-Jul-2017 15:15:52.160 CEST
+Begin processing the 881st record. Run 1, Event 881, LumiSection 1 at 21-Jul-2017 15:15:52.205 CEST
+Begin processing the 882nd record. Run 1, Event 882, LumiSection 1 at 21-Jul-2017 15:15:52.242 CEST
+Begin processing the 883rd record. Run 1, Event 883, LumiSection 1 at 21-Jul-2017 15:15:52.272 CEST
+Begin processing the 884th record. Run 1, Event 884, LumiSection 1 at 21-Jul-2017 15:15:52.374 CEST
+Begin processing the 885th record. Run 1, Event 885, LumiSection 1 at 21-Jul-2017 15:15:52.468 CEST
+Begin processing the 886th record. Run 1, Event 886, LumiSection 1 at 21-Jul-2017 15:15:53.274 CEST
+Begin processing the 887th record. Run 1, Event 887, LumiSection 1 at 21-Jul-2017 15:15:53.347 CEST
+Begin processing the 888th record. Run 1, Event 888, LumiSection 1 at 21-Jul-2017 15:15:53.388 CEST
+Begin processing the 889th record. Run 1, Event 889, LumiSection 1 at 21-Jul-2017 15:15:53.416 CEST
+Begin processing the 890th record. Run 1, Event 890, LumiSection 1 at 21-Jul-2017 15:15:53.541 CEST
+Begin processing the 891st record. Run 1, Event 891, LumiSection 1 at 21-Jul-2017 15:15:53.555 CEST
+Begin processing the 892nd record. Run 1, Event 892, LumiSection 1 at 21-Jul-2017 15:15:53.592 CEST
+Begin processing the 893rd record. Run 1, Event 893, LumiSection 1 at 21-Jul-2017 15:15:53.615 CEST
+Begin processing the 894th record. Run 1, Event 894, LumiSection 1 at 21-Jul-2017 15:15:53.651 CEST
+Begin processing the 895th record. Run 1, Event 895, LumiSection 1 at 21-Jul-2017 15:15:53.713 CEST
+Begin processing the 896th record. Run 1, Event 896, LumiSection 1 at 21-Jul-2017 15:15:53.733 CEST
+Begin processing the 897th record. Run 1, Event 897, LumiSection 1 at 21-Jul-2017 15:15:53.800 CEST
+Begin processing the 898th record. Run 1, Event 898, LumiSection 1 at 21-Jul-2017 15:15:53.879 CEST
+Begin processing the 899th record. Run 1, Event 899, LumiSection 1 at 21-Jul-2017 15:15:53.934 CEST
+Begin processing the 900th record. Run 1, Event 900, LumiSection 1 at 21-Jul-2017 15:15:54.026 CEST
+Begin processing the 901st record. Run 1, Event 901, LumiSection 1 at 21-Jul-2017 15:15:54.130 CEST
+Begin processing the 902nd record. Run 1, Event 902, LumiSection 1 at 21-Jul-2017 15:15:54.166 CEST
+Begin processing the 903rd record. Run 1, Event 903, LumiSection 1 at 21-Jul-2017 15:15:54.181 CEST
+Begin processing the 904th record. Run 1, Event 904, LumiSection 1 at 21-Jul-2017 15:15:54.230 CEST
+Begin processing the 905th record. Run 1, Event 905, LumiSection 1 at 21-Jul-2017 15:15:54.343 CEST
+Begin processing the 906th record. Run 1, Event 906, LumiSection 1 at 21-Jul-2017 15:15:54.398 CEST
+Begin processing the 907th record. Run 1, Event 907, LumiSection 1 at 21-Jul-2017 15:15:54.544 CEST
+Begin processing the 908th record. Run 1, Event 908, LumiSection 1 at 21-Jul-2017 15:15:54.611 CEST
+Begin processing the 909th record. Run 1, Event 909, LumiSection 1 at 21-Jul-2017 15:15:54.709 CEST
+Begin processing the 910th record. Run 1, Event 910, LumiSection 1 at 21-Jul-2017 15:15:54.937 CEST
+Begin processing the 911th record. Run 1, Event 911, LumiSection 1 at 21-Jul-2017 15:15:54.963 CEST
+Begin processing the 912th record. Run 1, Event 912, LumiSection 1 at 21-Jul-2017 15:15:55.006 CEST
+Begin processing the 913th record. Run 1, Event 913, LumiSection 1 at 21-Jul-2017 15:15:55.137 CEST
+Begin processing the 914th record. Run 1, Event 914, LumiSection 1 at 21-Jul-2017 15:15:55.232 CEST
+Begin processing the 915th record. Run 1, Event 915, LumiSection 1 at 21-Jul-2017 15:15:55.263 CEST
+Begin processing the 916th record. Run 1, Event 916, LumiSection 1 at 21-Jul-2017 15:15:55.298 CEST
+Begin processing the 917th record. Run 1, Event 917, LumiSection 1 at 21-Jul-2017 15:15:55.409 CEST
+Begin processing the 918th record. Run 1, Event 918, LumiSection 1 at 21-Jul-2017 15:15:55.536 CEST
+Begin processing the 919th record. Run 1, Event 919, LumiSection 1 at 21-Jul-2017 15:15:55.682 CEST
+Begin processing the 920th record. Run 1, Event 920, LumiSection 1 at 21-Jul-2017 15:15:55.698 CEST
+Begin processing the 921st record. Run 1, Event 921, LumiSection 1 at 21-Jul-2017 15:15:55.736 CEST
+Begin processing the 922nd record. Run 1, Event 922, LumiSection 1 at 21-Jul-2017 15:15:55.845 CEST
+Begin processing the 923rd record. Run 1, Event 923, LumiSection 1 at 21-Jul-2017 15:15:56.044 CEST
+Begin processing the 924th record. Run 1, Event 924, LumiSection 1 at 21-Jul-2017 15:15:56.115 CEST
+Begin processing the 925th record. Run 1, Event 925, LumiSection 1 at 21-Jul-2017 15:15:56.158 CEST
+Begin processing the 926th record. Run 1, Event 926, LumiSection 1 at 21-Jul-2017 15:15:56.200 CEST
+Begin processing the 927th record. Run 1, Event 927, LumiSection 1 at 21-Jul-2017 15:15:56.225 CEST
+Begin processing the 928th record. Run 1, Event 928, LumiSection 1 at 21-Jul-2017 15:15:56.319 CEST
+Begin processing the 929th record. Run 1, Event 929, LumiSection 1 at 21-Jul-2017 15:15:56.350 CEST
+Begin processing the 930th record. Run 1, Event 930, LumiSection 1 at 21-Jul-2017 15:15:56.413 CEST
+Begin processing the 931st record. Run 1, Event 931, LumiSection 1 at 21-Jul-2017 15:15:57.235 CEST
+Begin processing the 932nd record. Run 1, Event 932, LumiSection 1 at 21-Jul-2017 15:15:57.335 CEST
+Begin processing the 933rd record. Run 1, Event 933, LumiSection 1 at 21-Jul-2017 15:15:57.347 CEST
+Begin processing the 934th record. Run 1, Event 934, LumiSection 1 at 21-Jul-2017 15:15:57.415 CEST
+Begin processing the 935th record. Run 1, Event 935, LumiSection 1 at 21-Jul-2017 15:15:57.442 CEST
+Begin processing the 936th record. Run 1, Event 936, LumiSection 1 at 21-Jul-2017 15:15:57.553 CEST
+Begin processing the 937th record. Run 1, Event 937, LumiSection 1 at 21-Jul-2017 15:15:57.581 CEST
+Begin processing the 938th record. Run 1, Event 938, LumiSection 1 at 21-Jul-2017 15:15:57.651 CEST
+Begin processing the 939th record. Run 1, Event 939, LumiSection 1 at 21-Jul-2017 15:15:57.692 CEST
+Begin processing the 940th record. Run 1, Event 940, LumiSection 1 at 21-Jul-2017 15:15:57.708 CEST
+Begin processing the 941st record. Run 1, Event 941, LumiSection 1 at 21-Jul-2017 15:15:57.763 CEST
+Begin processing the 942nd record. Run 1, Event 942, LumiSection 1 at 21-Jul-2017 15:15:57.805 CEST
+Begin processing the 943rd record. Run 1, Event 943, LumiSection 1 at 21-Jul-2017 15:15:57.865 CEST
+Begin processing the 944th record. Run 1, Event 944, LumiSection 1 at 21-Jul-2017 15:15:57.971 CEST
+Begin processing the 945th record. Run 1, Event 945, LumiSection 1 at 21-Jul-2017 15:15:58.706 CEST
+Begin processing the 946th record. Run 1, Event 946, LumiSection 1 at 21-Jul-2017 15:15:58.836 CEST
+Begin processing the 947th record. Run 1, Event 947, LumiSection 1 at 21-Jul-2017 15:15:59.007 CEST
+Begin processing the 948th record. Run 1, Event 948, LumiSection 1 at 21-Jul-2017 15:15:59.111 CEST
+Begin processing the 949th record. Run 1, Event 949, LumiSection 1 at 21-Jul-2017 15:15:59.153 CEST
+Begin processing the 950th record. Run 1, Event 950, LumiSection 1 at 21-Jul-2017 15:15:59.285 CEST
+Begin processing the 951st record. Run 1, Event 951, LumiSection 1 at 21-Jul-2017 15:15:59.452 CEST
+Begin processing the 952nd record. Run 1, Event 952, LumiSection 1 at 21-Jul-2017 15:15:59.622 CEST
+Begin processing the 953rd record. Run 1, Event 953, LumiSection 1 at 21-Jul-2017 15:15:59.642 CEST
+Begin processing the 954th record. Run 1, Event 954, LumiSection 1 at 21-Jul-2017 15:15:59.847 CEST
+Begin processing the 955th record. Run 1, Event 955, LumiSection 1 at 21-Jul-2017 15:15:59.949 CEST
+Begin processing the 956th record. Run 1, Event 956, LumiSection 1 at 21-Jul-2017 15:16:00.033 CEST
+Begin processing the 957th record. Run 1, Event 957, LumiSection 1 at 21-Jul-2017 15:16:00.102 CEST
+Begin processing the 958th record. Run 1, Event 958, LumiSection 1 at 21-Jul-2017 15:16:00.194 CEST
+Begin processing the 959th record. Run 1, Event 959, LumiSection 1 at 21-Jul-2017 15:16:00.247 CEST
+Begin processing the 960th record. Run 1, Event 960, LumiSection 1 at 21-Jul-2017 15:16:00.278 CEST
+Begin processing the 961st record. Run 1, Event 961, LumiSection 1 at 21-Jul-2017 15:16:00.395 CEST
+Begin processing the 962nd record. Run 1, Event 962, LumiSection 1 at 21-Jul-2017 15:16:00.453 CEST
+Begin processing the 963rd record. Run 1, Event 963, LumiSection 1 at 21-Jul-2017 15:16:00.566 CEST
+Begin processing the 964th record. Run 1, Event 964, LumiSection 1 at 21-Jul-2017 15:16:00.636 CEST
+Begin processing the 965th record. Run 1, Event 965, LumiSection 1 at 21-Jul-2017 15:16:00.799 CEST
+Begin processing the 966th record. Run 1, Event 966, LumiSection 1 at 21-Jul-2017 15:16:00.853 CEST
+Begin processing the 967th record. Run 1, Event 967, LumiSection 1 at 21-Jul-2017 15:16:00.908 CEST
+Begin processing the 968th record. Run 1, Event 968, LumiSection 1 at 21-Jul-2017 15:16:00.966 CEST
+Begin processing the 969th record. Run 1, Event 969, LumiSection 1 at 21-Jul-2017 15:16:01.163 CEST
+Begin processing the 970th record. Run 1, Event 970, LumiSection 1 at 21-Jul-2017 15:16:01.216 CEST
+Begin processing the 971st record. Run 1, Event 971, LumiSection 1 at 21-Jul-2017 15:16:01.271 CEST
+Begin processing the 972nd record. Run 1, Event 972, LumiSection 1 at 21-Jul-2017 15:16:01.302 CEST
+Begin processing the 973rd record. Run 1, Event 973, LumiSection 1 at 21-Jul-2017 15:16:01.529 CEST
+Begin processing the 974th record. Run 1, Event 974, LumiSection 1 at 21-Jul-2017 15:16:01.653 CEST
+Begin processing the 975th record. Run 1, Event 975, LumiSection 1 at 21-Jul-2017 15:16:01.713 CEST
+Begin processing the 976th record. Run 1, Event 976, LumiSection 1 at 21-Jul-2017 15:16:01.834 CEST
+Begin processing the 977th record. Run 1, Event 977, LumiSection 1 at 21-Jul-2017 15:16:01.917 CEST
+Begin processing the 978th record. Run 1, Event 978, LumiSection 1 at 21-Jul-2017 15:16:02.013 CEST
+Begin processing the 979th record. Run 1, Event 979, LumiSection 1 at 21-Jul-2017 15:16:02.071 CEST
+Begin processing the 980th record. Run 1, Event 980, LumiSection 1 at 21-Jul-2017 15:16:02.890 CEST
+Begin processing the 981st record. Run 1, Event 981, LumiSection 1 at 21-Jul-2017 15:16:02.959 CEST
+Begin processing the 982nd record. Run 1, Event 982, LumiSection 1 at 21-Jul-2017 15:16:03.003 CEST
+Begin processing the 983rd record. Run 1, Event 983, LumiSection 1 at 21-Jul-2017 15:16:03.067 CEST
+Begin processing the 984th record. Run 1, Event 984, LumiSection 1 at 21-Jul-2017 15:16:03.248 CEST
+Begin processing the 985th record. Run 1, Event 985, LumiSection 1 at 21-Jul-2017 15:16:03.285 CEST
+Begin processing the 986th record. Run 1, Event 986, LumiSection 1 at 21-Jul-2017 15:16:03.346 CEST
+Begin processing the 987th record. Run 1, Event 987, LumiSection 1 at 21-Jul-2017 15:16:03.449 CEST
+Begin processing the 988th record. Run 1, Event 988, LumiSection 1 at 21-Jul-2017 15:16:03.498 CEST
+Begin processing the 989th record. Run 1, Event 989, LumiSection 1 at 21-Jul-2017 15:16:03.584 CEST
+Begin processing the 990th record. Run 1, Event 990, LumiSection 1 at 21-Jul-2017 15:16:03.626 CEST
+Begin processing the 991st record. Run 1, Event 991, LumiSection 1 at 21-Jul-2017 15:16:03.654 CEST
+Begin processing the 992nd record. Run 1, Event 992, LumiSection 1 at 21-Jul-2017 15:16:03.664 CEST
+Begin processing the 993rd record. Run 1, Event 993, LumiSection 1 at 21-Jul-2017 15:16:03.753 CEST
+Begin processing the 994th record. Run 1, Event 994, LumiSection 1 at 21-Jul-2017 15:16:03.825 CEST
+Begin processing the 995th record. Run 1, Event 995, LumiSection 1 at 21-Jul-2017 15:16:03.904 CEST
+Begin processing the 996th record. Run 1, Event 996, LumiSection 1 at 21-Jul-2017 15:16:03.984 CEST
+Begin processing the 997th record. Run 1, Event 997, LumiSection 1 at 21-Jul-2017 15:16:04.021 CEST
+Begin processing the 998th record. Run 1, Event 998, LumiSection 1 at 21-Jul-2017 15:16:04.038 CEST
+Begin processing the 999th record. Run 1, Event 999, LumiSection 1 at 21-Jul-2017 15:16:04.529 CEST
+Begin processing the 1000th record. Run 1, Event 1000, LumiSection 1 at 21-Jul-2017 15:16:04.569 CEST
+21-Jul-2017 15:16:04 CEST  Closed LHE file cmsgrid_final.lhe
+
+ *-------  PYTHIA Event and Cross Section Statistics  -------------------------------------------------------------*
+ |                                                                                                                 |
+ | Subprocess                                    Code |            Number of events       |      sigma +- delta    |
+ |                                                    |       Tried   Selected   Accepted |     (estimated) (mb)   |
+ |                                                    |                                   |                        |
+ |-----------------------------------------------------------------------------------------------------------------|
+ |                                                    |                                   |                        |
+ | Les Houches User Process(es)                  9999 |        1000       1000       1000 |   8.391e-06  0.000e+00 |
+ |    ... whereof user classification code      10013 |        1000       1000       1000 |                        | 
+ |                                                    |                                   |                        |
+ | sum                                                |        1000       1000       1000 |   8.391e-06  0.000e+00 |
+ |                                                                                                                 |
+ *-------  End PYTHIA Event and Cross Section Statistics ----------------------------------------------------------*
+
+ *-------  PYTHIA Error and Warning Messages Statistics  ----------------------------------------------------------* 
+ |                                                                                                                 | 
+ |  times   message                                                                                                | 
+ |                                                                                                                 | 
+ |      1   Error in Pythia::next: hadronLevel failed; try again                                                   | 
+ |      1   Error in StringFragmentation::fragment: stuck in joining                                               | 
+ |      5   Warning in StringFragmentation::fragmentToJunction: bad convergence junction rest frame                | 
+ |      7   Warning in TimeShower::findMEcorr: ME weight above PS one                                              | 
+ |      4   Warning in TimeShower::pTnext: negative dipole mass.                                                   | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Error and Warning Messages Statistics  ------------------------------------------------------* 
+
+Process and cross-section statistics
+------------------------------------
+Process		xsec_before [pb]		passed	nposw	nnegw	tried	nposw	nnegw 	xsec_match [pb]			accepted [%]	 event_eff [%]
+10013		8.391e+03 +/- 3.670e+00		1000	1000	0	1000	1000	0	8.391e+03 +/- 3.670e+00		100.0 +/- 0.0	100.0 +/- 0.0
+Total		8.391e+03 +/- 3.670e+00		1000	1000	0	1000	1000	0	8.391e+03 +/- 3.670e+00		100.0 +/- 0.0	100.0 +/- 0.0
+        8391.4           3.7           1.0         10013
+ 
+
+------------------------------------
+GenXsecAnalyzer:
+------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Overall cross-section summary 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Process		xsec_before [pb]		passed	nposw	nnegw	tried	nposw	nnegw 	xsec_match [pb]			accepted [%]	 event_eff [%]
+0		8.391e+03 +/- 3.670e+00		1000	1000	0	1000	1000	0	8.391e+03 +/- 3.670e+00		100.0 +/- 0.0	100.0 +/- 0.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Total		8.391e+03 +/- 3.670e+00		1000	1000	0	1000	1000	0	8.391e+03 +/- 3.670e+00		100.0 +/- -100.0	100.0 +/- 0.0
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Before matching: total cross section = 8.391e+03 +- 3.670e+00 pb
+After matching: total cross section = 8.391e+03 +- 3.670e+00 pb
+Filter efficiency (taking into account weights)= (1000) / (1000) = 1.000e+00 +- 0.000e+00
+Filter efficiency (event-level)= (1000) / (1000) = 1.000e+00 +- 0.000e+00
+After filter: final cross section = 8.391e+03 +- 3.670e+00 pb
+TimeReport> Time report complete in 582.716 seconds
+ Time Summary: 
+ - Min event:   0.00429702
+ - Max event:   1.30576
+ - Avg event:   0.582716
+ - Total job:   582.716
+ CPU Summary: 
+ - Min event:   0.004
+ - Max event:   1.3058
+ - Avg event:   0.0892894
+ - Total job:   113.327
+ - Total event: 89.2894
+
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 GenXSecAnalyzer      -w GenXSecAnalyzer:                      12       12
+    2 LogicError           -w Pythia8Hadronize                       1        1
+    3 TimeReport           -e AfterModEndJob                         1        1
+    4 fileAction           -s ExternalLHEProdu                       2        2
+    5 fileAction           -s ExternalLHEProdu                       1        1
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 GenXSecAnalyzer      PostEndRun       PostEndRun       PostEndRun
+    2 LogicError           Run: 1                            
+    3 TimeReport           PostEndRun                        
+    4 fileAction           Run: 1           Run: 1           
+    5 fileAction           End Run: 1                        
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+Warning                13                  13
+Error                   1                   1
+System                  3                   3
+
+Finished cmsRun
+
+File -> cmsRun_cfg.py
+File -> lhegensim.root
+File -> lhegensim_inLHE.root
+File -> makingGenBacon_MC.py
+
+Changing reference file in makingGenBacon_MC.py
+
+
+Starting cmsRun
+
+# Conditions read from  CMS_CONDITIONS  via FrontierProd 
+21-Jul-2017 15:16:20 CEST  Initiating request to open file file:lhegensim.root
+21-Jul-2017 15:16:22 CEST  Successfully opened file file:lhegensim.root
+Begin processing the 1st record. Run 1, Event 1, LumiSection 1 at 21-Jul-2017 15:16:24.978 CEST
+21-Jul-2017 15:16:54 CEST  Closed file file:lhegensim.root
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 fileAction           -s file_close                             1        1
+    2 fileAction           -s file_open                              2        2
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 fileAction           PostEndRun                        
+    2 fileAction           pre-events       pre-events       
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+System                  3                   3
+
+Finished cmsRun
+
+File -> Output.root
+File -> cmsRun_cfg.py
+File -> lhegensim.root
+File -> lhegensim_inLHE.root
+File -> makingGenBacon_MC.py
+
+Saving W_slc6_amd64_gcc481_CMSSW_7_1_28_my_Wmm.tgz to /eos/user/a/aandriat/wz/13TeV/samples/Powheg/
+
+[2MB/20.39MB][  9%][====>                                             ][2MB/s]  [18MB/20.39MB][ 88%][============================================>     ][9MB/s]  [20.39MB/20.39MB][100%][==================================================][10.2MB/s]  [20.39MB/20.39MB][100%][==================================================][10.2MB/s]  
+
+Done
+
+
+/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_1_28/src/grid-gen
+
+Exit
+
+
+Job finished at Fri Jul 21 15:16:56 CEST 2017 on node 
+ under linux version Scientific Linux CERN SLC release 6.9 (Carbon)
+
+CERN statistics: This process used approximately : 0:27:06 KSI2K hours (1626 KSI2K seconds)
+                 This process corresponds to     : 1:45:42 HS06  hours (6342 HS06  seconds)

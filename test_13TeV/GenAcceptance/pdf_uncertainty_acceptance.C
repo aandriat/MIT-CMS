@@ -128,7 +128,7 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
 
   // Calculates acceptances for each LHE weight and associated error
   cout << "Calculating Acceptances " << endl;
-  for (Int_t i=0; i<112; i++){
+  for (Int_t i=0; i<328; i++){
     cout << "PDF Number " << i << endl;
     for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){ // Quantities from process_gen.root files
       max_events = n_events;
@@ -215,21 +215,50 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
   cout << "Calculating Errors " << endl;
   ofstream txtfile;
   txtfile.open("pdf_acceptances.txt", ios::out);
-  txtfile << "Process " << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
 
+  txtfile << "Process " << "PDF Set" << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << endl;
   for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
     parname = setparameters->first;
     parname_err = parname + string_err;
 
     if (setparameters->second==0) continue;
 
-    cout << parname << endl;
+    Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0;
 
-    Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc=0.0,  alphas_acc_err = 0.0;
+    intree->GetEntry(0); // The nominal acceptance
+    nomacc = (*parameters)[parname];
+    nomacc_err = (*parameters)[parname_err];
 
-      intree->GetEntry(0); // The nominal acceptance
-      nomacc = (*parameters)[parname];
-      nomacc_err = (*parameters)[parname_err];
+    txtfile << parname << " "  << "NNNDPF3.0" << " " << nomacc << " " << nomacc_err << endl;
+  }
+
+txtfile << "Process " << "PDF Set " << "Renormalization Factor " << "Factorization Factor " << "Acceptance " << "Acceptance Error " << endl;
+  for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+    parname = setparameters->first;
+    parname_err = parname + string_err;
+
+    if (setparameters->second==0) continue;
+
+    Double_t scaling [] = {1, 2, 0.5};
+
+    Int_t sum = 0;
+    for(Int_t ientry=0; ientry<3; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+      for(Int_t jentry=0; jentry<3; jentry++) { // entry 9 is the nominal value again, then 100 replicas
+        sum = ientry+jentry;
+        intree->GetEntry(sum);
+        txtfile << parname << " " << "NNNDPF3.0" << " " << ientry << " " << jentry << " " << (*parameters)[parname] << " " <<  (*parameters)[parname_err] << endl;
+      }
+    }
+  }
+
+  txtfile << "Process " << "PDF Set" << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
+  for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+    parname = setparameters->first;
+    parname_err = parname + string_err;
+
+    if (setparameters->second==0) continue;
+
+    Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc=0.0,  alphas_acc_err = 0.0;
 
     n_pdfs = 100;
     for(Int_t ientry=10; ientry<110; ientry++) { // entry 9 is the nominal value again, then 100 replicas
@@ -244,10 +273,45 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
       intree->GetEntry(ientry);      
       alphas_acc += (*parameters)[parname]/n_pdfs;
     }
-    alphas_acc_err = abs(nomacc - alphas_acc);
+    alphas_acc_err = abs(mean - alphas_acc);
 
-    txtfile << parname << " " << nomacc << " " << nomacc_err << " " << mean << " " << err << " " <<  alphas_acc << " " << alphas_acc_err << endl;
+    txtfile << parname << " " << "NNNDPF3.0" << " " << mean << " " << err << " " <<  alphas_acc << " " << alphas_acc_err << endl;
   }
+
+  // txtfile << "Process " << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
+
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   cout << parname << endl;
+
+  //   Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc=0.0,  alphas_acc_err = 0.0;
+
+  //     intree->GetEntry(0); // The nominal acceptance
+  //     nomacc = (*parameters)[parname];
+  //     nomacc_err = (*parameters)[parname_err];
+
+  //   n_pdfs = 100;
+  //   for(Int_t ientry=10; ientry<110; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+  //     intree->GetEntry(ientry);      
+  //     mean += (*parameters)[parname]/n_pdfs;
+  //     mean2 += TMath::Power((*parameters)[parname],2)/n_pdfs;
+  //   }
+  //   err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
+
+  //   n_pdfs = 2; //actually 2
+  //   for(Int_t ientry=110; ientry<112; ientry++) { // Alpha s up and down uncertainty
+  //     intree->GetEntry(ientry);      
+  //     alphas_acc += (*parameters)[parname]/n_pdfs;
+  //   }
+  //   alphas_acc_err = abs(nomacc - alphas_acc);
+
+  //   txtfile << parname << " " << nomacc << " " << nomacc_err << " " << mean << " " << err << " " <<  alphas_acc << " " << alphas_acc_err << endl;
+  // }
+
   txtfile.close();
 
   cout << endl;

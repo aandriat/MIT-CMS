@@ -1,28 +1,54 @@
 #!/bin/bash
 echo "Starting flatten.sh"
 
-process=${1}
-generator="Madgraph5"
-topdir=$PWD
-ntupledir="/data/t3home000/aandriat/13TeV/ntuples"
+f=${1}
+numevents=${2}
+ntupledir=${3}
+generator=${4}
+flatdir=${5}
+cmsbase=${6}
 
+workDir=$PWD
+function back {
+	cd $workDir
+}
+
+cd $cmsbase
+eval `scramv1 runtime -sh`
+back
 if [ ! "$CMSSW_BASE" ]; then
-  echo "-------> error: define cms environment."
+  echo "-------> error: failed to define cms environment."
   exit 1
 fi
 
-function back {
-	cd $topdir
-}
+export EOS_MGM_URL=root://eosuser.cern.ch
+eos mkdir -p $ntupledir/$generator
+mkdir -p $flatdir/logs/
 
-echo "Make ntuple dir"
-mkdir -p $ntupledir/$generator
+mkdir temp
+cp -r $flatdir/../* temp/
+cd temp/FlattenBacon
 
-echo "Clear process log"
-mkdir -p $topdir/logs/
-rm $topdir/logs/"$process"_log.txt
+for a in *; do
+  echo "File -> $a"
+done
 
+echo "$PWD"
 echo "Flatten Bacon"
-root -l flatten_gen.C+\(\"flatten_bacon_"$process".conf\",\"$ntupledir/$generator\",0\) -q |& tee -a $topdir/logs/"$process"_log.txt
+root -l flatten_gen.C+\(\"confs/$generator/"$f"\",\".\",$numevents\) -q |& tee $flatdir/logs/"$f"_root_log.txt
+echo "Done Flattening"
 
-rm *.so *.d *.pcm
+for b in *; do
+  echo "File -> $b"
+done
+
+echo "Moving file"
+xrdcopy -f *.root root://eosuser.cern.ch/$ntupledir/$generator/
+echo "File moved to /$ntupledir/$generator/"
+back
+
+rm -rf temp/
+
+echo
+echo "Done"
+echo 
