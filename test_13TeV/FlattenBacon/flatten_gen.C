@@ -250,6 +250,11 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
+            // cout << "Selected event!" << endl;
+            // if (glepq2!=-99){
+            //   cout << "Selected neutrino!" << endl;
+            //   cout << "Neutrino pt is " << glep2->Pt() << endl;
+            // }
             // cout << "Event checked" << endl;
             if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 2.4)){
               fiducial=1;
@@ -266,6 +271,11 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,1);
             // cout << "Event checked" << endl;
+            // cout << "Selected event!" << endl;
+            // if (glepq2!=-99){
+            //   cout << "Selected neutrino!" << endl;
+            //   cout << "Neutrino pt is " << glep2->Pt() << endl;
+            // }
             if ((glep1->Pt() > 25) && (TMath::Abs(glep1->Eta()) < 1.4442 || (TMath::Abs(glep1->Eta()) > 1.566 && TMath::Abs(glep1->Eta()) < 2.5))){
               fiducial=1;
               // cout << "fiducial" << endl;

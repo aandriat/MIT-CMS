@@ -69,27 +69,40 @@ Int_t toolbox::flavor(TClonesArray *genPartArr, Int_t vid) {
 void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec, TLorentzVector* &lep1, TLorentzVector* &lep2, Int_t* lep1q, Int_t* lep2q, Int_t absM) 
 {
   // initialize variables
-  Int_t iv=-1, iv1=-1, iv2=-1;
+  Int_t iv=-1, iv1=-1, iv2=-1, iv3=-1, iv4=-1;
   TLorentzVector *lepPos=0, *lepNeg=0;
+  TLorentzVector *neutPos=0, *neutNeg=0;
   TLorentzVector *preLepPos=0, *preLepNeg=0;
   for (Int_t i=0; i<genPartArr->GetEntries(); i++) { //loops through all particles in event
     const baconhep::TGenParticle* genloop = (baconhep::TGenParticle*) ((*genPartArr)[i]); //gets the ith particle
     if(fabs(genloop->pdgId)==22) continue; //ignores photons
     //cout << i << " " << genloop->pdgId << " " << genloop->status << " " << genloop->parent << " " << genloop->pt << " " << genloop->mass << std::endl;
-    if (genloop->status==44 && (fabs(genloop->pdgId)==15 || fabs(genloop->pdgId)==13 || fabs(genloop->pdgId)==11) && (lepPos==0 || lepNeg==0)) { //outgoing lepton shifted by branching initial fill
+    if (genloop->status==44 && (fabs(genloop->pdgId)==15 || fabs(genloop->pdgId)==13 || fabs(genloop->pdgId)==11) && (lepPos==0 || lepNeg==0)) { //outgoing shifted by branching initial fill
       if (genloop->pdgId<0 && lepPos==0) {//initial fill of gen_lepton
-      	lepPos=new TLorentzVector(0,0,0,0);
-      	lepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
-      	preLepPos=new TLorentzVector(0,0,0,0);
-      	preLepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
-      	iv1=i;
+        lepPos=new TLorentzVector(0,0,0,0);
+        lepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        preLepPos=new TLorentzVector(0,0,0,0);
+        preLepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        iv1=i;
       }
       else if (genloop->pdgId>0 && lepNeg==0) {//intial fill of gen_lepton
-      	lepNeg=new TLorentzVector(0,0,0,0);
-      	lepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
-      	preLepNeg=new TLorentzVector(0,0,0,0);
-      	preLepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
-      	iv2=i;
+        lepNeg=new TLorentzVector(0,0,0,0);
+        lepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        preLepNeg=new TLorentzVector(0,0,0,0);
+        preLepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        iv2=i;
+      }
+    }
+    if (genloop->status==44 && (fabs(genloop->pdgId)==16 || fabs(genloop->pdgId)==14 || fabs(genloop->pdgId)==12) && (neutPos==0 || neutNeg==0)) { //outgoing shifted by branching initial fill
+      if (genloop->pdgId<0 && neutNeg==0) {//initial fill of gen_lepton
+        neutNeg=new TLorentzVector(0,0,0,0);
+        neutNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        iv3=i;
+      }
+      else if (genloop->pdgId>0 && neutPos==0) {//intial fill of gen_lepton
+        neutPos=new TLorentzVector(0,0,0,0);
+        neutPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+        iv4=i;
       }
     }
     else if ((absM==0 && genloop->pdgId==vid && (genloop->status==3||genloop->status==22)) || (absM==1 && fabs(genloop->pdgId)==fabs(vid) && (genloop->status==3||genloop->status==22))) {
@@ -103,20 +116,32 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
         iv=i;
       }
       else if (fabs(genloop->pdgId)==15 || fabs(genloop->pdgId)==13 || fabs(genloop->pdgId)==11) { //if it decayed into leptons save those leptons instead
-      	if (genloop->pdgId<0 && lepPos==0) {
+        if (genloop->pdgId<0 && lepPos==0) {
           lepPos=new TLorentzVector(0,0,0,0);
           lepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
           preLepPos=new TLorentzVector(0,0,0,0);
           preLepPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
           iv1=i;
-      	}
-      	else if (genloop->pdgId>0 && lepNeg==0) {
+        }
+        else if (genloop->pdgId>0 && lepNeg==0) {
           lepNeg=new TLorentzVector(0,0,0,0);
           lepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
-      	  preLepNeg=new TLorentzVector(0,0,0,0);
-      	  preLepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+          preLepNeg=new TLorentzVector(0,0,0,0);
+          preLepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
           iv2=i;
-      	}
+        }
+      }
+      else if (fabs(genloop->pdgId)==16 || fabs(genloop->pdgId)==14 || fabs(genloop->pdgId)==12) { //if it decayed into leptons save those leptons instead
+        if (genloop->pdgId<0 && neutNeg==0) {
+          neutNeg=new TLorentzVector(0,0,0,0);
+          neutNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+          iv3=i;
+        }
+        else if (genloop->pdgId>0 && neutPos==0) {
+          neutPos=new TLorentzVector(0,0,0,0);
+          neutPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+          iv4=i;
+        }
       }
     }
     else if (iv1!=-1 && genloop->parent==iv1) {// if the old lepton propagated and is still that lepton re-write the lepton
@@ -126,6 +151,14 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
     else if (iv2!=-1 && genloop->parent==iv2) {
       lepNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
       iv2=i;
+    }
+    else if (iv3!=-1 && genloop->parent==iv3) {// if the old lepton propagated and is still that lepton re-write the lepton
+      neutNeg->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass); 
+      iv3=i;
+    }
+    else if (iv4!=-1 && genloop->parent==iv4) {
+      neutPos->SetPtEtaPhiM(genloop->pt, genloop->eta, genloop->phi, genloop->mass);
+      iv4=i;
     }
   }//end particle loop
 
@@ -153,11 +186,15 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
     {
       lep1->SetPtEtaPhiM(lepPos->Pt(), lepPos->Eta(), lepPos->Phi(), lepPos->M());
       *lep1q=1;
+      lep2->SetPtEtaPhiM(neutPos->Pt(), neutPos->Eta(), neutPos->Phi(), neutPos->M());
+      *lep2q=0;
     }
   else if (lepNeg) //in case only one lepton is selected
     {
       lep1->SetPtEtaPhiM(lepNeg->Pt(), lepNeg->Eta(), lepNeg->Phi(), lepNeg->M());
       *lep1q=-1;
+      lep2->SetPtEtaPhiM(neutNeg->Pt(), neutNeg->Eta(), neutNeg->Phi(), neutNeg->M());
+      *lep2q=0; 
     }
 
   //clears intermediate variables, leaves only lep1, lep2, and Vector
@@ -165,9 +202,12 @@ void toolbox::fillGen(TClonesArray *genPartArr, Int_t vid, TLorentzVector* &vec,
   delete preLepPos;
   delete lepNeg;
   delete lepPos;
+  delete neutPos;
+  delete neutNeg;
   
   preLepNeg=0; preLepPos=0;
   lepNeg=0; lepPos=0;
+  neutPos=0; neutNeg=0;
   //cout << "Done gen fill" << endl;
 
   }
