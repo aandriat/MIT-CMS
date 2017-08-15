@@ -4,7 +4,7 @@ echo "Starting flatten.sh"
 f=${1}
 numevents=${2}
 ntupledir=${3}
-generator=${4}
+confsdir=${4}
 flatdir=${5}
 cmsbase=${6}
 
@@ -22,7 +22,7 @@ if [ ! "$CMSSW_BASE" ]; then
 fi
 
 export EOS_MGM_URL=root://eosuser.cern.ch
-eos mkdir -p $ntupledir/$generator
+eos mkdir -p $ntupledir/
 mkdir -p $flatdir/logs/
 
 mkdir temp
@@ -35,7 +35,7 @@ done
 
 echo "$PWD"
 echo "Flatten Bacon"
-root -l flatten_gen.C+\(\"confs/$generator/"$f"\",\".\",$numevents\) -q |& tee $flatdir/logs/"$f"_root_log.txt
+root -l flatten_gen.C+\(\"$confsdir/"$f"\",\".\",$numevents\) -q |& tee $flatdir/logs/"$f"_root_log.txt
 echo "Done Flattening"
 
 for b in *; do
@@ -43,8 +43,8 @@ for b in *; do
 done
 
 echo "Moving file"
-xrdcopy -f *.root root://eosuser.cern.ch/$ntupledir/$generator/
-echo "File moved to /$ntupledir/$generator/"
+xrdcopy -f *.root root://eosuser.cern.ch/$ntupledir
+echo "File moved to /$ntupledir"
 back
 
 rm -rf temp/

@@ -1,11 +1,18 @@
 #!/bin/bash
 echo "Submitting flatten.sh"
 
-numevents=${1}
-ntupledir=${2}
-generator=${3}
+numevents=0
+generator="Madgraph5"
+options="Photos"
+cme="13TeV"
+
+ntupledir="/eos/user/a/aandriat/wz/$cme/ntuples/$generator/$options"
 
 flatdir=$PWD
+
+confsdir="$flatdir/confs/$cme/$generator/$options"
+
+
 
 memory=8000
 diskspace=8000
@@ -21,18 +28,21 @@ mkdir -p logs/
 
 chmod 744 flatten.sh #permissions
 
-if [ -n "$4" ]
+if [ -n "$1" ]
   then
-    f=${4}
+    f=${1}
     echo "File -> $f"
-  	bsub -oo logs/"$f"_log.txt -q ${masterqueue} -C 0  -R "rusage[mem=${memory}:pool=${diskspace}]" "export PRODHOME=`pwd`; flatten.sh" $f $numevents $ntupledir $generator $flatdir $cmsbase 
+    bsub -oo logs/"$f"_log.txt -q ${masterqueue} -C 0  -R "rusage[mem=${memory}:pool=${diskspace}]" "export PRODHOME=`pwd`; flatten.sh" $f $numevents $ntupledir $confsdir $flatdir $cmsbase 
   else
-    for f in confs/$generator/*; do
-  	echo "File -> $f"
-  	bsub -oo logs/"$f"_log.txt -q ${masterqueue} -C 0  -R "rusage[mem=${memory}:pool=${diskspace}]" "export PRODHOME=`pwd`; flatten.sh" $f $numevents $ntupledir $generator $flatdir $cmsbase 
-done
+    cd $confsdir
+    for f in *; do
+     cd $flatdir
+  	 echo "File -> $f"
+  	 bsub -oo logs/"$f"_log.txt -q ${masterqueue} -C 0  -R "rusage[mem=${memory}:pool=${diskspace}]" "export PRODHOME=`pwd`; flatten.sh" $f $numevents $ntupledir $confsdir $flatdir $cmsbase 
+    done
 fi
 
+cd $flatdir
 rm *.so *.d *.pcm
 
 echo

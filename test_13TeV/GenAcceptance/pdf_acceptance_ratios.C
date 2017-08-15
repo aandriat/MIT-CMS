@@ -118,7 +118,7 @@ void pdf_acceptance_ratios(){
       parameters_13->insert( std::pair<TString, Double_t> (parname, 0.0));  
       parameters_13->insert( std::pair<TString, Double_t> (parname_err, 0.0));
   }
-  infilename_13 = "/home/aandriat/CMSSW_7_6_3_patch2/src/MIT-CMS/test_13TeV/GenAcceptance/pdf_acceptances.root";
+  infilename_13 = "/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_6_3_patch2/src/MIT-CMS/test_13TeV/GenAcceptance/acceptances/Powheg_nominal_13TeV_acceptance.root";
   infile_13 = TFile::Open(infilename_13);         assert(infile_13);
   intree_13 = (TTree*)infile_13->Get("Events"); assert(intree_13);
   for (setbranch = parameters_13->begin(); setbranch != parameters_13->end(); setbranch++){
@@ -134,7 +134,7 @@ void pdf_acceptance_ratios(){
       parameters_5->insert( std::pair<TString, Double_t> (parname, 0.0));  
       parameters_5->insert( std::pair<TString, Double_t> (parname_err, 0.0));
   }
-  infilename_5 = "/home/aandriat/CMSSW_7_6_3_patch2/src/MIT-CMS/MitEwk5TeV/GenAcceptance/pdf_acceptances.root";
+  infilename_5 = "/afs/cern.ch/work/a/aandriat/public/wz_analysis/CMSSW_7_6_3_patch2/src/MIT-CMS/test_13TeV/GenAcceptance/acceptances/Powheg_nominal_5TeV_acceptance.root";
   infile_5 = TFile::Open(infilename_5);         assert(infile_5);
   intree_5 = (TTree*)infile_5->Get("Events"); assert(intree_5);
   for (setbranch = parameters_5->begin(); setbranch != parameters_5->end(); setbranch++){

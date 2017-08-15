@@ -174,6 +174,9 @@ void flatten_gen(const TString conf="flatten_bacon.conf", // input file
             BOSON_ID = 23;                        
             isSignal = snamev[isam].Contains("zee",TString::kIgnoreCase);// Assume signal sample is given name "zmm" - flag to store GEN Z kinematics
             isWrongFlavor = (snamev[isam].CompareTo("zxx",TString::kIgnoreCase)==0);// flag to reject Z->mm events when selecting at wrong-flavor background events
+
+            // cout << "Event in zee" << endl;
+
             if (isWrongFlavor && fabs(toolbox::flavor(genPartArr, BOSON_ID))==LEPTON_ID) continue;// veto wrong channel
             else if (isSignal && fabs(toolbox::flavor(genPartArr, BOSON_ID))!=LEPTON_ID) continue;
             toolbox::fillGen(genPartArr, BOSON_ID, gvec, glep1, glep2, &glepq1, &glepq2,0);

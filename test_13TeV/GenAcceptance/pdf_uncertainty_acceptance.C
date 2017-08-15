@@ -15,21 +15,21 @@
 #include "TH1D.h"
 #include "TRandom.h"
 
-#include "ConfParse.hh"             // input conf file parser
-#include "../Utils/CSample.hh"      // helper class to handle samples
-#include "../Utils/LeptonCorr.hh"   // muon scale and resolution corrections
+// #include "ConfParse.hh"             // input conf file parser
+// #include "../Utils/CSample.hh"      // helper class to handle samples
+// #include "../Utils/LeptonCorr.hh"   // muon scale and resolution corrections
 
-// define structures to read in ntuple
-#include "BaconAna/DataFormats/interface/BaconAnaDefs.hh"
-#include "BaconAna/DataFormats/interface/TEventInfo.hh"
-#include "BaconAna/DataFormats/interface/TGenEventInfo.hh"
-#include "BaconAna/DataFormats/interface/TGenParticle.hh"
-#include "BaconAna/DataFormats/interface/TMuon.hh"
-#include "BaconAna/DataFormats/interface/TVertex.hh"
-#include "BaconAna/Utils/interface/TTrigger.hh"
+// // define structures to read in ntuple
+// #include "BaconAna/DataFormats/interface/BaconAnaDefs.hh"
+// #include "BaconAna/DataFormats/interface/TEventInfo.hh"
+// #include "BaconAna/DataFormats/interface/TGenEventInfo.hh"
+// #include "BaconAna/DataFormats/interface/TGenParticle.hh"
+// #include "BaconAna/DataFormats/interface/TMuon.hh"
+// #include "BaconAna/DataFormats/interface/TVertex.hh"
+// #include "BaconAna/Utils/interface/TTrigger.hh"
 
-#include "../Utils/LeptonIDCuts.hh" // helper functions for lepton ID selection
-#include "../Utils/MyTools.hh"      // various helper functions
+// #include "../Utils/LeptonIDCuts.hh" // helper functions for lepton ID selection
+// #include "../Utils/MyTools.hh"      // various helper functions
 #endif
 
 void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_events=0   // ntuple directory
@@ -85,9 +85,7 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
   std::vector<float> *lheweight = new std::vector<float>();
 
   // Declare input file
-  TString infilename;
-  TFile *infile=0;
-  TTree *intree=0;
+
 
   // Declare output file
   TString outfilename;
@@ -128,20 +126,25 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
 
   // Calculates acceptances for each LHE weight and associated error
   cout << "Calculating Acceptances " << endl;
-  for (Int_t i=0; i<328; i++){
+  for (Int_t i=0; i<112; i++){
     cout << "PDF Number " << i << endl;
     for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){ // Quantities from process_gen.root files
-      max_events = n_events;
-      lhe=0.0;
-      totalWeightGen=0.0;
-      fiducialWeightGen=0.0;
-      acceptance=0.0;
-      accerr=0.0;
-      ntotal=0.0;
-
-      parname = setparameters->first;
-      parname_err = parname + string_err;
       if (setparameters->second == 1){
+        max_events = n_events;
+        lhe=0.0;
+        totalWeightGen=0.0;
+        fiducialWeightGen=0.0;
+        acceptance=0.0;
+        accerr=0.0;
+        ntotal=0.0;
+
+        parname = setparameters->first;
+        parname_err = parname + string_err;
+
+        TString infilename;
+        TFile *infile=0;
+        TTree *intree=0;
+      
         cout << parname << endl;
         infilename = outputDir + TString("/") + parname + TString("_gen.root");
           infile = TFile::Open(infilename);         assert(infile);
@@ -180,10 +183,13 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
         (*parameters)[parname] = acceptance;
         parname_err = setparameters->first + string_err;
         (*parameters)[parname_err] = accerr;
+
+        delete intree;
+        infile->Close();
+        delete infile;
       }
     }
-
-    for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){ // Derived quantities
+    for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
       if (setparameters->second == 2){
         TString ratio_name, num_name, den_name, ratio_name_err, num_name_err, den_name_err;
 
@@ -204,6 +210,10 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
   outFile->Write();
   outFile->Close(); 
 
+  TString infilename;
+  TFile *infile=0;
+  TTree *intree=0;
+
   // Reads the file of parameter acceptances and errors that was just created
   infilename = "pdf_acceptances.root";
   infile = TFile::Open(infilename);         assert(infile);
@@ -216,7 +226,7 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
   ofstream txtfile;
   txtfile.open("pdf_acceptances.txt", ios::out);
 
-  txtfile << "Process " << "PDF Set" << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << endl;
+  txtfile << "Process " << "PDF-Set " << "Nominal-Acceptance " << "Nominal-Acceptance-Error " << endl;
   for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
     parname = setparameters->first;
     parname_err = parname + string_err;
@@ -229,10 +239,10 @@ void pdf_uncertainty_acceptance(  const TString outputDir=".", const Int_t n_eve
     nomacc = (*parameters)[parname];
     nomacc_err = (*parameters)[parname_err];
 
-    txtfile << parname << " "  << "NNNDPF3.0" << " " << nomacc << " " << nomacc_err << endl;
+    txtfile << parname << " "  << "NNDPF3.0" << " " << nomacc << " " << nomacc_err << endl;
   }
 
-txtfile << "Process " << "PDF Set " << "Renormalization Factor " << "Factorization Factor " << "Acceptance " << "Acceptance Error " << endl;
+txtfile << "Process " << "PDF-Set " << "Renormalization-Factor " << "Factorization-Factor " << "Acceptance " << "Acceptance-Error " << endl;
   for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
     parname = setparameters->first;
     parname_err = parname + string_err;
@@ -246,20 +256,20 @@ txtfile << "Process " << "PDF Set " << "Renormalization Factor " << "Factorizati
       for(Int_t jentry=0; jentry<3; jentry++) { // entry 9 is the nominal value again, then 100 replicas
         sum = ientry+jentry;
         intree->GetEntry(sum);
-        txtfile << parname << " " << "NNNDPF3.0" << " " << ientry << " " << jentry << " " << (*parameters)[parname] << " " <<  (*parameters)[parname_err] << endl;
+        txtfile << parname << " " << "NNDPF3.0" << " " << scaling[ientry] << " " << scaling[jentry] << " " << (*parameters)[parname] << " " <<  (*parameters)[parname_err] << endl;
       }
     }
   }
 
-  txtfile << "Process " << "PDF Set" << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
+  txtfile << "Process " << "PDF-Set " << "Mean-Acceptance " << "PDF-Uncertainty " << "Err-Minus " << "Err-Plus " << endl;
   for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
     parname = setparameters->first;
     parname_err = parname + string_err;
 
     if (setparameters->second==0) continue;
 
-    Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc=0.0,  alphas_acc_err = 0.0;
-
+    Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc_minus=0.0, alphas_acc_plus=0.0, toterr_minus = 0.0, toterr_plus = 0.0;
+ 
     n_pdfs = 100;
     for(Int_t ientry=10; ientry<110; ientry++) { // entry 9 is the nominal value again, then 100 replicas
       intree->GetEntry(ientry);      
@@ -268,15 +278,156 @@ txtfile << "Process " << "PDF Set " << "Renormalization Factor " << "Factorizati
     }
     err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
 
-    n_pdfs = 2; //actually 2
-    for(Int_t ientry=110; ientry<112; ientry++) { // Alpha s up and down uncertainty
-      intree->GetEntry(ientry);      
-      alphas_acc += (*parameters)[parname]/n_pdfs;
-    }
-    alphas_acc_err = abs(mean - alphas_acc);
+    intree->GetEntry(110);
+    alphas_acc_minus = (*parameters)[parname];
+    toterr_minus = sqrt(TMath::Power(alphas_acc_minus-mean,2)+TMath::Power(err,2));
 
-    txtfile << parname << " " << "NNNDPF3.0" << " " << mean << " " << err << " " <<  alphas_acc << " " << alphas_acc_err << endl;
+    intree->GetEntry(111);
+    alphas_acc_plus = (*parameters)[parname];
+    toterr_plus = sqrt(TMath::Power(alphas_acc_plus-mean,2)+TMath::Power(err,2));
+
+    txtfile << parname << " " << "NNDPF3.0" << " " << mean << " " << err << " " <<  toterr_minus << " " << toterr_plus << endl;
   }
+
+  // txtfile << "Process " << "PDF-Set " << "Nominal-Acceptance " << "Nominal-Acceptance-Error " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0;
+
+  //   intree->GetEntry(112); // The nominal acceptance
+  //   nomacc = (*parameters)[parname];
+  //   nomacc_err = (*parameters)[parname_err];
+
+  //   txtfile << parname << " "  << "NNDPF3.1" << " " << nomacc << " " << nomacc_err << endl;
+  // }
+
+
+  // txtfile << "Process " << "PDF-Set " << "Mean-Acceptance " << "PDF-Uncertainty " << "Err-Minus " << "Err-Plus " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc_minus=0.0, alphas_acc_plus=0.0, toterr_minus = 0.0, toterr_plus = 0.0;
+ 
+  //   n_pdfs = 100;
+  //   for(Int_t ientry=113; ientry<213; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+  //     intree->GetEntry(ientry);      
+  //     mean += (*parameters)[parname]/n_pdfs;
+  //     mean2 += TMath::Power((*parameters)[parname],2)/n_pdfs;
+  //   }
+  //   err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
+
+  //   intree->GetEntry(213);
+  //   alphas_acc_minus = (*parameters)[parname];
+  //   toterr_minus = sqrt(TMath::Power(alphas_acc_minus-mean,2)+TMath::Power(err,2));
+
+  //   intree->GetEntry(214);
+  //   alphas_acc_plus = (*parameters)[parname];
+  //   toterr_plus = sqrt(TMath::Power(alphas_acc_plus-mean,2)+TMath::Power(err,2));
+
+  //   txtfile << parname << " " << "NNDPF3.1" << " " << mean << " " << err << " " <<  toterr_minus << " " << toterr_plus << endl;
+  // }
+
+  // txtfile << "Process " << "PDF-Set " << "Nominal-Acceptance " << "Nominal-Acceptance-Error " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0;
+
+  //   intree->GetEntry(215); // The nominal acceptance
+  //   nomacc = (*parameters)[parname];
+  //   nomacc_err = (*parameters)[parname_err];
+
+  //   txtfile << parname << " "  << "CT14" << " " << nomacc << " " << nomacc_err << endl;
+  // }
+
+  // txtfile << "Process " << "PDF-Set " << "Mean-Acceptance " << "PDF-Uncertainty " << "Err-Minus " << "Err-Plus " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc_minus=0.0, alphas_acc_plus=0.0, toterr_minus = 0.0, toterr_plus = 0.0;
+ 
+  //   n_pdfs = 56;
+  //   for(Int_t ientry=216; ientry<272; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+  //     intree->GetEntry(ientry);      
+  //     mean += (*parameters)[parname]/n_pdfs;
+  //     mean2 += TMath::Power((*parameters)[parname],2)/n_pdfs;
+  //   }
+  //   err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
+
+  //   intree->GetEntry(272);
+  //   alphas_acc_minus = (*parameters)[parname];
+  //   toterr_minus = sqrt(TMath::Power(alphas_acc_minus-mean,2)+TMath::Power(err,2));
+
+  //   intree->GetEntry(273);
+  //   alphas_acc_plus = (*parameters)[parname];
+  //   toterr_plus = sqrt(TMath::Power(alphas_acc_plus-mean,2)+TMath::Power(err,2));
+
+  //   txtfile << parname << " " << "NNDPF3.1" << " " << mean << " " << err << " " <<  toterr_minus << " " << toterr_plus << endl;
+  // }
+
+  // txtfile << "Process " << "PDF-Set " << "Nominal-Acceptance " << "Nominal-Acceptance-Error " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, nomacc = 0.0, nomacc_err = 0.0;
+
+  //   intree->GetEntry(274); // The nominal acceptance
+  //   nomacc = (*parameters)[parname];
+  //   nomacc_err = (*parameters)[parname_err];
+
+  //   txtfile << parname << " "  << "MMHT2014nlo68clas118" << " " << nomacc << " " << nomacc_err << endl;
+  // }
+
+  // txtfile << "Process " << "PDF-Set " << "Mean-Acceptance " << "PDF-Uncertainty " << "Err-Minus " << "Err-Plus " << endl;
+  // for ( setparameters = sample_list.begin(); setparameters != sample_list.end(); setparameters++){
+  //   parname = setparameters->first;
+  //   parname_err = parname + string_err;
+
+  //   if (setparameters->second==0) continue;
+
+  //   Double_t n_pdfs = 0.0, mean = 0.0, err = 0.0, mean2 = 0.0, alphas_acc_minus=0.0, alphas_acc_plus=0.0, toterr_minus = 0.0, toterr_plus = 0.0, val=0.0;
+ 
+  //   n_pdfs = 50;
+  //   for(Int_t ientry=275; ientry<325; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+  //     intree->GetEntry(ientry);      
+  //     mean += (*parameters)[parname]/n_pdfs;
+  //     mean2 += TMath::Power((*parameters)[parname],2)/n_pdfs;
+  //   }
+  //   err = sqrt((n_pdfs/(n_pdfs-1))*(mean2 - TMath::Power(mean,2)));
+
+  //   alphas_acc_minus = mean;
+  //   alphas_acc_plus = mean;
+  //   for(Int_t ientry=325; ientry<330; ientry++) { // entry 9 is the nominal value again, then 100 replicas
+  //     intree->GetEntry(ientry);
+  //     val = (*parameters)[parname];
+  //     if (val < alphas_acc_minus){
+  //       alphas_acc_minus = val;
+  //     }
+  //     else if (val > alphas_acc_plus){
+  //       alphas_acc_plus = val;
+  //     }    
+  //   }
+  //   toterr_minus = sqrt(TMath::Power(alphas_acc_minus-mean,2)+TMath::Power(err,2));
+  //   toterr_plus = sqrt(TMath::Power(alphas_acc_plus-mean,2)+TMath::Power(err,2));
+
+  //   txtfile << parname << " " << "MMHT2014nlo68clas118" << " " << mean << " " << err << " " <<  toterr_minus << " " << toterr_plus << endl;
+  // }
 
   // txtfile << "Process " << "Nominal_Acceptance " << "Nominal_Acceptance_Error " << "Mean_Acceptance " << "PDF_Uncertainty " << "Alphas_Acceptance " << "Alphas_Acceptance_Deviation " << endl;
 

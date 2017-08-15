@@ -7,6 +7,7 @@ gridgendir=${5}
 outputdir=${6}
 grid_base=${7}
 bacon_base=${8}
+confdir=${9}
 
 echo
 workDir=$PWD
@@ -23,28 +24,22 @@ echo
 
 export EOS_MGM_URL=root://eosuser.cern.ch
 
-mkdir -p $process/
+mkdir -p temp
 eos mkdir -p $outputdir/$process/
-cp $gridgendir/cmsRun_cfg.py $process/
-cp $gridgendir/makingGenBacon_MC.py $process/
-cd $process/
+cp $confdir/* temp
+cd temp
 
 echo
 echo "Substituting actual sample path in config file"
 echo
 sed -i 's:TARBALL:'$sampledir/$filename':g' cmsRun_cfg.py
 
-
 cd $grid_base
 eval `scramv1 runtime -sh`
 export PYTHONHOME=`scram tool info python | grep PYTHON_BASE | sed 's/PYTHON_BASE=//'`
 back
 
-for f in *; do
-  echo "File -> $f"
-done
-
-cd $process/
+cd temp
 echo
 echo "Starting cmsRun"
 echo
@@ -62,13 +57,12 @@ echo "Changing reference file in makingGenBacon_MC.py"
 echo
 sed -i 's:GENFILE:'lhegensim.root':g' makingGenBacon_MC.py
 
-
 cd $bacon_base
 eval `scramv1 runtime -sh`
 export PYTHONHOME=`scram tool info python | grep PYTHON_BASE | sed 's/PYTHON_BASE=//'`
 back
 
-cd $process/
+cd temp
 echo
 echo "Starting cmsRun"
 echo
@@ -93,7 +87,7 @@ echo "Done"
 echo
 
 back
-rm -rf $process/
+rm -rf temp/
 
 cd $gridgendir
 echo
